@@ -1,5 +1,4 @@
-for run in {1..10}
+for run in {1..4}
 	do
-	let res=$run*1+62050;
-	mpirun gridtest2 $res
+	mpirun -hostfile lochost$run mpitest 500.txt
 	done

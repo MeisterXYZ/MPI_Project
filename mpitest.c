@@ -369,13 +369,13 @@ void outputRectangleList(char *gridPointer,int gridSize){
 
 int main(int argc, char** argv) {
     //MPI variables
-	int size, rank;
+	int noOfProcs, rank;
     MPI_Status status;
     double subProcTimeMax, subProcTime;
 
     //Initialize MPI
 	MPI_Init(&argc, &argv);
-	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_size(MPI_COMM_WORLD, &noOfProcs);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
 	if(rank == 0){
@@ -389,6 +389,7 @@ int main(int argc, char** argv) {
             if (file) {
                 //import the grid to a char array
                 {
+                    printf("Scanning the text-file... \n");
                     //getting the grid-size:                
                     //lengthGot is a bool for not having to read the complete file for getting the grid length
                     int lengthGot = 0;
@@ -424,121 +425,127 @@ int main(int argc, char** argv) {
                 //processing the grid
 
                 //Output for overview:
-                printf("Loading the Grid completed\nTHIS IS THE GRID:\n");
+                printf("Loading the Grid completed.\nTHIS IS THE GRID:\n");
                 printGrid(&grid[0],gridSize);
                 
                 //Start actual algorithm
-                printf("\n Starting the Algorithm. \n");
+                printf("\nStarting the Algorithm. \n");
                 //Start time measurement
                 startTime = MPI_Wtime();
+                if (noOfProcs==1){
+                    printf("...as sequential single process\n");
+                    processSubgrid(&grid[0],gridSize,gridSize,0,0);
+                    printGrid(&grid[0],gridSize);
+                    endTime = MPI_Wtime();
+                    printf("%f\n",endTime-startTime);
 
-                //send perts of the grid to other processes
-                //calculation how to split up array:
-                div_t gridSegmentSize;
-                int workingProcesses;
-                
-                if (size - 1 > gridSize){
-                    gridSegmentSize = div(gridSize,gridSize);
-                    workingProcesses = gridSize;
-                } else {
-                    gridSegmentSize = div(gridSize,size-1);
-                    workingProcesses = size-1;
-                }
-                
-                int subgridLines;
-                
-                //send first information of grid size -> in case there are more processors then lines these can quit
-                //ignore the send-time
-                for (reciever = 1; reciever < size; reciever++){
-                    ignoreTimeStart = MPI_Wtime();
-                    MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
-                    ignoreTimeEnd = MPI_Wtime();
-                    ignore += ignoreTimeEnd - ignoreTimeStart;
-                } 
-                
-                printf("send to %d processes\n",workingProcesses);
+                } else { 
+                    //send perts of the grid to other processes
+                    //calculation how to split up array:
 
-                //send to all required processes the number of lines of the subgrid and the subgrid itself. 
-                //ignore the send-Time 
-                for (reciever = 1; reciever <= workingProcesses ; reciever++){
-                    if (reciever == workingProcesses){
-                        subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                    div_t gridSegmentSize;
+                    int workingProcesses;
+                    printf("...with a root process and %d subprocesses\n",noOfProcs-1);
+                    if (noOfProcs - 1 > gridSize){
+                        gridSegmentSize = div(gridSize,gridSize);
+                        workingProcesses = gridSize;
+                    } else {
+                        gridSegmentSize = div(gridSize,noOfProcs-1);
+                        workingProcesses = noOfProcs-1;
+                    }
+                    
+                    int subgridLines;
+                    
+                    //send first information of grid size -> in case there are more processors then lines these can quit
+                    //ignore the send-time
+                    for (reciever = 1; reciever < noOfProcs; reciever++){
                         ignoreTimeStart = MPI_Wtime();
-                        MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                        MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
                         ignoreTimeEnd = MPI_Wtime();
                         ignore += ignoreTimeEnd - ignoreTimeStart;
-                    } else {
-                        subgridLines = gridSegmentSize.quot;
+                    } 
+                    
+                    printf("send to %d processes\n",workingProcesses);
+
+                    //send to all required processes the number of lines of the subgrid and the subgrid itself. 
+                    //ignore the send-Time 
+                    for (reciever = 1; reciever <= workingProcesses ; reciever++){
+                        if (reciever == workingProcesses){
+                            subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                            ignoreTimeStart = MPI_Wtime();
+                            MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                            ignoreTimeEnd = MPI_Wtime();
+                            ignore += ignoreTimeEnd - ignoreTimeStart;
+                        } else {
+                            subgridLines = gridSegmentSize.quot;
+                            ignoreTimeStart = MPI_Wtime();
+                            MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                            ignoreTimeEnd = MPI_Wtime();
+                            ignore += ignoreTimeEnd - ignoreTimeStart;
+                        }
+                        //printf("wanna send\n");
+                        //printSmallGrid(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines,gridSize);
                         ignoreTimeStart = MPI_Wtime();
-                        MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                        MPI_Send(&grid[(reciever-1)*gridSize*gridSegmentSize.quot], subgridLines*gridSize, MPI_BYTE, reciever, 0, MPI_COMM_WORLD);
                         ignoreTimeEnd = MPI_Wtime();
                         ignore += ignoreTimeEnd - ignoreTimeStart;
                     }
-                    //printf("wanna send\n");
-                    //printSmallGrid(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines,gridSize);
                     ignoreTimeStart = MPI_Wtime();
-                    MPI_Send(&grid[(reciever-1)*gridSize*gridSegmentSize.quot], subgridLines*gridSize, MPI_BYTE, reciever, 0, MPI_COMM_WORLD);
+
+                    //recieve done results
+                    for (reciever = 1; reciever <= workingProcesses ; reciever++){
+                        if (reciever == workingProcesses){
+                            subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                        } else {
+                            subgridLines = gridSegmentSize.quot;
+                        }
+                        MPI_Recv(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines*gridSize,MPI_BYTE,reciever,0,MPI_COMM_WORLD,&status);
+                    }
                     ignoreTimeEnd = MPI_Wtime();
                     ignore += ignoreTimeEnd - ignoreTimeStart;
+
+                    //Output for overview:
+                    printf("THIS IS THE GRID:\n");
+                    printGrid(&grid[0],gridSize);
+                    
+                    //TYPE SOME LOGIC FOR finalize the potential rectangles --> 4 signed rectangles.
+                    //go to border
+                    int i;
+                    for (i = 1; i < workingProcesses; i++){
+                        //no need for checking the line at the end --> i < workingProcesses 
+                        //printf("Check line %d and line %d\n",i*gridSegmentSize.quot - 1,i*gridSegmentSize.quot );
+                        checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,1);
+                        //later: check the upper line
+                        checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,0);
+
+                    } 
+                    printf("THIS IS THE GRID:\n");
+                    printGrid(&grid[0],gridSize);
+                    printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
+
+                    outputRectangleList(&grid[0],gridSize);
+                    //printGrid(&grid[0],gridSize);
+                    
+                    endTime = MPI_Wtime();
+
+                    subProcTime = 0;
+                    MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+
+                    printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
+                    
+                    
+    /*
+                    //check first and last joined 4-pixels 
+                    //check next line (or previous (is there a shortcut?))
+                        //if all or none -> make figure 3
+                        //if sth between -> make figure 2 
+    */
                 }
-                ignoreTimeStart = MPI_Wtime();
-
-                //recieve done results
-                for (reciever = 1; reciever <= workingProcesses ; reciever++){
-                    if (reciever == workingProcesses){
-                        subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
-                    } else {
-                        subgridLines = gridSegmentSize.quot;
-                    }
-                    MPI_Recv(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines*gridSize,MPI_BYTE,reciever,0,MPI_COMM_WORLD,&status);
-                }
-                ignoreTimeEnd = MPI_Wtime();
-                ignore += ignoreTimeEnd - ignoreTimeStart;
-
-                //Output for overview:
-                printf("THIS IS THE GRID:\n");
-                printGrid(&grid[0],gridSize);
-                
-                //TYPE SOME LOGIC FOR finalize the potential rectangles --> 4 signed rectangles.
-                //go to border
-                int i;
-                for (i = 1; i < workingProcesses; i++){
-                    //no need for checking the line at the end --> i < workingProcesses 
-                    //printf("Check line %d and line %d\n",i*gridSegmentSize.quot - 1,i*gridSegmentSize.quot );
-                    checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,1);
-                    //later: check the upper line
-                    checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,0);
-
-                } 
-                printf("THIS IS THE GRID:\n");
-                printGrid(&grid[0],gridSize);
-                printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
-
-                outputRectangleList(&grid[0],gridSize);
-                //printGrid(&grid[0],gridSize);
-                
-                endTime = MPI_Wtime();
-
-                subProcTime = 0;
-                MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
-
-                printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
-                
-                
-/*
-                //check first and last joined 4-pixels 
-                //check next line (or previous (is there a shortcut?))
-                    //if all or none -> make figure 3
-                    //if sth between -> make figure 2 
-*/
-
-                
-
             } else{
                 printf("could not open the data-file %s.\n",argv[1]);
                 //cancel other processes
                 gridSize = 0;
-                for (reciever = 1; reciever < size; reciever++){
+                for (reciever = 1; reciever < noOfProcs; reciever++){
                     MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
                 }
             }
@@ -546,7 +553,7 @@ int main(int argc, char** argv) {
             printf("please run the rectangleChecker with a data-file as parameter.\n");
             //cancel other processes
             gridSize = 0;
-            for (reciever = 1; reciever < size; reciever++){
+            for (reciever = 1; reciever < noOfProcs; reciever++){
                 MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
             }
         }
