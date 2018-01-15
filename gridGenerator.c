@@ -66,12 +66,32 @@ void toggleRectangle(int *gridPointer,long gridSize, int leftUpLine, int leftUpC
 	}
 }
 
-void randomizeRectangleArea(int *gridPointer,long gridSize, int leftUpLine, int leftUpColumn, int rightLowLine, int rightLowColumn){
+void randomizeRectangle(int *gridPointer,long gridSize, int leftUpLine, int leftUpColumn, int rightLowLine, int rightLowColumn){
 	
 	int i,k;
 	for (i = leftUpLine; i <= rightLowLine; i++){
 		for (k = leftUpColumn; k <= rightLowColumn; k++){
 			gridPointer[i*gridSize + k] = rand() % 2;
+		}
+	}
+}
+
+void clearRectangle(int *gridPointer,long gridSize, int leftUpLine, int leftUpColumn, int rightLowLine, int rightLowColumn){
+	
+	int i,k;
+	for (i = leftUpLine; i <= rightLowLine; i++){
+		for (k = leftUpColumn; k <= rightLowColumn; k++){
+			gridPointer[i*gridSize + k] = 0;
+		}
+	}
+}
+
+void chessRectangle(int *gridPointer,long gridSize, int leftUpLine, int leftUpColumn, int rightLowLine, int rightLowColumn){
+	
+	int i,k;
+	for (i = leftUpLine; i <= rightLowLine; i++){
+		for (k = leftUpColumn; k <= rightLowColumn; k++){
+			gridPointer[i*gridSize + k] = (i%2+k) %2;
 		}
 	}
 }
@@ -175,12 +195,13 @@ int main(int argc, char** argv) {
 			printf("This is the grid:\n");
 			printGrid(&grid[0],gridSize);
 		
-			printf("\nWhat do you want to do?\n1: Toggle a pixel\n2: Toggle a rectangle\n3: Randomize Rectangle Area\n4: Save Grid to File and exit.\n");
+			printf("\nWhat do you want to do?\n1: Toggle a pixel\n2: Toggle a rectangle\n3: Toggle all pixels\n4: Randomize a rectangle\n5: Randomize all pixels\n6: generate chess grid\n7: clear grid\n8: Save Grid to File and exit.\n");
 			scanf("%d",&userInput);
 
 			switch (userInput) {
 
 				case 1: {
+					//toggle a pixel
 					int togglePxLine, togglePxColumn;
 					printf("Input line and column of element you want to toggle (1-based). i.e. 1/2 for element in first row,second column.\nToggle pixel in Line: \n");
 					scanf("%d",&togglePxLine);
@@ -190,6 +211,7 @@ int main(int argc, char** argv) {
 					break;
 				}
 				case 2: {
+					//toggle a rectangle
 					int toggleReTopLine, toggleReTopColumn, toggleReBotLine, toggleReBotColumn;
 					printf("Input line and column of the left upper element of the rectangle you want to toggle (1-based). \ni.e. 1/2 for element in first row,second column.\nLeft Upper pixel in Line: \n");
 					scanf("%d",&toggleReTopLine);
@@ -203,7 +225,13 @@ int main(int argc, char** argv) {
 					break;
 				}
 				case 3:{
-				    	int rndmReTopLine, rndmReTopColumn, rndmReBotLine, rndmReBotColumn;
+					//toggle all pixels
+					toggleRectangle(&grid[0],gridSize,0,0,gridSize-1,gridSize-1);
+					break;
+				}
+				case 4:{
+					//Randomize Rectangle
+				    int rndmReTopLine, rndmReTopColumn, rndmReBotLine, rndmReBotColumn;
 					printf("Input line and column of the left upper element of the rectangle you want to randomize (1-based). \ni.e. 1/2 for element in first row,second column.\nLeft Upper pixel in Line: \n");
 					scanf("%d",&rndmReTopLine);
 					printf("Left Upper pixel in Column: \n");
@@ -212,21 +240,36 @@ int main(int argc, char** argv) {
 					scanf("%d",&rndmReBotLine);
 					printf("Rigt lower pixel in Column: \n");
 					scanf("%d",&rndmReBotColumn);
-					randomizeRectangleArea(&grid[0],gridSize,rndmReTopLine-1,rndmReTopColumn-1,rndmReBotLine-1,rndmReBotColumn-1);
+					randomizeRectangle(&grid[0],gridSize,rndmReTopLine-1,rndmReTopColumn-1,rndmReBotLine-1,rndmReBotColumn-1);
 					break;
 				}
-				case 4:{
+				case 5:{
+					//Randomize all pixels
+					randomizeRectangle(&grid[0],gridSize,0,0,gridSize-1,gridSize-1);
+					break;
+				}
+				case 6:{
+					chessRectangle(&grid[0],gridSize,0,0,gridSize-1,gridSize-1);
+					break;
+				}
+				case 7:{
+					clearRectangle(&grid[0],gridSize,0,0,gridSize-1,gridSize-1);
+					break;
+				}
+				case 8:{
+					//save to file
 					running = 0;
-					
-					
 					if (argv[1]){
 						writeToFile(filename,&grid[0],gridSize);
 					} else {
 						writeToFile(strcat(filename,".txt"),&grid[0],gridSize);
 					}
 					printf("File was saved as %s\n",filename);
-
 					break;	
+				}
+				default: {
+					printf("No correct input.");
+					break;
 				}
 
 			}
