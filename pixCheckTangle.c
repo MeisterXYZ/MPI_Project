@@ -103,94 +103,98 @@ void printCharArray(char *arr, int size){
     printf("\n");
 }  
 
-void cancelFigure(char *gridPointer, int gridLines, int gridColumns, int line, int column, int sign){
-    if (!(gridPointer[line*gridColumns+column] == sign) && !(gridPointer[line*gridColumns+column] == 0)){
-        gridPointer[line*gridColumns+column] = sign;
-        if (column -1 >= 0){
-            cancelFigure(gridPointer,gridLines,gridColumns,line,column-1,sign);
-        } 
-        if (column +1 < gridColumns){
-            cancelFigure(gridPointer,gridLines,gridColumns,line,column+1,sign);
-        } 
-        if (line -1 >= 0){
-            cancelFigure(gridPointer,gridLines,gridColumns,line-1,column,sign);
-        } 
-        if (line +1 < gridLines){
-            cancelFigure(gridPointer,gridLines,gridColumns,line+1,column,sign);
-        } 
-    }
+void cancelFigure(char *gridPointer,int gridColumns ,int startline ,int startcolumn ,int endline ,int endcolumn , int oldSign ,int newSign){
+	//mark all pixels in the given range, that are marked with the label == oldSign, with the label == newSign
+	int i,k;
+	for (i = startline; i <= endline; i++){
+		for (k = startcolumn; k <= endcolumn; k++){
+			if (gridPointer[i*gridColumns + k] == oldSign){
+				gridPointer[i*gridColumns + k] = newSign;
+			} 
+		}
+	}
 }
 
 void processSubgrid(char *gridPointer, int gridLines, int gridColumns, int subgridAbove, int subgridBelow){
-    //go from px to px
-    int i,k;
+    //step from pixel to pixel line-wise
+    int i,k,l;
     for (i = 0; i < gridLines; i++){
         for (k = 0; k < gridColumns; k++){
+            //check if the pixel is marked with 1 (black, not checked yet)
             if (gridPointer[i * gridColumns + k] == 1){
-                //check if the figure is a rectangle:
-                //keep in mind all connected pixels in one line
-                int startcolumn = k;
-                int endcolumn = k;
-                int startline = i;
-                int endline = i;
-                //get end of startline
+                //inspect the figure which starts with the current pixel and check if it's a rectangle:
+                //informations we need:
+                int startcolumn = k; //remians on k
+                int endcolumn = k; //might grow
+                int startline = i; //remians on i
+                int endline = i; //might grow
+                int isRectangle = 1; //used as bool. shows if the inspected figute is a rectangle 
+                int rectangleChecked = 0; //used as bool. will be set to 1 when the figure is a rectangle and the check is completed 
+                
+                //get endcolumn of the figure by checking where the figure ends in the startline
                 while (endcolumn+1 < gridColumns && gridPointer[i*gridColumns + endcolumn + 1] == 1){
                     endcolumn += 1;
                 }
-                //check for every pixel in startline if there is one or none in next line
-                int isRectangle = 1;
-                int rectangleChecked = 0;
-                while (isRectangle && !rectangleChecked && endline+1 < gridLines){
+
+                //every pixel in the line above the startline within the column-range of the figure must be 0. Otherwise it's not a rectangle
+                if (startline -1 >= 0){
+                    for (l=startcolumn; l<= endcolumn; l++){
+                        if (!(gridPointer[(startline -1)*gridColumns + l] == 0)){
+                            isRectangle = 0;
+                            break;
+                        }
+                    } 
+                } 
+
+                //every pixel in the line below the startline within the column-range of the figure must be 0 or 1. Otherwise it's not a rectangle.
+                //if every pixel is a 0 the endline of the figure is the line before the empty line
+                //if every pixel is a 1 the pixels before the start column and the pixel after the end column must be a 0. Otherwise it's not a pixel.
+                while (isRectangle && !rectangleChecked && (endline+1 < gridLines)){
+                    //check for the following line if the line is fully 1 or 0
                     int lineEmpty = 1;
-                    int l; 
                     for (l = startcolumn; l <= endcolumn; l++){
-                        //first column in lines below checks if line should be empty or full
+                        //first column in line defines if line should be empty or full
                         if (l == startcolumn){
                             if (gridPointer[(endline + 1)*gridColumns + l] == 1){
                                 lineEmpty = 0;
                             }
                         } else {
-                            //check for the following columns if conditions for a full or empty lien are complied
+                            //check for the following columns of the line.  If conditions for a full or empty line are violated it's not a rectangle.
                             if ((lineEmpty && gridPointer[(endline + 1)*gridColumns + l] == 1) || (!lineEmpty && gridPointer[(endline + 1)*gridColumns + l] == 0)){
                                 isRectangle = 0;
-                                if (lineEmpty) {
-                                    //printf("at poition %d/%d no rectangle. Reason: black pixel at %d/%d\n",i+1,k+1,endline+1+1,l+1);
-                                } else{
-                                    //printf("at poition %d/%d no rectangle. Reason: missing black pixel at %d/%d\n",i+1,k+1,endline+1+1,l+1);
-                                }
                                 break;
                             }
                         }
-                    }
-                    //if the line is not empty check if there is another pixel before startcolumn or after endcolumn. In this case shape is not a rectangle.
+                    }                    
+                    //if the line is fully 1, check if there is another pixel before startcolumn or after endcolumn. In this case the figure is not a rectangle.
                     if (!lineEmpty){
-                        if ((startcolumn-1 >= 0 && gridPointer[(endline + 1)*gridColumns + startcolumn-1] == 1)||(endcolumn+1 < gridColumns && gridPointer[(endline + 1)*gridColumns + endcolumn + 1] == 1)) {
+                        if ((startcolumn-1 >= 0 && gridPointer[(endline+1)*gridColumns + startcolumn-1] == 1)||(endcolumn+1 < gridColumns && gridPointer[(endline+1)*gridColumns + endcolumn + 1] == 1)) {
                             isRectangle = 0;
-                            //printf("at poition %d/%d no rectangle. Reason: black pixel befor start or end of startline.\n",i+1,k+1);
                             break;
                         } else {
+                            //if the line was correct raise the endline of the figure. Loop will continue checking in following line or end if grid-end is reached.
                             endline += 1;
                         }
                     } else {
-                        rectangleChecked = 1;
+                        //if the line was fully 0 the upper shape is a rectangle. set flag will end the loop.
+                        rectangleChecked = 1;                         
                     }
                 }
+
+                //write the result to the grid
                 if (!isRectangle){
-                    cancelFigure(gridPointer,gridLines,gridColumns,i,k,2);
-                    //printf("at poition %d/%d no rectangle. Killing figure (2). Result:\n",i+1,k+1);
-                    //printSmallGrid(gridPointer,gridLines,gridColumns);
-                    //printf("\n");
+                    //set all black fields (marked as 1) in the range of the viewed figure to "no rectangle" (marked as 2)
+                    cancelFigure(gridPointer,gridColumns,startline,startcolumn,endline,endcolumn,1,2);
                 } else {
+                    //If the figure ends on a subgrid-end and the original grid continues at this point, it's only a potential rectangle (marked as 4)
+                    //Otherwise it's a rectangle
                     if ((subgridAbove && i == 0) || (subgridBelow && endline + 1 == gridLines)) {
-                        //Just a potential rectangle
-                        cancelFigure(gridPointer,gridLines,gridColumns,i,k,4);
-                        //printf("at poition %d/%d a potential rectangle figure. Marking figure (4). Result:\n",i+1,k+1);
+                        //mark all black fields (marked as 1) in the range of the viewed figure to "potential rectangle" (marked as 4)
+                        cancelFigure(gridPointer,gridColumns,startline,startcolumn,endline,endcolumn,1,4);
                     } else{
-                        //a save rectangle
-                        cancelFigure(gridPointer,gridLines,gridColumns,i,k,3);
-                        //printf("at poition %d/%d a rectangle figure. Marking figure (3). Result:\n",i+1,k+1);
+                        //mark all black fields (marked as 1) in the range of the viewed figure to "rectangle" (marked as 3)
+                        cancelFigure(gridPointer,gridColumns,startline,startcolumn,endline,endcolumn,1,3);
                     }
-                    //printSmallGrid(gridPointer,gridLines,gridColumns);
                 }
             }
         }
@@ -198,86 +202,6 @@ void processSubgrid(char *gridPointer, int gridLines, int gridColumns, int subgr
 
 }
 
-void processSubgridWithOutput(char *gridPointer, int gridLines, int gridColumns, int subgridAbove, int subgridBelow){
-
-    //go from px to px
-    int i,k;
-    for (i = 0; i < gridLines; i++){
-        for (k = 0; k < gridColumns; k++){
-            if (gridPointer[ i * gridColumns + k] == 1){
-                //check if the figure is a rectangle:
-                //keep in mind all connected pixels in one line
-                int startcolumn = k;
-                int endcolumn = k;
-                int startline = i;
-                int endline = i;
-                //get end of startline
-                while (endcolumn+1 < gridColumns && gridPointer[i*gridColumns + endcolumn + 1] == 1){
-                    endcolumn += 1;
-                }
-                //check for every pixel in startline if there is one or none in next line
-                int isRectangle = 1;
-                int rectangleChecked = 0;
-                while (isRectangle && !rectangleChecked && endline+1 < gridLines){
-                    int lineEmpty = 1;
-                    int l; 
-                    for (l = startcolumn; l <= endcolumn; l++){
-                        //first column in lines below checks if line should be empty or full
-                        if (l == startcolumn){
-                            if (gridPointer[(endline + 1)*gridColumns + l] == 1){
-                                lineEmpty = 0;
-                            }
-                        } else {
-                            //other lines are checking if conditions are complied 
-                            if ((lineEmpty && gridPointer[(endline + 1)*gridColumns + l] == 1) || (!lineEmpty && gridPointer[(endline + 1)*gridColumns + l] == 0)){
-                                isRectangle = 0;
-                                if (lineEmpty) {
-                                    printf("at poition %d/%d no rectangle. Reason: black pixel at %d/%d\n",i+1,k+1,endline+1+1,l+1);
-                                } else{
-                                    printf("at poition %d/%d no rectangle. Reason: missing black pixel at %d/%d\n",i+1,k+1,endline+1+1,l+1);
-                                }
-                                break;
-                            }
-                        }
-                    }
-                    if (!lineEmpty){
-                        if ((startcolumn-1 >= 0 && gridPointer[(endline + 1)*gridColumns + startcolumn-1] == 1)||(endcolumn+1 < gridColumns && gridPointer[(endline + 1)*gridColumns + endcolumn + 1] == 1)) {
-                            isRectangle = 0;
-                            printf("at poition %d/%d no rectangle. Reason: black pixel befor start or end of startline.\n",i+1,k+1);
-                            break;
-                        } else {
-                            endline += 1;
-                        }
-                    } else {
-                        rectangleChecked = 1;
-                    }
-                }
-                if (!isRectangle){
-                    cancelFigure(gridPointer,gridLines,gridColumns,i,k,2);
-                    printf("at poition %d/%d no rectangle. Killing figure (2). Result:\n",i+1,k+1);
-                    printSmallGrid(gridPointer,gridLines,gridColumns);
-                    printf("\n");
-                } else {
-                    if ((subgridAbove && i == 0) || (subgridBelow && endline + 1 == gridLines)) {
-                        //Just a potential rectangle
-                        cancelFigure(gridPointer,gridLines,gridColumns,i,k,4);
-                        printf("at poition %d/%d a potential rectangle figure. Marking figure (4). Result:\n",i+1,k+1);
-                    } else{
-                        //a save rectangle
-                        cancelFigure(gridPointer,gridLines,gridColumns,i,k,3);
-                        printf("at poition %d/%d a rectangle figure. Marking figure (3). Result:\n",i+1,k+1);
-                    }
-                    printSmallGrid(gridPointer,gridLines,gridColumns);
-                    //To be done
-                    //...
-                }
-            }
-            //else
-            //nothing to do here
-        }
-    }
-
-}
 
 void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int isUpperLine){
     int i;
@@ -330,9 +254,9 @@ void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int i
                 }
             }
             if (!isRectangle){
-                cancelFigure(gridPointer,gridColumns,gridColumns,line,i,2);
+                //cancelFigure(gridPointer,gridColumns,gridColumns,line,i,2);
             }else{
-                cancelFigure(gridPointer,gridColumns,gridColumns,line,i,3);
+                //cancelFigure(gridPointer,gridColumns,gridColumns,line,i,3);
             }
             
         }  
@@ -360,7 +284,7 @@ void outputRectangleList(char *gridPointer,int gridSize){
                 }else{
                     printf("Rectangle %d from %d/%d to %d/%d\n",rectangleCounter,k+1,i+1, recEndline+1,recEndcolumn+1);
                 }
-                cancelFigure(gridPointer,gridSize,gridSize,k,i,5);
+                //cancelFigure(gridPointer,gridSize,gridSize,k,i,5);
                 //printf("%d/%d\n",k+1,i+1);
 
             }
@@ -440,131 +364,136 @@ int main(int argc, char** argv) {
                     }
                     //file is not longer needed
                     fclose(file);
+                    //Output for overview:
+                    printf("Loading the Grid completed.\nTHIS IS THE GRID:\n");
+                    printGrid(&grid[0],gridSize);
                 }
-
 
                 //processing the grid
+                {
+                    //Start actual algorithm
+                    printf("\nStarting the Algorithm. \n");
+                    //Start time measurement
+                    startTime = MPI_Wtime();
+                    if (noOfProcs==1){
+                        //The single Porcess
+                        printf("...as sequential single process\n");
+                        processSubgrid(&grid[0],gridSize,gridSize,0,0);
+                        printGrid(&grid[0],gridSize);
+                        endTime = MPI_Wtime();
+                        printf("%f\n",endTime-startTime);
+                        writeTimeToFile(endTime - startTime, 0,0);
 
-                //Output for overview:
-                printf("Loading the Grid completed.\nTHIS IS THE GRID:\n");
-                printGrid(&grid[0],gridSize);
-                
-                //Start actual algorithm
-                printf("\nStarting the Algorithm. \n");
-                //Start time measurement
-                startTime = MPI_Wtime();
-                if (noOfProcs==1){
-                    printf("...as sequential single process\n");
-                    processSubgrid(&grid[0],gridSize,gridSize,0,0);
-                    printGrid(&grid[0],gridSize);
-                    endTime = MPI_Wtime();
-                    printf("%f\n",endTime-startTime);
-                    writeTimeToFile(endTime - startTime, 0,0);
+                    } else { 
+                        //The Cluster Process
+                        printf("...with a root process and %d subprocesses\n",noOfProcs-1);
+                        
+                        //calculation how to split up array for task allocation:
+                        div_t gridSegmentSize;
+                        int workingProcesses;
+                        {
+                            if (noOfProcs - 1 > gridSize){
+                                gridSegmentSize = div(gridSize,gridSize);
+                                workingProcesses = gridSize;
+                            } else {
+                                gridSegmentSize = div(gridSize,noOfProcs-1);
+                                workingProcesses = noOfProcs-1;
+                            }
+                        }
+                        
+                        //send the grid size to the sub-processes (necessary for sup-processes, also handles that processes quit if not needed)
+                        //for time measurement: ignore the send-time
+                        {
+                            for (reciever = 1; reciever < noOfProcs; reciever++){
+                                ignoreTimeStart = MPI_Wtime();
+                                MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
+                                ignoreTimeEnd = MPI_Wtime();
+                                ignore += ignoreTimeEnd - ignoreTimeStart;
+                            } 
+                        }
 
-                } else { 
-                    //send perts of the grid to other processes
-                    //calculation how to split up array:
+                        //send to all required processes the number of lines of the subgrid and the subgrid itself. 
+                        //ignore the send-Time 
+                        int subgridLines;
+                        {
+                            for (reciever = 1; reciever <= workingProcesses ; reciever++){
+                                if (reciever == workingProcesses){
+                                    subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                                    ignoreTimeStart = MPI_Wtime();
+                                    MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                                    ignoreTimeEnd = MPI_Wtime();
+                                    ignore += ignoreTimeEnd - ignoreTimeStart;
+                                } else {
+                                    subgridLines = gridSegmentSize.quot;
+                                    ignoreTimeStart = MPI_Wtime();
+                                    MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                                    ignoreTimeEnd = MPI_Wtime();
+                                    ignore += ignoreTimeEnd - ignoreTimeStart;
+                                }
+                                //printf("wanna send\n");
+                                //printSmallGrid(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines,gridSize);
+                                ignoreTimeStart = MPI_Wtime();
+                                MPI_Send(&grid[(reciever-1)*gridSize*gridSegmentSize.quot], subgridLines*gridSize, MPI_BYTE, reciever, 0, MPI_COMM_WORLD);
+                                ignoreTimeEnd = MPI_Wtime();
+                                ignore += ignoreTimeEnd - ignoreTimeStart;
+                            }
+                        }
 
-                    div_t gridSegmentSize;
-                    int workingProcesses;
-                    printf("...with a root process and %d subprocesses\n",noOfProcs-1);
-                    if (noOfProcs - 1 > gridSize){
-                        gridSegmentSize = div(gridSize,gridSize);
-                        workingProcesses = gridSize;
-                    } else {
-                        gridSegmentSize = div(gridSize,noOfProcs-1);
-                        workingProcesses = noOfProcs-1;
-                    }
-                    
-                    int subgridLines;
-                    
-                    //send first information of grid size -> in case there are more processors then lines these can quit
-                    //ignore the send-time
-                    for (reciever = 1; reciever < noOfProcs; reciever++){
-                        ignoreTimeStart = MPI_Wtime();
-                        MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
-                        ignoreTimeEnd = MPI_Wtime();
-                        ignore += ignoreTimeEnd - ignoreTimeStart;
-                    } 
-                    
-                    printf("send to %d processes\n",workingProcesses);
-
-                    //send to all required processes the number of lines of the subgrid and the subgrid itself. 
-                    //ignore the send-Time 
-                    for (reciever = 1; reciever <= workingProcesses ; reciever++){
-                        if (reciever == workingProcesses){
-                            subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                        //recieve done results
+                        //ignore the passing time in P0 
+                        {
+                            //ignore the passing time in P0 
                             ignoreTimeStart = MPI_Wtime();
-                            MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
-                            ignoreTimeEnd = MPI_Wtime();
-                            ignore += ignoreTimeEnd - ignoreTimeStart;
-                        } else {
-                            subgridLines = gridSegmentSize.quot;
-                            ignoreTimeStart = MPI_Wtime();
-                            MPI_Send(&subgridLines, 1, MPI_INT, reciever, 0, MPI_COMM_WORLD);
+                            for (reciever = 1; reciever <= workingProcesses ; reciever++){
+                                if (reciever == workingProcesses){
+                                    subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
+                                } else {
+                                    subgridLines = gridSegmentSize.quot;
+                                }
+                                MPI_Recv(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines*gridSize,MPI_BYTE,reciever,0,MPI_COMM_WORLD,&status);
+                            }
+                            //after recieved all start time again
                             ignoreTimeEnd = MPI_Wtime();
                             ignore += ignoreTimeEnd - ignoreTimeStart;
                         }
-                        //printf("wanna send\n");
-                        //printSmallGrid(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines,gridSize);
-                        ignoreTimeStart = MPI_Wtime();
-                        MPI_Send(&grid[(reciever-1)*gridSize*gridSegmentSize.quot], subgridLines*gridSize, MPI_BYTE, reciever, 0, MPI_COMM_WORLD);
-                        ignoreTimeEnd = MPI_Wtime();
-                        ignore += ignoreTimeEnd - ignoreTimeStart;
+                        
+                        //Output for overview:
+                        printf("THIS IS THE GRID:\n");
+                        printGrid(&grid[0],gridSize);
+                        
+                        // //check potential rectangles
+                        // {
+                        //     //go to border
+                        //     int i;
+                        //     for (i = 1; i < workingProcesses; i++){
+                        //         //check break-lines at split-points of the grid
+                        //         //check the potential rectangles in the line above the split-point 
+                        //         checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,1);
+                        //         //check the potential rectangles in the line below the split-point
+                        //         checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,0);
+
+                        //     }
+                        // }
+                         
+                        // printf("THIS IS THE GRID:\n");
+                        // printGrid(&grid[0],gridSize);
+                        // printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
+
+                        // outputRectangleList(&grid[0],gridSize);
+                        // //printGrid(&grid[0],gridSize);
+                        
+                        // endTime = MPI_Wtime();
+
+                        // subProcTime = 0;
+                        // MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+
+                        // printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
+                        // writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
                     }
-                    ignoreTimeStart = MPI_Wtime();
-
-                    //recieve done results
-                    for (reciever = 1; reciever <= workingProcesses ; reciever++){
-                        if (reciever == workingProcesses){
-                            subgridLines = gridSegmentSize.quot + gridSegmentSize.rem;
-                        } else {
-                            subgridLines = gridSegmentSize.quot;
-                        }
-                        MPI_Recv(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines*gridSize,MPI_BYTE,reciever,0,MPI_COMM_WORLD,&status);
-                    }
-                    ignoreTimeEnd = MPI_Wtime();
-                    ignore += ignoreTimeEnd - ignoreTimeStart;
-
-                    //Output for overview:
-                    printf("THIS IS THE GRID:\n");
-                    printGrid(&grid[0],gridSize);
-                    
-                    //TYPE SOME LOGIC FOR finalize the potential rectangles --> 4 signed rectangles.
-                    //go to border
-                    int i;
-                    for (i = 1; i < workingProcesses; i++){
-                        //no need for checking the line at the end --> i < workingProcesses 
-                        //printf("Check line %d and line %d\n",i*gridSegmentSize.quot - 1,i*gridSegmentSize.quot );
-                        checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,1);
-                        //later: check the upper line
-                        checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,0);
-
-                    } 
-                    printf("THIS IS THE GRID:\n");
-                    printGrid(&grid[0],gridSize);
-                    printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
-
-                    outputRectangleList(&grid[0],gridSize);
-                    //printGrid(&grid[0],gridSize);
-                    
-                    endTime = MPI_Wtime();
-
-                    subProcTime = 0;
-                    MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
-
-                    printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
-                    writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
-
-                    
-    /*
-                    //check first and last joined 4-pixels 
-                    //check next line (or previous (is there a shortcut?))
-                        //if all or none -> make figure 3
-                        //if sth between -> make figure 2 
-    */
                 }
+                
             } else{
+                //handle "could not open file" 
                 printf("could not open the data-file %s.\n",argv[1]);
                 //cancel other processes
                 gridSize = 0;
@@ -573,6 +502,7 @@ int main(int argc, char** argv) {
                 }
             }
         }else{
+            //handle missing argument
             printf("please run the rectangleChecker with a data-file as parameter.\n");
             //cancel other processes
             gridSize = 0;
@@ -583,13 +513,10 @@ int main(int argc, char** argv) {
 	} else { 
 	
 	
-    //The other Processes then the 0-Process
+        //The sub-processes in the cluster-process
         //get grid Size
-        //long gridSize[2];
         int subgridLines, subgridColumns;
         MPI_Recv(&subgridColumns,1,MPI_INT,0,0,MPI_COMM_WORLD,&status);
-        
-    
         
         //just run process if needed.
         if (rank <= subgridColumns){
