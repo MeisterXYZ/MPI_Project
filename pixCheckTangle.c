@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
+
 
 void printGrid(char *gridPointer,int gridSize){
 	if (gridSize<=100){
@@ -366,6 +368,25 @@ void outputRectangleList(char *gridPointer,int gridSize){
     }
 }
 
+void writeTimeToFile(double time, double ignore, double maxSubProcTime){
+    //for getting , instead of . as numeric seperator
+    setlocale(LC_NUMERIC, "de_DE");
+    FILE *fp;
+	fp = fopen("measures.txt", "a");
+    fprintf(fp, "algTime: %f\n",time);
+
+    if (!(ignore == 0 && maxSubProcTime == 0)){
+        fprintf(fp, "hereby Ignore: %f\n",ignore);    
+        fprintf(fp, "hereby maxSubProcTime: %f\n",ignore);    
+        fprintf(fp, "hereby time tithout communication: %f\n",time - ignore + maxSubProcTime);
+    } else {
+        fprintf(fp, "was the sequential\n");
+    }
+    
+    
+	fclose(fp);
+}
+
 
 int main(int argc, char** argv) {
     //MPI variables
@@ -438,6 +459,7 @@ int main(int argc, char** argv) {
                     printGrid(&grid[0],gridSize);
                     endTime = MPI_Wtime();
                     printf("%f\n",endTime-startTime);
+                    writeTimeToFile(endTime - startTime, 0,0);
 
                 } else { 
                     //send perts of the grid to other processes
@@ -532,7 +554,8 @@ int main(int argc, char** argv) {
                     MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 
                     printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
-                    
+                    writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
+
                     
     /*
                     //check first and last joined 4-pixels 
