@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Problembeschreibung}{2}{section.1}
+\contentsline {section}{\numberline {2}Beschreibung der Implementierung}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}gridGenerator: Generieren der Files}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}pixCheckTangle: Beschreibung des parallelen Algorithmus}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}pixCheckTangle: Abarbeiten eines Teil-Rasters}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}pixCheckTangle: Festlegen potentieller Rechtecke}{4}{subsection.2.5}
+\contentsline {section}{\numberline {3}Messungen}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vorgehen beim Messen}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Messergebnisse}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Interpretation der Messergebnisse}{4}{subsection.3.3}
+\contentsline {section}{\numberline {4}Fazit}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Einsch\IeC {\"a}tzung des Nutzens einer Parallelisierung}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\IeC {\"o}gliche Optimierungen}{4}{subsection.4.2}
+\contentsline {section}{\numberline {5}bla}{4}{section.5}
+\contentsline {section}{\numberline {6}Methods}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}Paragraphs}{5}{subsection.6.1}
+\contentsline {paragraph}{Paragraph Description}{5}{subsection.6.1}
+\contentsline {paragraph}{Different Paragraph Description}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Math}{5}{subsection.6.2}
+\contentsline {section}{\numberline {7}Results and Discussion}{6}{section.7}
+\contentsline {subsection}{\numberline {7.1}Subsection}{6}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Subsubsection}{7}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}Table}{7}{subsubsection.7.1.2}
+\contentsline {subsection}{\numberline {7.2}Figure Composed of Subfigures}{7}{subsection.7.2}
