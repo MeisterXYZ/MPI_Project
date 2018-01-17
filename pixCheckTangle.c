@@ -202,32 +202,76 @@ void processSubgrid(char *gridPointer, int gridLines, int gridColumns, int subgr
 
 }
 
-
-void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int isUpperLine){
-    int i;
+void cancelRectangle(char *gridPointer, int gridColumns, int startline ,int startcolumn, int searchDownward, int newSign){
+    //gets the renctangle in the grid and replaces the current sign with the newSign 
+    int i,k,endline,endcolumn,oldSign,offset;
+    endcolumn = startcolumn;
+    endline = startline;
     
-    //for checking in both directions
+    //set offset depending on which direction you want to search
+    if (searchDownward) {
+        offset = 1;
+    } else {
+        offset = -1;
+    }
+
+    //get current sign
+    oldSign = gridPointer[startline*gridColumns + startcolumn];
+    //get endcolumn
+    while((endcolumn+1 < gridColumns )&& (gridPointer[startline*gridColumns + endcolumn + 1] == oldSign)) {
+        endcolumn++;
+    }
+    //get endline
+    while((endline + offset >= 0 ) && (endline + offset < gridColumns ) && (gridPointer[(endline + offset)*gridColumns + startcolumn] == oldSign)) {
+        endline += offset;
+    }
+    //swap endline with startline in case of upward-search
+    if (endline < startline){
+        int swap = endline;
+        endline = startline;
+        startline = swap;
+    }
+
+    //for the moment: print the stuff ya got
+    //printf("startcol: %d endcol: %d startline: %d endline: %d\n",startcolumn,endcolumn,startline,endline);
+    for (i=startline; i <= endline; i++){
+        for(k=startcolumn;k<=endcolumn;k++){
+            gridPointer[i*gridColumns + k] = newSign;
+        }
+    }
+
+}
+
+void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int nextBeforeBreakLine, int isUpperLine){
+    //check for every potential rectangle: is every pixel in the line opposite the splitpoint also potential rectangle or 0. Otherwise it's not a rectangle.
+    //if every pixel is also potential rectangle the pixels in this line before the startcolumn and after the endcolumn of the viewed potential rectangle must be 0. Otherwise it's not a rectangle.
+    
+    int i;
+    //set variable lineOffset depending on if the viewed line is the upper Line of the split point. Defines the check-direction of the function
     int lineOffset;
     if (isUpperLine){
         lineOffset = 1;
     } else {
         lineOffset = -1;
     }
+
+    //go from pixel to pixel in the line to check.
     for (i=0; i < gridColumns; i++){
+        //check if the pixel is marked with 4 (potential rectangle)
         if (gridPointer[gridColumns * line + i] == 4){
             int startcolumn = i;
             int endcolumn = i;
-            //get end of startline
+            printf("check %d / %d\n",line+1,i+1);
+            //get endcolumn of the potential rectangle by checking where the figure ends in the line
             while (endcolumn+1 < gridColumns && gridPointer[gridColumns * line + endcolumn + 1] == 4){
                 endcolumn += 1;
             }
-            //printf("evaluated endcolumn: %d\n",endcolumn);
-            //check for every pixel in startline if there is one or none in next line
+            
+            //check for the opposite line if the line is fully 1 or 0
             int isRectangle = 1;
             int lineEmpty = 1;
             int l;
-            for (l=startcolumn; l<= endcolumn; l++){
-                //printf("considered pixel: %d/%d => %c\n",line +1,l,gridPointer[gridColumns * (line + 1) + l]);
+            for (l=startcolumn; l<= endcolumn; l++){                
                 //if following line contains a shape which is not a rectangle the considered shape can't be a rectangle
                 if (gridPointer[gridColumns * (line + lineOffset) + l] == 2) {
                     isRectangle = 0;
@@ -236,7 +280,6 @@ void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int i
                     if (l == i){
                         //if the first column contains a potential rectangle shape the line must be completely filled for the shape beeing a rectangle. Value can just be 4 or 0
                         lineEmpty = (gridPointer[gridColumns * (line + lineOffset) + l] == 0);
-                        //printf("set lineEmpty to: %d\n",(gridPointer[gridColumns * (line + 1) + l] == 0));
                     } else {
                         //for all other columns check if line is completely filled or is completely empty. otherwise considered shape can't be a rectangle
                         if ((lineEmpty && !(gridPointer[gridColumns * (line + lineOffset) + l] == 0)) || (!lineEmpty && gridPointer[gridColumns * (line + lineOffset) + l] == 4)) {
@@ -246,19 +289,87 @@ void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int i
                     }   
                 }
             }
+            
             //if the line is not empty check if there is another pixel before startcolumn or after endcolumn. In this case shape is not a rectangle.
             if (!lineEmpty){
                 if ((startcolumn-1 >= 0 && gridPointer[gridColumns * (line + lineOffset) + startcolumn-1] == 4)||(endcolumn+1 < gridColumns && gridPointer[gridColumns * (line + lineOffset) + endcolumn + 1] == 4)) {
                     isRectangle = 0;
-                    //printf("at poition %d/%d no rectangle. Reason: black pixel befor start or end of startline.\n",line+1+1,i+1);
                 }
             }
-            if (!isRectangle){
-                //cancelFigure(gridPointer,gridColumns,gridColumns,line,i,2);
-            }else{
-                //cancelFigure(gridPointer,gridColumns,gridColumns,line,i,3);
-            }
-            
+            //write results to grid
+            int potRectEndline;
+            int endsBeforNextBreak = 0;
+            if(isUpperLine){
+                    // wenn wir die obere zeile prüfen, betrachten wir die beschaffenheit der zweiten zeile 
+                    // da können noch keine 3en stehetn, die wir anschauen - höchstens 4en oder 0en oder von beidem was 
+                    // Wenn lineempty war, lönnen wir gleich ohne bedenken die 3 setzen
+
+                    // wenn 4en drinnen waren muss zeilenweise geprüft werden:
+                    //     wenn irgendwann ertses zeichen 0 kann man davon ausgehen, dass rechteck abgeschlossen ist -> 3
+                    //     wenn das komplette grid dort zuende ist -> dito: 3
+
+                    //     wenn wir aber die zeile vor dem nächsten bruch erreichen und dort auch noch 4 steht, müssen wir das so stehen lassen
+                if (!isRectangle){
+                    cancelRectangle(gridPointer,gridColumns,line,i,0,2);
+                } else {
+                    if (lineEmpty){
+                        cancelRectangle(gridPointer,gridColumns,line,i,0,3);
+                    } else {
+                        potRectEndline = line;
+                        while(!endsBeforNextBreak && !(potRectEndline == nextBeforeBreakLine)){
+                            if(potRectEndline + 1 == gridColumns){
+                                endsBeforNextBreak = 1;
+                                break;
+                            }
+                            if(gridPointer[gridColumns * (potRectEndline + 1) + startcolumn]==4){
+                                potRectEndline++;
+                            }else{
+                                endsBeforNextBreak = 1;
+                            }
+                        }
+                        if(endsBeforNextBreak){
+                            cancelRectangle(gridPointer,gridColumns,potRectEndline,i,0,3);
+                        }
+                    }
+                }
+
+            } else {
+                    // Wenn wir die untere Zeile prüfen, dann betrachten wir die obere zeile.
+                    // da können noch keine 3en stehen, sonst wären die zu prüfenden zeichen auch 3en - da kann stehen: 0 oder 4
+                    // ist aber egal, da wir vorher schon geprüft haben ob die zeilen foll 0 oder 4 sind und bei 4 nix davor/dahinter stört
+                    // was wir jetzt machen müssen:
+
+                    //     Kann erst sagen, obs ne 3 wird, wenn ich ein rechteck hab, was bei 0 endet
+
+                    //  Wenn es kein rechteck ist, dann können wir nur das potentielle rechteck des Abschnittes löschen, da sonst in dem bereich zu viel gelöscht wird
+                    //  also prüfe, wo die figur endet. lösche dann die potentielle Figur bis zum potentiellen entsprechenden Ende mit cancelFigure
+                potRectEndline = line;
+                printf("nxtbreak=%d\n",nextBeforeBreakLine);
+                while(!endsBeforNextBreak && !(potRectEndline == nextBeforeBreakLine)){
+                    if(potRectEndline + 1 == gridColumns){
+                        endsBeforNextBreak = 1;
+                        break;
+                    }
+                    if(gridPointer[gridColumns * (potRectEndline + 1) + startcolumn]==4){
+                        potRectEndline++;
+                    }else{
+                        endsBeforNextBreak = 1;
+                    }
+                }
+                printf("endsBeforeNxtBreak %d isRect %d\n",endsBeforNextBreak,isRectangle);
+                if (!isRectangle){
+                    if(endsBeforNextBreak){
+                        cancelFigure(gridPointer,gridColumns,line,startcolumn,potRectEndline,endcolumn,4,2);
+                    }else{
+                        cancelFigure(gridPointer,gridColumns,line,startcolumn,nextBeforeBreakLine,endcolumn,4,2);
+                    }
+                }else{
+                    if(endsBeforNextBreak){
+                        cancelRectangle(gridPointer,gridColumns,potRectEndline,i,0,3);
+                    }
+                }
+
+            }            
         }  
     }
 }
@@ -273,18 +384,19 @@ void outputRectangleList(char *gridPointer,int gridSize){
                 rectangleCounter++;
                 recEndline = k;
                 recEndcolumn = i;
-                while(gridPointer[(recEndline+1)*gridSize + i]==3){
+                while((recEndline+1 < gridSize)&&(gridPointer[(recEndline+1)*gridSize + i]==3)){
                     recEndline++;
                 }
-                while (gridPointer[recEndline*gridSize + recEndcolumn + 1]==3){
+                while ((recEndcolumn+1 < gridSize) && (gridPointer[recEndline*gridSize + recEndcolumn + 1]==3)){
                     recEndcolumn++;
                 }
-                if (recEndline == k && recEndcolumn == i){
+                if ((recEndline == k) && (recEndcolumn == i)){
                     printf("Rectangle %d at %d/%d\n",rectangleCounter,k+1,i+1);
                 }else{
                     printf("Rectangle %d from %d/%d to %d/%d\n",rectangleCounter,k+1,i+1, recEndline+1,recEndcolumn+1);
                 }
                 //cancelFigure(gridPointer,gridSize,gridSize,k,i,5);
+                cancelRectangle(gridPointer,gridSize,k,i,1,5);
                 //printf("%d/%d\n",k+1,i+1);
 
             }
@@ -461,34 +573,46 @@ int main(int argc, char** argv) {
                         printf("THIS IS THE GRID:\n");
                         printGrid(&grid[0],gridSize);
                         
-                        // //check potential rectangles
-                        // {
-                        //     //go to border
-                        //     int i;
-                        //     for (i = 1; i < workingProcesses; i++){
-                        //         //check break-lines at split-points of the grid
-                        //         //check the potential rectangles in the line above the split-point 
-                        //         checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,1);
-                        //         //check the potential rectangles in the line below the split-point
-                        //         checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,0);
+                        //check potential rectangles
+                        {
+                            int i;
+                            for (i = 1; i < workingProcesses; i++){
+                                //check break-lines at split-points of the grid
+                                //check the potential rectangles in the line above the split-point 
 
-                        //     }
-                        // }
+                                //need to input the line before next break -> -0 if none
+                                //what is the next line?
+                                int nextBeforeBreakLine;
+                                if (i+1 < workingProcesses){
+                                    nextBeforeBreakLine = (i+1)*gridSegmentSize.quot - 1;
+                                } else {
+                                    nextBeforeBreakLine = 0;
+                                }
+                                checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot - 1,nextBeforeBreakLine ,1);
+                                printf("checed at line %d\n",i*gridSegmentSize.quot - 1);
+                                printGrid(&grid[0],gridSize);
+                                //check the potential rectangles in the line below the split-point
+                                checkPotentialRectangle(&grid[0],gridSize,i*gridSegmentSize.quot,nextBeforeBreakLine ,0);
+                                printf("checed at line %d\n",i*gridSegmentSize.quot);
+                                printGrid(&grid[0],gridSize);
+
+                            }
+                        }
                          
-                        // printf("THIS IS THE GRID:\n");
-                        // printGrid(&grid[0],gridSize);
-                        // printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
+                        printf("THIS IS THE GRID:\n");
+                        printGrid(&grid[0],gridSize);
+                        printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
 
-                        // outputRectangleList(&grid[0],gridSize);
-                        // //printGrid(&grid[0],gridSize);
+                        outputRectangleList(&grid[0],gridSize);
+                        printGrid(&grid[0],gridSize);
                         
-                        // endTime = MPI_Wtime();
+                        endTime = MPI_Wtime();
 
-                        // subProcTime = 0;
-                        // MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+                        subProcTime = 0;
+                        MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 
-                        // printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
-                        // writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
+                        printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
+                        writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
                     }
                 }
                 
@@ -552,7 +676,10 @@ int main(int argc, char** argv) {
             //send used time to Process
             MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 
-        } 
+        } else {
+            subProcTime = 0;
+            MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+        }
         
     }
 	MPI_Finalize();
