@@ -6,7 +6,7 @@
   <bpmn:process id="Process_1" isExecutable="true">
     <bpmn:sequenceFlow id="SequenceFlow_0l07cv8" sourceRef="Task_0cmb9gv" targetRef="Task_1pbxdvh" />
     <bpmn:sequenceFlow id="SequenceFlow_0e179f1" sourceRef="Task_0wil69t" targetRef="Task_0cmb9gv" />
-    <bpmn:task id="Task_0cmb9gv" name="Allokiere Array char grid[] mit Größe Spaltenzahl^2 für Raster">
+    <bpmn:task id="Task_0cmb9gv" name="Lege Array char grid[Spaltenzahl^2] für Raster an">
       <bpmn:incoming>SequenceFlow_0e179f1</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0l07cv8</bpmn:outgoing>
     </bpmn:task>

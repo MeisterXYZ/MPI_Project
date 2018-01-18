@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  18 JAN 2018 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  18 JAN 2018 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1235,16 +1235,17 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 10
 \tf@lof=\write5
 \openout5 = `MP_Doku.lof'.
 
+ [1
+
+
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package tocbasic Info: character protrusion at lot deactivated on input line 10
 6.
  (./MP_Doku.lot)
 \tf@lot=\write6
 \openout6 = `MP_Doku.lot'.
 
- [1
-
-
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+ [2]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1274,7 +1275,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 
  []
 
-[2] <Figures/Diag_1.png, id=141, 891.33pt x 606.265pt>
+[3] <Figures/Diag_1.png, id=157, 891.33pt x 606.265pt>
 File: Figures/Diag_1.png Graphic file (type png)
 
 <use Figures/Diag_1.png>
@@ -1287,162 +1288,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
-<Figures/Diag_2.png, id=143, 854.19125pt x 636.3775pt>
-File: Figures/Diag_2.png Graphic file (type png)
-
-<use Figures/Diag_2.png>
-Package pdftex.def Info: Figures/Diag_2.png used on input line 174.
-(pdftex.def)             Requested size: 296.00113pt x 220.5215pt.
- [3 <./Figures/Diag_1.png> <./Figures/Diag_2.png>]
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 182.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 183.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
-
-
-Package xcolor Warning: Incompatible color definition on input line 187.
+<Figures/Diag_2f.jpg, id=159, 3524.16624pt x 2626.81375pt>
+File: Figures/Diag_2f.jpg Graphic file (type jpg)
+
+<use Figures/Diag_2f.jpg>
+Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 174.
+(pdftex.def)             Requested size: 258.99887pt x 193.03442pt.
 
 
 Package xcolor Warning: Incompatible color definition on input line 191.
@@ -1463,111 +1314,139 @@ Package xcolor Warning: Incompatible color definition on input line 191.
 Package xcolor Warning: Incompatible color definition on input line 191.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+Package xcolor Warning: Incompatible color definition on input line 191.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+Package xcolor Warning: Incompatible color definition on input line 191.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+Package xcolor Warning: Incompatible color definition on input line 191.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 206--209
+
+ []
+
+<Figures/Raster_1.png, id=167, 321.2pt x 300.12125pt>
+File: Figures/Raster_1.png Graphic file (type png)
+
+<use Figures/Raster_1.png>
+Package pdftex.def Info: Figures/Raster_1.png used on input line 213.
+(pdftex.def)             Requested size: 92.5pt x 86.42844pt.
+
+<Figures/Raster_2.png, id=168, 857.2025pt x 376.40625pt>
+File: Figures/Raster_2.png Graphic file (type png)
+
+<use Figures/Raster_2.png>
+Package pdftex.def Info: Figures/Raster_2.png used on input line 221.
+(pdftex.def)             Requested size: 222.00226pt x 97.48424pt.
+
+<Figures/Raster_3.png, id=169, 1216.545pt x 235.88126pt>
+File: Figures/Raster_3.png Graphic file (type png)
+
+<use Figures/Raster_3.png>
+Package pdftex.def Info: Figures/Raster_3.png used on input line 229.
+(pdftex.def)             Requested size: 332.99774pt x 64.5634pt.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+[5 <./Figures/Raster_1.png> <./Figures/Raster_2.png>]
+<Figures/Raster_4.png, id=186, 1213.53375pt x 239.89626pt>
+File: Figures/Raster_4.png Graphic file (type png)
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+<use Figures/Raster_4.png>
+Package pdftex.def Info: Figures/Raster_4.png used on input line 238.
+(pdftex.def)             Requested size: 332.99774pt x 65.82707pt.
 
+Overfull \hbox (1.44969pt too wide) in paragraph at lines 242--243
+[]\T1/pplj/m/n/10 Die fi-na-le Über-prü-fung der po-ten-ti-el-len Recht-ecke, m
+uss al-so vom Master-Prozess
+ []
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+<Figures/Raster_5.png, id=187, 856.19875pt x 305.14pt>
+File: Figures/Raster_5.png Graphic file (type png)
 
+<use Figures/Raster_5.png>
+Package pdftex.def Info: Figures/Raster_5.png used on input line 246.
+(pdftex.def)             Requested size: 258.99887pt x 92.30164pt.
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+<Figures/Diag_3f.jpg, id=188, 3899.56876pt x 4644.35126pt>
+File: Figures/Diag_3f.jpg Graphic file (type jpg)
 
+<use Figures/Diag_3f.jpg>
+Package pdftex.def Info: Figures/Diag_3f.jpg used on input line 255.
+(pdftex.def)             Requested size: 370.0pt x 440.65103pt.
 
-Package xcolor Warning: Incompatible color definition on input line 193.
-
-
-Package xcolor Warning: Incompatible color definition on input line 193.
-
-
-Package xcolor Warning: Incompatible color definition on input line 193.
-
-
-Package xcolor Warning: Incompatible color definition on input line 193.
-
-<Figures/Diag_3.png, id=152, 3144.74875pt x 3034.33624pt>
-File: Figures/Diag_3.png Graphic file (type png)
-
-<use Figures/Diag_3.png>
-Package pdftex.def Info: Figures/Diag_3.png used on input line 205.
-(pdftex.def)             Requested size: 351.49887pt x 339.14883pt.
-
-Underfull \hbox (badness 1521) in paragraph at lines 206--206
+Underfull \hbox (badness 1521) in paragraph at lines 256--256
 [][]|\T1/pplj/m/n/9 Ab-lauf des Cluster-Prozesses von \T1/pplj/m/it/9 pix-Check
 -Tan-gle.c \T1/pplj/m/n/9 dar-ge-stellt als BPMN-
  []
 
-[4 <./Figures/Diag_3.png>] [5] [6]
-<Figures/GalleriaStampe.jpg, id=188, 414.348pt x 409.53pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./Figures/Raster_3.png> <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
+[7 <./Figures/Diag_3f.jpg>] [8] [9]
+<Figures/GalleriaStampe.jpg, id=225, 414.348pt x 409.53pt>
 File: Figures/GalleriaStampe.jpg Graphic file (type jpg)
 
 <use Figures/GalleriaStampe.jpg>
-Package pdftex.def Info: Figures/GalleriaStampe.jpg used on input line 306.
+Package pdftex.def Info: Figures/GalleriaStampe.jpg used on input line 356.
 (pdftex.def)             Requested size: 185.0pt x 182.84953pt.
- [7 <./Figures/GalleriaStampe.jpg>]
 LaTeX Font Info:    Font shape `T1/iwona/bx/it' in size <10> not available
-(Font)              Font shape `T1/iwona/b/it' tried instead on input line 319.
+(Font)              Font shape `T1/iwona/b/it' tried instead on input line 369.
 
- [8]
-<Figures/Lorem.jpg, id=214, 240.9pt x 180.675pt>
+ [10 <./Figures/GalleriaStampe.jpg>] [11]
+<Figures/Lorem.jpg, id=244, 240.9pt x 180.675pt>
 File: Figures/Lorem.jpg Graphic file (type jpg)
  <use Figures/Lorem.jpg>
-Package pdftex.def Info: Figures/Lorem.jpg used on input line 369.
+Package pdftex.def Info: Figures/Lorem.jpg used on input line 419.
 (pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <8> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 369.
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 419.
 
-<Figures/Ipsum.jpg, id=215, 240.9pt x 180.675pt>
+<Figures/Ipsum.jpg, id=245, 240.9pt x 180.675pt>
 File: Figures/Ipsum.jpg Graphic file (type jpg)
  <use Figures/Ipsum.jpg>
-Package pdftex.def Info: Figures/Ipsum.jpg used on input line 370.
+Package pdftex.def Info: Figures/Ipsum.jpg used on input line 420.
 (pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
 
-<Figures/Dolor.jpg, id=216, 240.9pt x 180.675pt>
+<Figures/Dolor.jpg, id=246, 240.9pt x 180.675pt>
 File: Figures/Dolor.jpg Graphic file (type jpg)
  <use Figures/Dolor.jpg>
-Package pdftex.def Info: Figures/Dolor.jpg used on input line 371.
+Package pdftex.def Info: Figures/Dolor.jpg used on input line 421.
 (pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
 
-<Figures/Sit.jpg, id=217, 240.9pt x 180.675pt>
+<Figures/Sit.jpg, id=247, 240.9pt x 180.675pt>
 File: Figures/Sit.jpg Graphic file (type jpg)
  <use Figures/Sit.jpg>
-Package pdftex.def Info: Figures/Sit.jpg used on input line 372.
+Package pdftex.def Info: Figures/Sit.jpg used on input line 422.
 (pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
 
 (./MP_Doku.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 389.
- [9] [10 <./Figures/Lorem.jpg> <./Figures/Ipsum.jpg> <./Figures/Dolor.jpg> <./F
-igures/Sit.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 389.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 439.
+ [12 <./Figures/Lorem.jpg> <./Figures/Ipsum.jpg> <./Figures/Dolor.jpg> <./Figur
+es/Sit.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 439.
  (./MP_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 389.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 389.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 439.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 439.
 Package rerunfilecheck Info: File `MP_Doku.out' has not changed.
 (rerunfilecheck)             Checksum: CF31D98FA3F0EF42331FD9100946532E;1543.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 389.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 439.
  ) 
 Here is how much of TeX's memory you used:
- 17243 strings out of 492995
- 297305 string characters out of 6132704
- 624198 words of memory out of 5000000
- 20390 multiletter control sequences out of 15000+600000
+ 17262 strings out of 492995
+ 297804 string characters out of 6132704
+ 620220 words of memory out of 5000000
+ 20400 multiletter control sequences out of 15000+600000
  116883 words of font info for 141 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 61i,23n,86p,8818b,1968s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,23n,86p,8818b,1278s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/
 local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2
 017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/texlive/2017/t
@@ -1585,10 +1464,10 @@ owacki/iwona/iwonabi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/nowack
 i/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino
 /uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplr8a
 .pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MP_Doku.pdf (10 pages, 1299468 bytes).
+Output written on MP_Doku.pdf (12 pages, 3717225 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
- 23249 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 23274 words of extra memory for PDF output out of 24883 (max. 10000000)
 

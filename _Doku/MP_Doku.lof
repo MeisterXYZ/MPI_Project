@@ -1,10 +1,16 @@
 \deactivateaddvspace 
-\contentsline {figure}{\numberline {1}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {gridGenerator.c}}}{3}{figure.caption.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} sequentiell}}{3}{figure.caption.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} Cluster-Prozess}}{4}{figure.caption.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces An example of a floating figure}}{7}{figure.caption.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces A number of pictures.}}{10}{figure.caption.6}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {A city market.}}}{10}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forest landscape.}}}{10}{subfigure.5.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Mountain landscape.}}}{10}{subfigure.5.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {A tile decoration.}}}{10}{subfigure.5.4}
+\contentsline {figure}{\numberline {1}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {gridGenerator.c}}}{4}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} sequentiell}}{4}{figure.caption.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Einordnung \textit {pixCheckTangle.c} sequentiell im Quellcode}}{5}{figure.caption.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{5}{figure.caption.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{5}{figure.caption.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{6}{figure.caption.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{6}{figure.caption.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} Cluster-Prozess}}{7}{figure.caption.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces An example of a floating figure}}{10}{figure.caption.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces A number of pictures.}}{12}{figure.caption.12}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {A city market.}}}{12}{subfigure.11.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forest landscape.}}}{12}{subfigure.11.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Mountain landscape.}}}{12}{subfigure.11.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {A tile decoration.}}}{12}{subfigure.11.4}

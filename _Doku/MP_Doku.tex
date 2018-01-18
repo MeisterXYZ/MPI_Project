@@ -171,38 +171,88 @@ Für den Fall, dass nur ein Prozessor an der Ausführung des Programmes beteilig
 
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.8\columnwidth]{Diag_2} 
+	\includegraphics[width=0.7\columnwidth]{Diag_2f} 
 	\caption[Funktionalität von \textit{pixCheckTangle.c} sequentiell]{Sequentieller Ablauf von \textit{pixCheckTangle.c} dargestellt als BPMN-Diagramm }
 	
 \end{figure}
 
-Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktionalität findet sich in den folgenden Zeilen im Quellcode:
+Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktionalität findet sich dabei in dem Codeabschnitt, welcher ausgeführt wird,   wenn der ausführende Prozess den Rang 0 hat und es nur einen Prozess gibt.
 
-\begin{lstlisting}
-		//Start of the actual algorithm
-		printf("\nStarting the Algorithm. \n");
-		//Start time measurement
-		startTime = MPI_Wtime();
-		if (noOfProcs==1){//run the sequential porcess
-				printf("...as sequential single process\n");
-				processSubgrid(&grid[0],gridSize,gridSize,0,0);
-				printGrid(&grid[0],gridSize);
-				endTime = MPI_Wtime();
-				printf("%f\n",endTime-startTime);
-				writeTimeToFile(endTime - startTime, 0,0);
-		} else { //run the cluster process ... }
-\end{lstlisting}
+
+\begin{figure}[h]
+	\centering 
+
+	\begin{lstlisting}
+	MPI_Comm_size(MPI_COMM_WORLD, &noOfProcs);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	...
+	if(rank == 0){
+			if (noOfProcs==1){
+					//run the sequential porcess
+			} else {...}
+	} 
+	
+	\end{lstlisting}
+	\caption[Einordnung \textit{pixCheckTangle.c} sequentiell im Quellcode]{Einordnung des sequentiellen Ablaufs von \textit{pixCheckTangle.c} im Quellcode}
+	
+\end{figure}
+
 
 Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
 
 
 \subsection{pixCheckTangle: Beschreibung des Cluster-Algorithmus}
 
-Für den Fall, dass mehrere Prozessoren an der Ausführung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt. Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. Wie dabei Arbeits-Aufteilung und Kommunikation zwischen den Prozessen verläuft sei im Folgenden als BPMN-Daigramm dargestellt.
+Für den Fall, dass mehrere Prozessoren an der Abarbeitung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt.\\
+Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. \\
+Das Raster wird dann in vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
+
+Beispielsweise wird das folgende Raster betrachtet. Das Zeichen \textit{\#} repräsentiert dabei ein schwarzes Feld, weiße Felder werden durch Leerzeichen dargestellt.
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.25\columnwidth]{Raster_1} 
+	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+\end{figure}
+
+Für den Fall, das an der Abarbeitung des Programmes 4 Prozesse beteiligt sind, wird das Raster vom Master-Prozess in drei Teil-Raster geteilt. Die jeweiligen Teile werden dann den Worker-Prozessen zugewiesen und von diesen abgearbeitet.
 
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.95\columnwidth]{Diag_3} 
+	\includegraphics[width=0.6\columnwidth]{Raster_2} 
+	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+\end{figure}
+
+Die Worker-Prozesse können nun feststellen, ob es sich bei einzelnen/zusammenhängenden Pixeln (im Folgenden als Figur bezeichnet) um Rechtecke handelt oder nicht. In der Folgenden Grafik, werden Figuren, die kein Rechteck darstellen mit einem \textit{X} dargestellt.
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\columnwidth]{Raster_3} 
+	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+\end{figure}
+
+Wenn ein Rechteck in einem Teil-Raster zu einem Rand der Teil-Rasters reicht und an diesem Rand im gesamten Raster ein weiteres Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Verarbeiten des Teil-Rasters keine Aussage darüber möglich, ob es sich um ein tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Folgenden als potentielle Rechtecke) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
+Das Ergebnis der Abarbeitung der Teil-Raster in den Worker-Prozessen sieht also wie folgt aus:
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\columnwidth]{Raster_4} 
+	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+\end{figure}
+
+Die finale Überprüfung der potentiellen Rechtecke, muss also vom Master-Prozess übernommen werden.
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Raster_5} 
+	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+\end{figure}
+
+
+Wie dabei Arbeits-Aufteilung und Kommunikation zwischen den Prozessen verläuft sei im Folgenden als BPMN-Daigramm dargestellt.
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\columnwidth]{Diag_3f} 
 	\caption[Funktionalität von \textit{pixCheckTangle.c} Cluster-Prozess]{Ablauf des Cluster-Prozesses von \textit{pixCheckTangle.c} dargestellt als BPMN-Diagramm }
 	
 \end{figure}
