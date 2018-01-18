@@ -2,7 +2,7 @@
 \BOOKMARK [1][-]{section.2}{2 Beschreibung der Implementierung}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{2.1 gridGenerator: Generieren der Files}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{2.2 pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{2.3 pixCheckTangle: Beschreibung des parallelen Algorithmus}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{2.3 pixCheckTangle: Beschreibung des Cluster-Algorithmus}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{2.4 pixCheckTangle: Abarbeiten eines Teil-Rasters}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{2.5 pixCheckTangle: Festlegen potentieller Rechtecke}{section.2}% 7
 \BOOKMARK [1][-]{section.3}{3 Messungen}{}% 8

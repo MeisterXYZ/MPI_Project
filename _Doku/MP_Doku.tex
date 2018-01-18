@@ -41,7 +41,7 @@ BCOR5mm, % Binding correction
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
-	language=sh,
+	language=C,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
@@ -115,7 +115,6 @@ BCOR5mm, % Binding correction
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
-
 \section{Problembeschreibung}
 
 Gegeben ist ein quadratisches Raster von n x n Feldern. Jedes der Felder kann schwarz oder weiß gefärbt sein. 
@@ -129,7 +128,6 @@ Es ist ein Algorithmus zu implementieren, welcher
 
 Dabei soll der Algorithmus für die Ausführung auf dem Cluster-System implementiert werden.\\
 Anschließend soll mittels Laufzeitmessungen die Effizienz der Parallelisierung betrachtet werden. Dafür ist es erforderlich den Algorithmus als sequentiellen Algorithmus ausführen zu können.
-\pagebreak
 
 \section{Beschreibung der Implementierung}
 
@@ -144,36 +142,71 @@ In den Folgenden Abschnitten wird die Funktionalität der Programme beschrieben.
 
 \subsection{gridGenerator: Generieren der Files}
 
-Das Programm \textit{gridGenerator.c} wird per mpirun-Befehl über die Konsole aufgerufen.
+Das Programm \textit{gridGenerator.c} wird per mpirun-Befehl über die Konsole aufgerufen.\\
 
 \begin{lstlisting}
 mpirun gridGenerator.c [gridfile.txt]
 \end{lstlisting}
 
-
-DRT: File kannste angeben, dann bearbeiten, sonst neues file. Im Folgenden als NSD:
+Wird dabei eine zuvor durch den gridGenerator erzeugte .txt-Datei als Parameter angegeben, kann diese Datei bearbeitet werden. Andernfalls wird eine neue Datei erstellt. Der Programm-Ablauf ist im Folgenden als Nassi-Shneiderman-Diagramm dargestellt.\\
+\\Der Vollstädige Code ist im Anhang ab Seite (DRT oder Verweis angeben)... gelistet. 
+\pagebreak
 
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.8\columnwidth]{Diag_1} 
-	\caption[Funktionalität von \textit{gridGenerator.c} dargestellt als Nassi-Shneiderman-Diagramm]{Funktionalität von \textit{gridGenerator.c} dargestellt als Nassi-Shneiderman-Diagramm}
-	\label{fig:gallery} 
+	\includegraphics[width=0.9\columnwidth]{Diag_1} 
+	\caption[Funktionalität von \textit{gridGenerator.c}]{Funktionalität von \textit{gridGenerator.c} dargestellt als Nassi-Shneiderman-Diagramm}
 \end{figure}
 
-DRT: Vollstädiger Code im Anhang ab...
 
 \subsection{pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}
 
-DRT: Im folgenden als BPMN-Daigramm:
+Das Programm \textit{pixCheckTangle.c} wird per mpirun-Befehl über die Konsole aufgerufen. Dabei ist als dem Aufruf eine Raster-Textdatei als Argument zu übergeben. Die übergebene Datei wird dann auf Rechtecke überprüft.\\
+
+\begin{lstlisting}
+mpirun pixCheckTangle.c gridfile.txt
+\end{lstlisting}
+
+Für den Fall, dass nur ein Prozessor an der Ausführung des Programmes beteiligt ist, wird die sequentielle Variante des Algorithmus ausgeführt. Diese ist im Folgenden als BPMN-Daigramm dargestellt.
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.8\columnwidth]{Diag_2} 
+	\caption[Funktionalität von \textit{pixCheckTangle.c} sequentiell]{Sequentieller Ablauf von \textit{pixCheckTangle.c} dargestellt als BPMN-Diagramm }
+	
+\end{figure}
+
+Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktionalität findet sich in den folgenden Zeilen im Quellcode:
+
+\begin{lstlisting}
+		//Start of the actual algorithm
+		printf("\nStarting the Algorithm. \n");
+		//Start time measurement
+		startTime = MPI_Wtime();
+		if (noOfProcs==1){//run the sequential porcess
+				printf("...as sequential single process\n");
+				processSubgrid(&grid[0],gridSize,gridSize,0,0);
+				printGrid(&grid[0],gridSize);
+				endTime = MPI_Wtime();
+				printf("%f\n",endTime-startTime);
+				writeTimeToFile(endTime - startTime, 0,0);
+		} else { //run the cluster process ... }
+\end{lstlisting}
+
+Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
 
 
+\subsection{pixCheckTangle: Beschreibung des Cluster-Algorithmus}
 
-- Darstellung BPMN
-- Kurz im Text: Das und das in Zeile soundso
+Für den Fall, dass mehrere Prozessoren an der Ausführung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt. Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. Wie dabei Arbeits-Aufteilung und Kommunikation zwischen den Prozessen verläuft sei im Folgenden als BPMN-Daigramm dargestellt.
 
-\subsection{pixCheckTangle: Beschreibung des parallelen Algorithmus}
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.95\columnwidth]{Diag_3} 
+	\caption[Funktionalität von \textit{pixCheckTangle.c} Cluster-Prozess]{Ablauf des Cluster-Prozesses von \textit{pixCheckTangle.c} dargestellt als BPMN-Diagramm }
+	
+\end{figure}
 
-- Darstellung BPMN
 - Kurz im Text: Das und das in Zeile soundso
 
 \subsection{pixCheckTangle: Abarbeiten eines Teil-Rasters}

@@ -56,45 +56,6 @@ void printGrid(char *gridPointer,int gridSize){
 	}
 }
 
-void printSmallGrid(char *gridPointer,int gridLines, int gridColumns){
-	if (gridLines <= 100){
-    	int i,k;
-    	//print columns-header
-    	printf("   | ");
-    	for (i = 0; i < gridColumns; i++){
-    		printf("%-2d",i+1);
-    	}
-    	printf("\n---|-");
-    	for (i = 0; i < gridColumns; i++){
-    		printf("--");
-    	}
-    	printf("\n");
-    	//print the lines
-    	for (i = 0; i < gridLines; i++){
-    		for (k = 0; k < gridColumns; k++){
-    			//print line index
-    			if (k == 0){
-    				printf("%-3d| ",i+1);
-    			}
-    			//print pixels
-    			switch (gridPointer[i*gridColumns + k]) {
-    				case 1:{
-    					printf("# ");
-    					break;
-    				}
-    				default: {
-    					printf("%d ",gridPointer[i*gridColumns + k]);
-    					break;
-    				}
-    			}	
-    		}
-    		printf("\n");
-    	}
-	}else{
-	    printf("grid to large to display.\n");
-	}
-}
-
 void printCharArray(char *arr, int size){
     int i;
     for (i = 0; i < size; i++){
@@ -444,9 +405,8 @@ int main(int argc, char** argv) {
         if (argv[1]){
             FILE *file;
             file = fopen(argv[1], "r");
-            if (file) {
-                //import the grid to a char array
-                {
+            if (file) {    
+                {//import the grid to a char array
                     printf("Scanning the text-file... \n");
                     //getting the grid-size:                
                     //lengthGot is a bool for not having to read the complete file for getting the grid length
@@ -480,16 +440,13 @@ int main(int argc, char** argv) {
                     //Output for overview:
                     printf("Loading the Grid completed.\nTHIS IS THE GRID:\n");
                     printGrid(&grid[0],gridSize);
-                }
-
-                //processing the grid
-                {
-                    //Start actual algorithm
+                }                
+                {//processing the grid
+                    //Start of the actual algorithm
                     printf("\nStarting the Algorithm. \n");
                     //Start time measurement
                     startTime = MPI_Wtime();
-                    if (noOfProcs==1){
-                        //The single Porcess
+                    if (noOfProcs==1){//run the sequential porcess
                         printf("...as sequential single process\n");
                         processSubgrid(&grid[0],gridSize,gridSize,0,0);
                         printGrid(&grid[0],gridSize);
@@ -497,10 +454,9 @@ int main(int argc, char** argv) {
                         printf("%f\n",endTime-startTime);
                         writeTimeToFile(endTime - startTime, 0,0);
 
-                    } else { 
-                        //The Cluster Process
+                    } else { //run the cluster process
                         printf("...with a root process and %d subprocesses\n",noOfProcs-1);
-                        
+
                         //calculation how to split up array for task allocation:
                         div_t gridSegmentSize;
                         int workingProcesses;
@@ -543,8 +499,6 @@ int main(int argc, char** argv) {
                                     ignoreTimeEnd = MPI_Wtime();
                                     ignore += ignoreTimeEnd - ignoreTimeStart;
                                 }
-                                //printf("wanna send\n");
-                                //printSmallGrid(&grid[(reciever-1)*gridSize*gridSegmentSize.quot],subgridLines,gridSize);
                                 ignoreTimeStart = MPI_Wtime();
                                 MPI_Send(&grid[(reciever-1)*gridSize*gridSegmentSize.quot], subgridLines*gridSize, MPI_BYTE, reciever, 0, MPI_COMM_WORLD);
                                 ignoreTimeEnd = MPI_Wtime();
@@ -613,10 +567,8 @@ int main(int argc, char** argv) {
                         printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
                         writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
                     }
-                }
-                
-            } else{
-                //handle "could not open file" 
+                }                
+            } else{ //handle "could not open file" 
                 printf("could not open the data-file %s.\n",argv[1]);
                 //cancel other processes
                 gridSize = 0;
@@ -624,8 +576,7 @@ int main(int argc, char** argv) {
                     MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
                 }
             }
-        }else{
-            //handle missing argument
+        }else{ //handle missing argument
             printf("please run the rectangleChecker with a data-file as parameter.\n");
             //cancel other processes
             gridSize = 0;
@@ -633,10 +584,7 @@ int main(int argc, char** argv) {
                 MPI_Send(&gridSize,1,MPI_INT,reciever,0,MPI_COMM_WORLD); 
             }
         }
-	} else { 
-	
-	
-        //The sub-processes in the cluster-process
+	} else { //The worker-processes in the cluster process
         //get grid Size
         int subgridLines, subgridColumns;
         MPI_Recv(&subgridColumns,1,MPI_INT,0,0,MPI_COMM_WORLD,&status);
@@ -683,3 +631,4 @@ int main(int argc, char** argv) {
     }
 	MPI_Finalize();
 }
+
