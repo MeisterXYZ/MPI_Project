@@ -339,16 +339,66 @@ Die Implementierung der Funktion folgt danach dem folgenden, als Pseudo-Code dar
 \end{algorithm}\
 \\
 Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{processSubgrid}.
-- Kurz im Text: Das und das in Zeile soundso
+
 \subsection{pixCheckTangle: Funktion für das Festlegen potentieller Rechtecke}
 
-- Beschreiben der Überlegungen
-- Darstellung als Algorithmus
+Überlegung: Zu prüfen: die zwei zeilen am bruch
+dann von unten von oben 
+
+
+- Darstellung als Algorithmus im folhenden, dabei Info ob oben o untn in par IstObererZeile
+
+\begin{algorithm}[H]
+	
+	\KwData{$Raster$,$zuPruefendeZeile$ $IstObererZeile$}
+	\KwResult{RasterVerarbeitet }
+	\For{Jedes schwarze Feld in $zuPruefendeZeile$ mit Markierung = potentielles-Rechteck-Feld}{
+		$startZeile \leftarrow aktuelle Zeile;$\\
+		$startSpalte \leftarrow aktuelle Spalte;$\\
+		$endeZeile \leftarrow aktuelle Zeile;$\\
+		$endeSpalte \leftarrow$ Spalte von letzem $Feld$ in $startZeile$, das mit aktuellem $Feld$ zusammenhängt$;$\\
+		\uIf{$IstObererZeile$}{}
+	}
+\end{algorithm}\
+
+Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{checkPotentialRectangle}.
+
 
 \section{Messungen}
 \subsection{Vorgehen beim Messen}
-- Was gemessen wurde 
-- wie
+
+Ohne NWK. Was heißt das?
+Mit:
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Time_1} 
+	\caption[DRT]{DRT }
+	
+\end{figure}
+
+Ohne sieht so aus:
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\columnwidth]{Time_2} 
+	\caption[DRT]{DRT }
+	
+\end{figure}
+
+Also: Bisschen Messen mit 
+
+\begin{lstlisting}
+MPI_Wtimetick?
+\end{lstlisting}
+
+Worker-Prozesse auch messen und nach Zeitmessung und Algo zusammenführen:
+
+\begin{lstlisting}
+MPI_Reduce
+\end{lstlisting}
+
+
 \subsection{Messergebnisse}
 
 \subsection{Interpretation der Messergebnisse}
