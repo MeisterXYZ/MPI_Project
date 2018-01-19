@@ -3,23 +3,23 @@
 \contentsline {subsection}{\numberline {2.1}gridGenerator: Generieren der Files}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}pixCheckTangle: Beschreibung des Cluster-Algorithmus}{5}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}pixCheckTangle: Abarbeiten eines Teil-Rasters}{6}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}pixCheckTangle: Festlegen potentieller Rechtecke}{6}{subsection.2.5}
-\contentsline {section}{\numberline {3}Messungen}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Vorgehen beim Messen}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Messergebnisse}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Interpretation der Messergebnisse}{8}{subsection.3.3}
-\contentsline {section}{\numberline {4}Fazit}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Einsch\IeC {\"a}tzung des Nutzens einer Parallelisierung}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\IeC {\"o}gliche Optimierungen}{8}{subsection.4.2}
-\contentsline {section}{\numberline {5}bla}{8}{section.5}
-\contentsline {section}{\numberline {6}Methods}{8}{section.6}
-\contentsline {subsection}{\numberline {6.1}Paragraphs}{9}{subsection.6.1}
-\contentsline {paragraph}{Paragraph Description}{9}{subsection.6.1}
-\contentsline {paragraph}{Different Paragraph Description}{9}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Math}{9}{subsection.6.2}
-\contentsline {section}{\numberline {7}Results and Discussion}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}Subsection}{10}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Subsubsection}{10}{subsubsection.7.1.1}
-\contentsline {subsubsection}{\numberline {7.1.2}Table}{11}{subsubsection.7.1.2}
-\contentsline {subsection}{\numberline {7.2}Figure Composed of Subfigures}{11}{subsection.7.2}
+\contentsline {subsection}{\numberline {2.4}pixCheckTangle: Funktion f\IeC {\"u}r das Abarbeiten eines (Teil-)Rasters}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}pixCheckTangle: Funktion f\IeC {\"u}r das Festlegen potentieller Rechtecke}{8}{subsection.2.5}
+\contentsline {section}{\numberline {3}Messungen}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vorgehen beim Messen}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Messergebnisse}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Interpretation der Messergebnisse}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Fazit}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Einsch\IeC {\"a}tzung des Nutzens einer Parallelisierung}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\IeC {\"o}gliche Optimierungen}{9}{subsection.4.2}
+\contentsline {section}{\numberline {5}bla}{9}{section.5}
+\contentsline {section}{\numberline {6}Methods}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}Paragraphs}{10}{subsection.6.1}
+\contentsline {paragraph}{Paragraph Description}{10}{subsection.6.1}
+\contentsline {paragraph}{Different Paragraph Description}{10}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Math}{10}{subsection.6.2}
+\contentsline {section}{\numberline {7}Results and Discussion}{11}{section.7}
+\contentsline {subsection}{\numberline {7.1}Subsection}{11}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Subsubsection}{11}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}Table}{12}{subsubsection.7.1.2}
+\contentsline {subsection}{\numberline {7.2}Figure Composed of Subfigures}{12}{subsection.7.2}

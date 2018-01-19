@@ -61,6 +61,15 @@ BCOR5mm, % Binding correction
 
 \usepackage{german}
 
+%usepackage[utf8]{inputenc}
+%\usepackage{geometry}
+\usepackage[german,onelanguage,linesnumbered, ruled]{algorithm2e}
+\SetAlFnt{\small}
+\SetAlCapFnt{\large}
+\SetAlCapNameFnt{\large}
+%\usepackage{algpseudocode}
+
+
 \input{structure.tex} % Include the structure.tex file which specified the document structure and layout
 
 \hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
@@ -171,31 +180,26 @@ Für den Fall, dass nur ein Prozessor an der Ausführung des Programmes beteilig
 
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=0.7\columnwidth]{Diag_2f} 
+	\includegraphics[width=0.8\columnwidth]{Diag_2f} 
 	\caption[Funktionalität von \textit{pixCheckTangle.c} sequentiell]{Sequentieller Ablauf von \textit{pixCheckTangle.c} dargestellt als BPMN-Diagramm }
 	
 \end{figure}
 
 Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktionalität findet sich dabei in dem Codeabschnitt, welcher ausgeführt wird,   wenn der ausführende Prozess den Rang 0 hat und es nur einen Prozess gibt.
-
-
-\begin{figure}[h]
-	\centering 
-
-	\begin{lstlisting}
-	MPI_Comm_size(MPI_COMM_WORLD, &noOfProcs);
-	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	...
-	if(rank == 0){
-			if (noOfProcs==1){
-					//run the sequential porcess
-			} else {...}
-	} 
-	
-	\end{lstlisting}
-	\caption[Einordnung \textit{pixCheckTangle.c} sequentiell im Quellcode]{Einordnung des sequentiellen Ablaufs von \textit{pixCheckTangle.c} im Quellcode}
-	
-\end{figure}
+%
+%
+%\begin{figure}[h]
+%	\centering 
+%
+%	\begin{lstlisting}
+%	if(rank == 0){
+%			if (noOfProcs==1){
+%					//run the sequential porcess
+%			} ...
+%	\end{lstlisting}
+%	\caption[Einordnung \textit{pixCheckTangle.c} sequentiell im Quellcode]{Einordnung des sequentiellen Ablaufs von \textit{pixCheckTangle.c} im Quellcode}
+%	
+%\end{figure}
 
 
 Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
@@ -206,6 +210,8 @@ Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher besc
 Für den Fall, dass mehrere Prozessoren an der Abarbeitung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt.\\
 Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. \\
 Das Raster wird dann in vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
+
+\textbf{Beispiel für Verarbeitung durch Cluster-Prozess}
 
 Beispielsweise wird das folgende Raster betrachtet. Das Zeichen \textit{\#} repräsentiert dabei ein schwarzes Feld, weiße Felder werden durch Leerzeichen dargestellt.
 \begin{figure}[h]
@@ -219,27 +225,27 @@ Für den Fall, das an der Abarbeitung des Programmes 4 Prozesse beteiligt sind, 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.6\columnwidth]{Raster_2} 
-	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+	\caption[Cluster-Prozess: Aufteilung Beispiel-Raster mit 4 Prozessen]{Aufteilung des Beispiel-Rasters bei 4 Prozessen}
 \end{figure}
 
-Die Worker-Prozesse können nun feststellen, ob es sich bei einzelnen/zusammenhängenden Pixeln (im Folgenden als Figur bezeichnet) um Rechtecke handelt oder nicht. In der Folgenden Grafik, werden Figuren, die kein Rechteck darstellen mit einem \textit{X} dargestellt.
+Die Worker-Prozesse können nun feststellen, ob es sich bei einzelnen/zusammenhängenden Pixeln (im Folgenden als Figur bezeichnet) um Rechtecke handelt oder nicht. In der Folgenden Grafik, werden Figuren, die kein Rechteck darstellen mit einem \textit{X} dargestellt. Rechtecke werden weiterhin durch das Zeichen \textit{\#} repräsentiert.
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Raster_3} 
-	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+	\caption[Cluster-Prozess: Worker-Prozess: Nicht-Rechteck-Figuren]{Worker-Prozesse identifizieren Nicht-Rechteck-Figuren}
 \end{figure}
 
-Wenn ein Rechteck in einem Teil-Raster zu einem Rand der Teil-Rasters reicht und an diesem Rand im gesamten Raster ein weiteres Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Verarbeiten des Teil-Rasters keine Aussage darüber möglich, ob es sich um ein tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Folgenden als potentielle Rechtecke) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
+Wenn ein Rechteck in einem Teil-Raster zu einem Rand der Teil-Rasters reicht und an diesem Rand im gesamten Raster ein weiteres Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Verarbeiten des Teil-Rasters keine Aussage darüber möglich, ob es sich um ein tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Weiteren als potentielle Rechtecke) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
 Das Ergebnis der Abarbeitung der Teil-Raster in den Worker-Prozessen sieht also wie folgt aus:
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.9\columnwidth]{Raster_4} 
-	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
+	\caption[Cluster-Prozess: Worker-Prozess: Rechtecke und potentielle Rechtecke]{Worker-Prozesse identifizieren Rechtecke und potentielle Rechtecke}
 \end{figure}
 
-Die finale Überprüfung der potentiellen Rechtecke, muss also vom Master-Prozess übernommen werden.
+Nach dem Verarbeiten der Teil-Raster durch die Worker-Prozesse, muss die finale Überprüfung der potentiellen Rechtecke vom Master-Prozess übernommen werden.
 
 \begin{figure}[h]
 	\centering 
@@ -247,8 +253,16 @@ Die finale Überprüfung der potentiellen Rechtecke, muss also vom Master-Prozes
 	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
 \end{figure}
 
+Damit liegt dem Master-Prozess nun das vollständig überprüfte Raster vor. Die Einzelnen Rechtecke können nun dem Benutzer ausgegeben werden.\\
 
-Wie dabei Arbeits-Aufteilung und Kommunikation zwischen den Prozessen verläuft sei im Folgenden als BPMN-Daigramm dargestellt.
+\textbf{Kommunikation und Ablauf im Cluster-Prozess }\\
+Wie dabei Arbeits-Aufteilung und die Kommunikation zwischen den Prozessen verläuft, sei im Folgenden als BPMN-Diagramm dargestellt.\\
+
+Der vollständige Code findet sich im Anhang. Die wesentlichen Funktionalitäten für den Master-Prozess finden sich dabei in dem Codeabschnitt, welcher ausgeführt wird, wenn der ausführende Prozess den Rang 0 hat und es mehr als einen Prozess gibt. Der Code für die Worker-Prozesse findet sich im Abschnitt, der ausgeführt wird, wenn der Rang des Prozesses nicht 0 ist.\\
+
+Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
+
+\pagebreak
 
 \begin{figure}[h]
 	\centering 
@@ -257,15 +271,76 @@ Wie dabei Arbeits-Aufteilung und Kommunikation zwischen den Prozessen verläuft 
 	
 \end{figure}
 
+
+
+\subsection{pixCheckTangle: Funktion für das Abarbeiten eines (Teil-)Rasters}
+
+Im Wesentlichen folgt das Vorgehen für die Unterscheidung zwischen Rechtecken und Nicht-Rechteck-Figuren dem folgenden Prinzip:
+
+\begin{enumerate}[noitemsep]
+	\item Erkenne Spalten-Reichweite der betrachteten Figur anhand der erster Zeile
+	\item Ist In Zeile über der Figur innerhalb der Spalten-Reichweite ein Feld schwarz, ist die Figur kein Rechteck
+	\item Enthält eine Zeile unterhalb der ersten innerhalb der Spalten-Reichweite der Figur schwarze und weiße Felder, ist die Figur kein Rechteck
+	\item Grenzt an eine schwarze Zeile der Figur (von Spalten-Reichweite eingegrenzt) ein schwarzes Feld, ist die Figur kein Rechteck
+\end{enumerate}
+Zusätzlich ist dabei zu berücksichtigen, ob es sich bei einem erkannten Rechteck, wie weiter oben beschrieben, nur um ein potentielles Rechteck ist.\\
+Die Implementierung der Funktion folgt danach dem folgenden, als Pseudo-Code dargestellten Algorithmus:\\
+
+\begin{algorithm}[H]
+
+	\KwData{$Raster$, $InfoUeberAngenzedeTeilraster$}
+	\KwResult{RasterVerarbeitet }
+	\ForEach{$Feld$ in $Raster$ zeilenweise gelesen}{
+		\If{$Feld$ ist Schwarz und nicht markiert}{
+			$FigurIstRechteck \leftarrow wahr;$\\ 
+			$startZeile \leftarrow aktuelle Zeile;$\\
+			$startSpalte \leftarrow aktuelle Spalte;$\\
+			$endeZeile \leftarrow aktuelle Zeile;$\\
+			$endeSpalte \leftarrow$ Spalte von letzem $Feld$ in $startZeile$, das mit aktuellem $Feld$ zusammenhängt$;$\\
+			\uIf{In Zeile über $startZeile$ im Bereich von $startSpalte$ bis $endeSpalte$ ist ein schwarzes Feld}{
+				$FigurIstRechteck \leftarrow falsch;$\\
+			}
+			\Else{
+				$RechteckGeprueft \leftarrow falsch;$\\
+				\While{(nicht $FigurIstRechteck )$ und (nicht $RechteckGeprueft$)}{
+					
+					
+					\uIf{Zeile unter $endeZeile$ enthält schwarze und weiße Felder}{
+						$FigurIstRechteck \leftarrow falsch;$\\
+				     }
+				    \Else {
+				    	\uIf{Zeile unter $endeZeile$ enthält nur schwarze Felder}{
+				    		\uIf{In Zeile unter $endeZeile$ ist feld links von $startSpalte$ oder/und rechts $endeSpalte$ von schwarz}{
+				    			$FigurIstRechteck \leftarrow falsch;$\\
+				    		}
+				    		\Else{
+				    			$endeZeile \leftarrow endeZeile +1;$\\
+				    		}
+				    	}
+				    	\Else{
+				    		$RechteckGeprueft \leftarrow wahr;$\\
+				    	}
+				    }
+				}
+			}
+		\uIf{$FigurIstRechteck$}{
+			\uIf{$Figur$ liegt an Raster-Rand, der an weiterem Teil-Raster angrenzt}{
+				Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$endeZeile$,$startSpalte$ und $endeSpalte$ aufgespannt wird als potentielles Rechteck-Feld;
+			}
+			\Else{
+				Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$endeZeile$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Rechteck-Feld;
+			}
+		}
+		\Else{
+			Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$endeZeile$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Nicht-Rechteck-Feld;
+		}
+		}
+	}	
+\end{algorithm}\
+\\
+Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{processSubgrid}.
 - Kurz im Text: Das und das in Zeile soundso
-
-\subsection{pixCheckTangle: Abarbeiten eines Teil-Rasters}
-
-- Beschreiben der Überlegungen
-- Darstellung als Algorithmus
-- Kurz im Text: Das und das in Zeile soundso
-
-\subsection{pixCheckTangle: Festlegen potentieller Rechtecke}
+\subsection{pixCheckTangle: Funktion für das Festlegen potentieller Rechtecke}
 
 - Beschreiben der Überlegungen
 - Darstellung als Algorithmus

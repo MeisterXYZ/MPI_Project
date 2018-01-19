@@ -3,8 +3,8 @@
 \BOOKMARK [2][-]{subsection.2.1}{2.1 gridGenerator: Generieren der Files}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{2.2 pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{2.3 pixCheckTangle: Beschreibung des Cluster-Algorithmus}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{2.4 pixCheckTangle: Abarbeiten eines Teil-Rasters}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{2.5 pixCheckTangle: Festlegen potentieller Rechtecke}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.4}{2.4 pixCheckTangle: Funktion f\374r das Abarbeiten eines \(Teil-\)Rasters}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{2.5 pixCheckTangle: Funktion f\374r das Festlegen potentieller Rechtecke}{section.2}% 7
 \BOOKMARK [1][-]{section.3}{3 Messungen}{}% 8
 \BOOKMARK [2][-]{subsection.3.1}{3.1 Vorgehen beim Messen}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.2}{3.2 Messergebnisse}{section.3}% 10
