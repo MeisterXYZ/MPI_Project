@@ -335,6 +335,20 @@ void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int n
     }
 }
 
+void nUcheckPotentialRectangle(char *gridPointer, int gridColumns, int line, int BreakLineInterval, int isUpperLine){
+//go prom px to px in iine
+//if px = 4 -> check the figure
+    //check legth first line
+    //if !IsUpperLine { if some pixel in upper line =1 -> no rect}
+    //check vertical range
+    //calculate the required comparisations
+    //none -> OK
+    //some -> compare from line to line
+        //if fail: set to 2 all pixel until violation
+        //if ok: set all to 3
+    //
+}
+
 void outputRectangleList(char *gridPointer,int gridSize){
     int k,i,rectangleCounter;
     int recEndline, recEndcolumn;
