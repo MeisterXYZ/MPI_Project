@@ -288,7 +288,7 @@ Die Implementierung der Funktion folgt danach dem folgenden, als Pseudo-Code dar
 
 \begin{algorithm}[H]
 
-	\KwData{$Raster$, $InfoUeberAngenzedeTeilraster$}
+	\KwData{$Raster$, $InfoZuAngenzedeTeilraster$}
 	\KwResult{RasterVerarbeitet }
 	\ForEach{$Feld$ in $Raster$ zeilenweise gelesen}{
 		\If{$Feld$ ist Schwarz und nicht markiert}{
@@ -342,22 +342,50 @@ Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixC
 
 \subsection{pixCheckTangle: Funktion für das Festlegen potentieller Rechtecke}
 
-Überlegung: Zu prüfen: die zwei zeilen am bruch
-dann von unten von oben 
-
-
-- Darstellung als Algorithmus im folhenden, dabei Info ob oben o untn in par IstObererZeile
+Für die Funktion zum Überprüfen der potentiellen Rechtecke, sobald die Worker-Prozesse die Teil-Raster abgearbeitet haben, wird die im Folgenden per Pseudo-Code beschriebene Vorgehensweise angewandt. Die Kernidee ist dabei nur noch Stichprobenartige Prüfungen zu machen, anstatt die Schritte aus dem oben aufgezeigte Prozess zu wiederholen. 
 
 \begin{algorithm}[H]
 	
-	\KwData{$Raster$,$zuPruefendeZeile$ $IstObererZeile$}
+	\KwData{$Raster$,$zuPruefendeZeile$ $InfoZuRasterumbrueche$}
 	\KwResult{RasterVerarbeitet }
 	\For{Jedes schwarze Feld in $zuPruefendeZeile$ mit Markierung = potentielles-Rechteck-Feld}{
 		$startZeile \leftarrow aktuelle Zeile;$\\
 		$startSpalte \leftarrow aktuelle Spalte;$\\
 		$endeZeile \leftarrow aktuelle Zeile;$\\
 		$endeSpalte \leftarrow$ Spalte von letzem $Feld$ in $startZeile$, das mit aktuellem $Feld$ zusammenhängt$;$\\
-		\uIf{$IstObererZeile$}{}
+		\uIf{$zuPruefendeZeile$ ist Zeile oberhalb von Umbruch}{
+			\uIf{In Zeile oberhalb $startZeile$ ist in Reichweite von $startSpalte$ bis $endeSpalte$ mindestens ein schwarzes Feld} {
+				$zeilenMarker \leftarrow $ MIN(End-Zeile der Figur, Zeile vor folgendem Teil-Raster-Umbruch) $;$\\
+				Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$zeilenMarker$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Nicht-Rechteck-Feld;\\
+				Fahre bei Feld nach der $endeSpalte$ fort.
+			}
+		}
+		\uIf{hinter $zuPruefendeZeile$ folgt min 1 Teil-Raster-Umbruch}{
+			\While{Ein Teilraster-Bruch folgt}{
+				\uIf{Figur setzt unter Teilraster-Bruch fort}{
+					\uIf{In erster Zeile nach Teilraster-Bruch ist die Laenge der Figur ungleich nicht mit der bisherigen Spalten-Reichweite}{
+					$FigurIstRechteck \leftarrow falsch;$\\
+					}
+				}
+			}
+			$startZeile \leftarrow $ Anfang der Figur$;$\\
+			\uIf{$FigurIstRechteck$}{
+				$zeilenMarker \leftarrow $ Ende der Figur$;$\\
+				Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$zeilenMarker$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Rechteck-Feld;\\
+				Fahre bei Feld nach der $endeSpalte$ fort.
+			}
+			\Else {
+				$zeilenMarker \leftarrow $Letzte Zeile in der Rechteck-Bedingug fuer Figur erfuellt war$;$\\
+				Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$zeilenMarker$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Nicht-Rechteck-Feld;\\
+				Fahre bei Feld nach der $endeSpalte$ fort.
+			}
+			
+		}
+		\Else{
+			$zeilenMarker \leftarrow $ Ende der Figur$;$\\
+			Markiere alle schwarzen $Felder$ innerhalb der Reichweite, die von $startZeile$,$zeilenMarker$,$startSpalte$ und $endeSpalte$ aufgespannt wird als Rechteck-Feld;\\
+			Fahre bei Feld nach der $endeSpalte$ fort.
+		}
 	}
 \end{algorithm}\
 
@@ -367,44 +395,43 @@ Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixC
 \section{Messungen}
 \subsection{Vorgehen beim Messen}
 
-Ohne NWK. Was heißt das?
-Mit:
+Für die Ermittlung des Speedups sollen Zeitmessungen durchgeführt werden. Da ein großer Anteil der Laufzeit für die Netzwerkkommunikation benötigt wird, soll hier zunächst eine Vorüberlegung angestellt werden, wie die Netzwerk-Kommunikation aus der Ausführungszeit herauszurechnen ist. \\Die Folgende schematische Darstellung zeigt die von den einzelnen Prozessen benötigte Zeit, in einem Cluster-Prozess mit 3 Worker-Prozessen.
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.5\columnwidth]{Time_1} 
-	\caption[DRT]{DRT }
+	\caption[Skizze: Zeitbedarf mit Netzwerkkommunikation]{Skizze: Zeitbedarf mit Netzwerkkommunikation }
 	
 \end{figure}
 
-Ohne sieht so aus:
+Nimmt man hierbei an, dass die Netzwerkkommunikation keine Zeiteinheiten kostet, so erhält man näherungsweise die folgende schematische Darstellung.
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.5\columnwidth]{Time_2} 
-	\caption[DRT]{DRT }
+	\caption[Skizze: Zeitbedarf ohne Netzwerkkommunikation]{Skizze: Zeitbedarf ohne Netzwerkkommunikation}
 	
 \end{figure}
 
-Also: Bisschen Messen mit 
+Daraus geht hervor, dass sich die zu messende Zeit unter Ausschluss der Netzwerkkommunikation näherungsweise aus der von Prozess 0 benötigten aktiven Arbeitszeit und der benötigten Arbeitszeit, des am längsten laufenden Worker-Prozesses zusammensetzt.\\
+Die Zeit-Messungen werden im Code mittels \textbf{MPI\_Wtime()}-Befehl realisiert. Zum ermitteln der maximalen Arbeitszeit aller Worker-Prozesse wird im Anschluss an die eigentliche Programm-Ausführung der \textbf{MPI\_Reduce()}-Befehl genutzt. 
 
-\begin{lstlisting}
-MPI_Wtimetick?
-\end{lstlisting}
-
-Worker-Prozesse auch messen und nach Zeitmessung und Algo zusammenführen:
-
-\begin{lstlisting}
-MPI_Reduce
-\end{lstlisting}
-
+Gemessen werden ...
+Messung erfolgt über Ausführung von .sh-Skripten. Siehe Anhang.
+Messergebnisse werden in Datei geschrieben. Siehe Funktion in im Anhang.
 
 \subsection{Messergebnisse}
+
+
 
 \subsection{Interpretation der Messergebnisse}
 
 \section{Fazit}
+
+
 \subsection{Einschätzung des Nutzens einer Parallelisierung}
+
+
 \subsection{Mögliche Optimierungen}
 
 \section{bla}
