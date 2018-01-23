@@ -202,7 +202,7 @@ Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktio
 %\end{figure}
 
 
-Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
+Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Nach welchem Prinzip die Zeitmessung erfolgen, wird in Kapitel 3.1 beschrieben.
 
 
 \subsection{pixCheckTangle: Beschreibung des Cluster-Algorithmus}
@@ -260,7 +260,7 @@ Wie dabei Arbeits-Aufteilung und die Kommunikation zwischen den Prozessen verlä
 
 Der vollständige Code findet sich im Anhang. Die wesentlichen Funktionalitäten für den Master-Prozess finden sich dabei in dem Codeabschnitt, welcher ausgeführt wird, wenn der ausführende Prozess den Rang 0 hat und es mehr als einen Prozess gibt. Der Code für die Worker-Prozesse findet sich im Abschnitt, der ausgeführt wird, wenn der Rang des Prozesses nicht 0 ist.\\
 
-Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Wie die Funktionalitäten zur Zeitmessung beschaffen sind, wird in Kapitel 3.1 beschrieben.
+Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Nach welchem Prinzip die Zeitmessung erfolgen, wird in Kapitel 3.1 beschrieben.
 
 \pagebreak
 
@@ -302,7 +302,7 @@ Die Implementierung der Funktion folgt danach dem folgenden, als Pseudo-Code dar
 			}
 			\Else{
 				$RechteckGeprueft \leftarrow falsch;$\\
-				\While{(nicht $FigurIstRechteck )$ und (nicht $RechteckGeprueft$)}{
+				\While{ $FigurIstRechteck $ und nicht $RechteckGeprueft$}{
 					
 					
 					\uIf{Zeile unter $endeZeile$ enthält schwarze und weiße Felder}{
@@ -391,7 +391,6 @@ Für die Funktion zum Überprüfen der potentiellen Rechtecke, sobald die Worker
 
 Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{checkPotentialRectangle}.
 
-
 \section{Messungen}
 \subsection{Vorgehen beim Messen}
 
@@ -414,17 +413,34 @@ Nimmt man hierbei an, dass die Netzwerkkommunikation keine Zeiteinheiten kostet,
 \end{figure}
 
 Daraus geht hervor, dass sich die zu messende Zeit unter Ausschluss der Netzwerkkommunikation näherungsweise aus der von Prozess 0 benötigten aktiven Arbeitszeit und der benötigten Arbeitszeit, des am längsten laufenden Worker-Prozesses zusammensetzt.\\
-Die Zeit-Messungen werden im Code mittels \textbf{MPI\_Wtime()}-Befehl realisiert. Zum ermitteln der maximalen Arbeitszeit aller Worker-Prozesse wird im Anschluss an die eigentliche Programm-Ausführung der \textbf{MPI\_Reduce()}-Befehl genutzt. 
+Die Zeit-Messungen werden im Code mittels \textbf{MPI\_Wtime()}-Befehl realisiert. Zum ermitteln der maximalen Arbeitszeit aller Worker-Prozesse wird im Anschluss an die eigentliche Programm-Ausführung der \textbf{MPI\_Reduce()}-Befehl genutzt.\\
+Die Resultate der Zeitmessungen im Code werden mittels der Funktion \textit{writeTimeToFile} in eine Datei geschrieben. 
+Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hilfs-Skripte/Programme verwendet. Diese sind im Anhang einzusehen.\\
+\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+	\item \textit{hostfileGenerator.c}: Generiert eine hostfile-Datei mit n Prozessoren.
+	\item \textit{bsCreateHostfiles.sh}: ruft \textit{hostfileGenerator.c} auf, um mehrere  hostfiles zu erzeugen.
+	\item \textit{bsRunGridTest.sh}: Ruft \textit{pixCheckTangle} per MPI für eine Raster-Datei und mehre Prozesse auf.
+\end{itemize}
 
-Gemessen werden ...
-Messung erfolgt über Ausführung von .sh-Skripten. Siehe Anhang.
-Messergebnisse werden in Datei geschrieben. Siehe Funktion in im Anhang.
+Gemessen werden:
+\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+	\item Laufzeit mit und ohne Netzwerkkommunikation
+	\item Für Raster mit \textit{n=\{100/1000/10000\}} Feldern
+	\item Pro Rastergröße: Messungen mit je \textit{p=\{1,2,..50\}} Prozessen.
+	\item Pro Rastergröße und Prozess-Anzahl: drei verschiedene Probleminstanzen 
+	\subitem - Alle Felder Weiß
+	\subitem - Alle Felder Schwarz
+	\subitem - Schachbrett-Raster
+\end{itemize}
+
+Jede Messung wird drei mal durchgeführt. Als Messwert wird der daraus gebildete Mittelwert betrachtet.
 
 \subsection{Messergebnisse}
 
 
-
 \subsection{Interpretation der Messergebnisse}
+
+
 
 \section{Fazit}
 

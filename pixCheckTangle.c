@@ -204,102 +204,102 @@ void cancelRectangle(char *gridPointer, int gridColumns, int startline ,int star
 }
 
 void checkPotentialRectangle(char *gridPointer, int gridColumns, int line, int lineBreakIntervall, int followingLineBreaks, int isUpperLine ){
-//processes the potential-rectangle-pixels left open by the worker processes
-//parameter followingLineBreaks = Number of line-breaks after the currently handled line
+    //processes the potential-rectangle-pixels left open by the worker processes
+    //parameter followingLineBreaks = Number of line-breaks after the currently handled line
 
-//go prom px to px in line
-int i,k,l;
-int startcolumn, endcolumn,startline,isRectangle,endline;
-for (i=0; i<gridColumns; i++){
-    //if it's a potentail rectangle pixel
-    if(gridPointer[line*gridColumns + i]==4){
-        isRectangle = 1;
-        startcolumn = i;
-        endcolumn = i;
-        endline = line;
-        //get the column-range of the figure 
-        while ((endcolumn+1 < gridColumns)&&(gridPointer[line*gridColumns + endcolumn+1]==4)){
-            endcolumn++;
-        }
-        //If it is the lower line the figure is no rectangle if the upper line contains black pixel
-        if (!isUpperLine){
-            for(k=startcolumn; k <= endcolumn; k++){
-                if(gridPointer[gridColumns*(line-1)+ k]!=0) {
-                    isRectangle = 0;
-                    break;
-                } 
-            } 
-            if (!isRectangle){
-                //find end of figure following the 4-marked pixels in the first figure column 
-                //stop when the following subgrid-line-break is reched
-                while ((endline + 1 < gridColumns)&&(gridPointer[gridColumns*endline + startcolumn]==4)&&!(followingLineBreaks && (endline + 1 < line + lineBreakIntervall))){
-                    endline++;
-                }
-                cancelFigure(gridPointer,gridColumns,line,startcolumn,endline,endcolumn,4,2);
-                //figure is makred as non-rectangle. continue 
-                i = endcolumn;
-                continue;
+    //go prom px to px in line
+    int i,k,l;
+    int startcolumn, endcolumn,startline,isRectangle,endline;
+    for (i=0; i<gridColumns; i++){
+        //if it's a potentail rectangle pixel
+        if(gridPointer[line*gridColumns + i]==4){
+            isRectangle = 1;
+            startcolumn = i;
+            endcolumn = i;
+            endline = line;
+            //get the column-range of the figure 
+            while ((endcolumn+1 < gridColumns)&&(gridPointer[line*gridColumns + endcolumn+1]==4)){
+                endcolumn++;
             }
-        }
-        //calc checkpoints only when there is another line-break
-        if(followingLineBreaks){
-            //get endline of the figure
-            while((endline+1 < gridColumns)&& (gridPointer[(endline+1)*gridColumns + startcolumn]!=0) ){
-                endline++;
-            }
-            //check the conditions for every following sub-grid
-            //start the check in the next subgrid in the upper line
-            int startCheckLine;
-            if (isUpperLine){
-                startCheckLine = line+1;
-            }else{
-                startCheckLine = line+lineBreakIntervall;
-            }
-            for(k = 0; (startCheckLine + k*lineBreakIntervall <= endline)&&(k<followingLineBreaks) ; k++ ){
-                for (l=startcolumn;l <= endcolumn; l++){
-                    if(gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns + l]!=4){
+            //If it is the lower line the figure is no rectangle if the upper line contains black pixel
+            if (!isUpperLine){
+                for(k=startcolumn; k <= endcolumn; k++){
+                    if(gridPointer[gridColumns*(line-1)+ k]!=0) {
                         isRectangle = 0;
                         break;
                     } 
-                }
-                if ( 
-                    ( (startcolumn-1 >= 0)  &&  (gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns + startcolumn -1]!=0))  ||
-                    ( (endcolumn+1 < gridColumns)  &&  (gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns +endcolumn +1]!=0) )
-                    ){
-                        isRectangle = 0;
-                    }
+                } 
                 if (!isRectangle){
-                    break;
+                    //find end of figure following the 4-marked pixels in the first figure column 
+                    //stop when the following subgrid-line-break is reched
+                    while ((endline + 1 < gridColumns)&&(gridPointer[gridColumns*endline + startcolumn]==4)&&!(followingLineBreaks && (endline + 1 < line + lineBreakIntervall))){
+                        endline++;
+                    }
+                    cancelFigure(gridPointer,gridColumns,line,startcolumn,endline,endcolumn,4,2);
+                    //figure is makred as non-rectangle. continue 
+                    i = endcolumn;
+                    continue;
                 }
             }
-            
-            //get the startline of the figure
-            startline = line;
-            while((startline-1 >= 0) && (gridPointer[(startline-1)*gridColumns+startcolumn]==4)){
-                startline --;
-            } 
+            //calc checkpoints only when there is another line-break
+            if(followingLineBreaks){
+                //get endline of the figure
+                while((endline+1 < gridColumns)&& (gridPointer[(endline+1)*gridColumns + startcolumn]!=0) ){
+                    endline++;
+                }
+                //check the conditions for every following sub-grid
+                //start the check in the next subgrid in the upper line
+                int startCheckLine;
+                if (isUpperLine){
+                    startCheckLine = line+1;
+                }else{
+                    startCheckLine = line+lineBreakIntervall;
+                }
+                for(k = 0; (startCheckLine + k*lineBreakIntervall <= endline)&&(k<followingLineBreaks) ; k++ ){
+                    for (l=startcolumn;l <= endcolumn; l++){
+                        if(gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns + l]!=4){
+                            isRectangle = 0;
+                            break;
+                        } 
+                    }
+                    if ( 
+                        ( (startcolumn-1 >= 0)  &&  (gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns + startcolumn -1]!=0))  ||
+                        ( (endcolumn+1 < gridColumns)  &&  (gridPointer[(startCheckLine + k*lineBreakIntervall)*gridColumns +endcolumn +1]!=0) )
+                        ){
+                            isRectangle = 0;
+                        }
+                    if (!isRectangle){
+                        break;
+                    }
+                }
+                
+                //get the startline of the figure
+                startline = line;
+                while((startline-1 >= 0) && (gridPointer[(startline-1)*gridColumns+startcolumn]==4)){
+                    startline --;
+                } 
 
-            if (!isRectangle){
-                //just set the potential rectangle shape to no rectangle where it is one.
-                //choose min from endline and  
-                int deleteEndLine = startCheckLine + (k*lineBreakIntervall) -1;
-                cancelFigure(gridPointer,gridColumns,startline,startcolumn,deleteEndLine,endcolumn,4,2);
-                i = endcolumn;
+                if (!isRectangle){
+                    //just set the potential rectangle shape to no rectangle where it is one.
+                    //choose min from endline and  
+                    int deleteEndLine = startCheckLine + (k*lineBreakIntervall) -1;
+                    cancelFigure(gridPointer,gridColumns,startline,startcolumn,deleteEndLine,endcolumn,4,2);
+                    i = endcolumn;
+                } else {
+                    cancelFigure(gridPointer,gridColumns,startline,startcolumn,endline,endcolumn,4,3);
+                    i = endcolumn;
+                }
             } else {
-                cancelFigure(gridPointer,gridColumns,startline,startcolumn,endline,endcolumn,4,3);
+                //startline-calculation not needed. part is only for first line in last subgrid 
+                //get endline of the figure
+                while((endline+1 < gridColumns)&& (gridPointer[(endline+1)*gridColumns + startcolumn]!=0) ){
+                    endline++;
+                }
+                cancelFigure(gridPointer,gridColumns,line,startcolumn,endline,endcolumn,4,3);
                 i = endcolumn;
             }
-        } else {
-            //startline-calculation not needed. part is only for first line in last subgrid 
-            //get endline of the figure
-            while((endline+1 < gridColumns)&& (gridPointer[(endline+1)*gridColumns + startcolumn]!=0) ){
-                endline++;
-            }
-            cancelFigure(gridPointer,gridColumns,line,startcolumn,endline,endcolumn,4,3);
-            i = endcolumn;
-        }
+        } 
     } 
-} 
 }
 
 void outputRectangleList(char *gridPointer,int gridSize){
@@ -334,15 +334,15 @@ void outputRectangleList(char *gridPointer,int gridSize){
 
 void writeTimeToFile(double time, double ignore, double maxSubProcTime){
     //for getting , instead of . as numeric seperator
-    setlocale(LC_NUMERIC, "de_DE");
+    setlocale(LC_NUMERIC, "de_DE.utf8");
     FILE *fp;
 	fp = fopen("measures.txt", "a");
     fprintf(fp, "algTime: %f\n",time);
 
     if (!(ignore == 0 && maxSubProcTime == 0)){
         fprintf(fp, "hereby Ignore: %f\n",ignore);    
-        fprintf(fp, "hereby maxSubProcTime: %f\n",ignore);    
-        fprintf(fp, "hereby time tithout communication: %f\n",time - ignore + maxSubProcTime);
+        fprintf(fp, "hereby maxSubProcTime: %f\n",maxSubProcTime);    
+        fprintf(fp, "hereby time without communication: %f\n",time - ignore + maxSubProcTime);
     } else {
         fprintf(fp, "was the sequential\n");
         fprintf(fp, "hereby time without communication: %f\n",time);
@@ -492,8 +492,8 @@ int main(int argc, char** argv) {
                         }
                         
                         //Output for overview:
-                        printf("THIS IS THE GRID:\n");
-                        printGrid(&grid[0],gridSize);
+                        //printf("THIS IS THE GRID:\n");
+                        //printGrid(&grid[0],gridSize);
                         
                         //check potential rectangles
                         {
@@ -520,17 +520,17 @@ int main(int argc, char** argv) {
                         }
                         
                         //User-Outupt:
-                        printf("THIS IS THE GRID:\n");
-                        printGrid(&grid[0],gridSize);
-                        printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
+                        //printf("THIS IS THE GRID:\n");
+                        //printGrid(&grid[0],gridSize);
+                        //printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
                         //outputRectangleList(&grid[0],gridSize);
                         
                         endTime = MPI_Wtime();
 
                         subProcTime = 0;
-                        MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+                        MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 
-                        printf("time: %f ignore: %f subpromax %f\n",endTime - startTime, ignore, subProcTimeMax);
+                        printf("time: %f \nignore: %f \nsubpromax %f\n-> %fT\n-> %fTOWNK\n",endTime - startTime, ignore, subProcTimeMax,endTime - startTime,endTime - startTime -ignore + subProcTimeMax);
                         writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
                     }
                 }                
@@ -587,11 +587,11 @@ int main(int argc, char** argv) {
             MPI_Send(&grid[0],subgridLines*subgridColumns,MPI_BYTE,0,0,MPI_COMM_WORLD);
 
             //send used time to Process
-            MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+            MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 
         } else {
             subProcTime = 0;
-            MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+            MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
         }
         
     }
