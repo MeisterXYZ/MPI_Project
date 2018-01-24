@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  22 JAN 2018 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  24 JAN 2018 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,21 +1124,21 @@ Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 74.
 ) (./MP_Doku.aux)
 \openout1 = `MP_Doku.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Try loading font information for T1+pplj on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Try loading font information for T1+pplj on input line 93.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pplj.fd
 File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
@@ -1176,7 +1176,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring ON on input line 91.
+Package hyperref Info: Link coloring ON on input line 93.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1187,16 +1187,16 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count149
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 
 (./MP_Doku.out) (./MP_Doku.out)
 \@outlinefile=\write3
 \openout3 = `MP_Doku.out'.
 
-LaTeX Info: Redefining \Ref on input line 91.
-LaTeX Info: Redefining \microtypecontext on input line 91.
+LaTeX Info: Redefining \Ref on input line 93.
+LaTeX Info: Redefining \microtypecontext on input line 93.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1211,7 +1211,7 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for T1+iwona on input line 108
+LaTeX Font Info:    Try loading font information for T1+iwona on input line 110
 .
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/iwona/t1iwona.fd
@@ -1222,16 +1222,16 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <10> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 108.
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 110.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 108.
-LaTeX Font Info:    Try loading font information for OT1+pplj on input line 108
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 110.
+LaTeX Font Info:    Try loading font information for OT1+pplj on input line 110
 .
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pplj.fd
 File: ot1pplj.fd 2004/09/06 font definitions for OT1/pplj.
 )
-LaTeX Font Info:    Try loading font information for U+zeur on input line 108.
+LaTeX Font Info:    Try loading font information for U+zeur on input line 110.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
@@ -1239,7 +1239,7 @@ File: uzeur.fd 2005/01/11 v4.0 (WaS)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-eur.cfg
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
-LaTeX Font Info:    Try loading font information for U+zeus on input line 108.
+LaTeX Font Info:    Try loading font information for U+zeus on input line 110.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
@@ -1247,13 +1247,13 @@ File: uzeus.fd 2005/01/11 v4.0 (WaS)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-eus.cfg
 File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
 )
-LaTeX Font Info:    Try loading font information for U+zeuex on input line 108.
+LaTeX Font Info:    Try loading font information for U+zeuex on input line 110.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 108
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 110
 .
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -1271,7 +1271,7 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Package tocbasic Info: character protrusion at toc deactivated on input line 11
-1.
+3.
 
 (./MP_Doku.toc
 Package microtype Info: Character `029' is missing
@@ -1284,7 +1284,7 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
 \openout4 = `MP_Doku.toc'.
 
 Package tocbasic Info: character protrusion at lof deactivated on input line 11
-3.
+5.
  (./MP_Doku.lof)
 \tf@lof=\write5
 \openout5 = `MP_Doku.lof'.
@@ -1294,7 +1294,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 11
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package tocbasic Info: character protrusion at lot deactivated on input line 11
-5.
+7.
  (./MP_Doku.lot)
 \tf@lot=\write6
 \openout6 = `MP_Doku.lot'.
@@ -1304,236 +1304,380 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/iwona/bx/sc' in size <10> not available
-(Font)              Font shape `T1/iwona/b/sc' tried instead on input line 152.
+(Font)              Font shape `T1/iwona/b/sc' tried instead on input line 154.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/b/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 156.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 158.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 156.
+(Font)              scaled to size 7.65005pt on input line 158.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--163
+Underfull \hbox (badness 10000) in paragraph at lines 162--165
 
  []
 
-[3] <Figures/Diag_1.png, id=159, 891.33pt x 606.265pt>
+[3] <Figures/Diag_1.png, id=157, 891.33pt x 606.265pt>
 File: Figures/Diag_1.png Graphic file (type png)
 
 <use Figures/Diag_1.png>
-Package pdftex.def Info: Figures/Diag_1.png used on input line 166.
+Package pdftex.def Info: Figures/Diag_1.png used on input line 168.
 (pdftex.def)             Requested size: 332.99774pt x 226.49774pt.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <9> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 167.
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 169.
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-<Figures/Diag_2f.jpg, id=161, 3524.16624pt x 2626.81375pt>
+<Figures/Diag_2f.jpg, id=159, 3524.16624pt x 2626.81375pt>
 File: Figures/Diag_2f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_2f.jpg>
-Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 183.
+Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 185.
 (pdftex.def)             Requested size: 296.00113pt x 220.61076pt.
  [4 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 210--213
+Underfull \hbox (badness 10000) in paragraph at lines 212--215
 
  []
 
-<Figures/Raster_1.png, id=170, 321.2pt x 300.12125pt>
+<Figures/Raster_1.png, id=167, 321.2pt x 300.12125pt>
 File: Figures/Raster_1.png Graphic file (type png)
 
 <use Figures/Raster_1.png>
-Package pdftex.def Info: Figures/Raster_1.png used on input line 219.
+Package pdftex.def Info: Figures/Raster_1.png used on input line 221.
 (pdftex.def)             Requested size: 92.5pt x 86.42844pt.
 
-<Figures/Raster_2.png, id=171, 857.2025pt x 376.40625pt>
+<Figures/Raster_2.png, id=168, 857.2025pt x 376.40625pt>
 File: Figures/Raster_2.png Graphic file (type png)
 
 <use Figures/Raster_2.png>
-Package pdftex.def Info: Figures/Raster_2.png used on input line 227.
+Package pdftex.def Info: Figures/Raster_2.png used on input line 229.
 (pdftex.def)             Requested size: 222.00226pt x 97.48424pt.
 
-<Figures/Raster_3.png, id=172, 1216.545pt x 235.88126pt>
+<Figures/Raster_3.png, id=169, 1216.545pt x 235.88126pt>
 File: Figures/Raster_3.png Graphic file (type png)
 
 <use Figures/Raster_3.png>
-Package pdftex.def Info: Figures/Raster_3.png used on input line 235.
+Package pdftex.def Info: Figures/Raster_3.png used on input line 237.
 (pdftex.def)             Requested size: 332.99774pt x 64.5634pt.
  [5 <./Figures/Raster_1.png> <./Figures/Raster_2.png> <./Figures/Raster_3.png>]
 
-<Figures/Raster_4.png, id=181, 1213.53375pt x 239.89626pt>
+<Figures/Raster_4.png, id=179, 1213.53375pt x 239.89626pt>
 File: Figures/Raster_4.png Graphic file (type png)
 
 <use Figures/Raster_4.png>
-Package pdftex.def Info: Figures/Raster_4.png used on input line 244.
+Package pdftex.def Info: Figures/Raster_4.png used on input line 246.
 (pdftex.def)             Requested size: 332.99774pt x 65.82707pt.
 
-<Figures/Raster_5.png, id=182, 856.19875pt x 305.14pt>
+<Figures/Raster_5.png, id=180, 856.19875pt x 305.14pt>
 File: Figures/Raster_5.png Graphic file (type png)
 
 <use Figures/Raster_5.png>
-Package pdftex.def Info: Figures/Raster_5.png used on input line 252.
+Package pdftex.def Info: Figures/Raster_5.png used on input line 254.
 (pdftex.def)             Requested size: 258.99887pt x 92.30164pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
 [6 <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
-<Figures/Diag_3f.jpg, id=189, 3899.56876pt x 4644.35126pt>
+<Figures/Diag_3f.jpg, id=187, 3899.56876pt x 4644.35126pt>
 File: Figures/Diag_3f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_3f.jpg>
-Package pdftex.def Info: Figures/Diag_3f.jpg used on input line 269.
+Package pdftex.def Info: Figures/Diag_3f.jpg used on input line 271.
 (pdftex.def)             Requested size: 370.0pt x 440.65103pt.
 
-Underfull \hbox (badness 1521) in paragraph at lines 270--270
+Underfull \hbox (badness 1521) in paragraph at lines 272--272
 [][]|\T1/pplj/m/n/9 Ab-lauf des Cluster-Prozesses von \T1/pplj/m/it/9 pix-Check
 -Tan-gle.c \T1/pplj/m/n/9 dar-ge-stellt als BPMN-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
+Underfull \hbox (badness 10000) in paragraph at lines 288--290
 
  []
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 291.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 293.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <7> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 339.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 341.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <6.25002> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 339.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 341.
 [7 <./Figures/Diag_3f.jpg>] [8]
-Overfull \hbox (17.74976pt too wide) in paragraph at lines 397--398
+Overfull \hbox (17.74976pt too wide) in paragraph at lines 399--400
 \T1/pplj/m/n/10 hier zu-nächst ei-ne Vor-über-le-gung an-ge-stellt wer-den, wie
  die Netzwerk-Kommunikation
  []
 
-[9] <Figures/Time_1.png, id=284, 720.6925pt x 541.02126pt>
+[9] <Figures/Time_1.png, id=282, 720.6925pt x 541.02126pt>
 File: Figures/Time_1.png Graphic file (type png)
 
 <use Figures/Time_1.png>
-Package pdftex.def Info: Figures/Time_1.png used on input line 401.
+Package pdftex.def Info: Figures/Time_1.png used on input line 403.
 (pdftex.def)             Requested size: 185.0pt x 138.87906pt.
- <Figures/Time_2.png, id=285, 567.11874pt x 313.17pt>
+ <Figures/Time_2.png, id=283, 567.11874pt x 313.17pt>
 File: Figures/Time_2.png Graphic file (type png)
 
 <use Figures/Time_2.png>
-Package pdftex.def Info: Figures/Time_2.png used on input line 410.
+Package pdftex.def Info: Figures/Time_2.png used on input line 412.
 (pdftex.def)             Requested size: 185.0pt x 102.15654pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--419
+Underfull \hbox (badness 10000) in paragraph at lines 417--421
 
  []
 
-[10 <./Figures/Time_1.png> <./Figures/Time_2.png>] [11] [12]
-<Figures/GalleriaStampe.jpg, id=308, 414.348pt x 409.53pt>
-File: Figures/GalleriaStampe.jpg Graphic file (type jpg)
+[10 <./Figures/Time_1.png> <./Figures/Time_2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
-<use Figures/GalleriaStampe.jpg>
-Package pdftex.def Info: Figures/GalleriaStampe.jpg used on input line 527.
-(pdftex.def)             Requested size: 185.0pt x 182.84953pt.
-LaTeX Font Info:    Font shape `T1/iwona/bx/it' in size <10> not available
-(Font)              Font shape `T1/iwona/b/it' tried instead on input line 540.
+ []
 
- [13 <./Figures/GalleriaStampe.jpg>] [14]
-<Figures/Lorem.jpg, id=332, 240.9pt x 180.675pt>
-File: Figures/Lorem.jpg Graphic file (type jpg)
- <use Figures/Lorem.jpg>
-Package pdftex.def Info: Figures/Lorem.jpg used on input line 590.
-(pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
-LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <8> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 590.
+<Figures/10_Chess_1.png, id=290, 968.61874pt x 274.02374pt>
+File: Figures/10_Chess_1.png Graphic file (type png)
 
-<Figures/Ipsum.jpg, id=333, 240.9pt x 180.675pt>
-File: Figures/Ipsum.jpg Graphic file (type jpg)
- <use Figures/Ipsum.jpg>
-Package pdftex.def Info: Figures/Ipsum.jpg used on input line 591.
-(pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
+<use Figures/10_Chess_1.png>
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 459.
+(pdftex.def)             Requested size: 370.0pt x 104.67366pt.
 
-<Figures/Dolor.jpg, id=334, 240.9pt x 180.675pt>
-File: Figures/Dolor.jpg Graphic file (type jpg)
- <use Figures/Dolor.jpg>
-Package pdftex.def Info: Figures/Dolor.jpg used on input line 592.
-(pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
+<Figures/10_Chess_0.png, id=291, 965.6075pt x 270.00874pt>
+File: Figures/10_Chess_0.png Graphic file (type png)
 
-<Figures/Sit.jpg, id=335, 240.9pt x 180.675pt>
-File: Figures/Sit.jpg Graphic file (type jpg)
- <use Figures/Sit.jpg>
-Package pdftex.def Info: Figures/Sit.jpg used on input line 593.
-(pdftex.def)             Requested size: 166.49887pt x 124.87814pt.
+<use Figures/10_Chess_0.png>
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 471.
+(pdftex.def)             Requested size: 370.0pt x 103.46133pt.
+ [11 <./Figures/10_Chess_1.png> <./Figures/10_Chess_0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
 
-(./MP_Doku.bbl [15 <./Figures/Lorem.jpg> <./Figures/Ipsum.jpg> <./Figures/Dolor
-.jpg> <./Figures/Sit.jpg>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 610.
- [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 610.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--500
+
+ []
+
+
+Class scrartcl Warning: You are using `\begin{appendix}...\end{appendix}'.
+(scrartcl)              You should note, that `\appendix' is a mostly globally
+(scrartcl)              working command not an enviroment with only local
+(scrartcl)              effects. Therefore `\end{appendix}' will neither
+(scrartcl)              switch back to normal section numbering nor finish
+(scrartcl)              every other effect of `\begin{appendix}'.
+(scrartcl)              Nevertheless, some effects may end with
+(scrartcl)              `\end{appendix}' and the document may become
+(scrartcl)              inconsistent.
+(scrartcl)              Because of this, you should remove `\end{appendix}'
+(scrartcl)              and replace `\begin{appendix}' by command
+(scrartcl)              `\appendix' on input line 534.
+
+[12]
+File: Figures/10_Chess_0.png Graphic file (type png)
+ <use Figures/10_Chess_0.png>
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 545.
+(pdftex.def)             Requested size: 370.0pt x 103.46133pt.
+File: Figures/10_Chess_1.png Graphic file (type png)
+ <use Figures/10_Chess_1.png>
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 546.
+(pdftex.def)             Requested size: 370.0pt x 104.67366pt.
+
+<Figures/100_AB_0.png, id=306, 1166.3575pt x 353.32pt>
+File: Figures/100_AB_0.png Graphic file (type png)
+
+<use Figures/100_AB_0.png>
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 548.
+(pdftex.def)             Requested size: 370.0pt x 112.0835pt.
+
+<Figures/100_AB_1.png, id=307, 1165.35374pt x 350.30875pt>
+File: Figures/100_AB_1.png Graphic file (type png)
+
+<use Figures/100_AB_1.png>
+Package pdftex.def Info: Figures/100_AB_1.png used on input line 549.
+(pdftex.def)             Requested size: 370.0pt x 111.21912pt.
+
+<Figures/100_AW_0.png, id=308, 1166.3575pt x 352.31625pt>
+File: Figures/100_AW_0.png Graphic file (type png)
+
+<use Figures/100_AW_0.png>
+Package pdftex.def Info: Figures/100_AW_0.png used on input line 551.
+(pdftex.def)             Requested size: 370.0pt x 111.76508pt.
+
+<Figures/100_AW_1.png, id=309, 1164.35pt x 352.31625pt>
+File: Figures/100_AW_1.png Graphic file (type png)
+
+<use Figures/100_AW_1.png>
+Package pdftex.def Info: Figures/100_AW_1.png used on input line 552.
+(pdftex.def)             Requested size: 370.0pt x 111.95323pt.
+
+<Figures/100_Chess_0.png, id=310, 1167.36125pt x 352.31625pt>
+File: Figures/100_Chess_0.png Graphic file (type png)
+
+<use Figures/100_Chess_0.png>
+Package pdftex.def Info: Figures/100_Chess_0.png used on input line 554.
+(pdftex.def)             Requested size: 370.0pt x 111.66832pt.
+
+<Figures/100_Chess_1.png, id=311, 1163.34625pt x 350.30875pt>
+File: Figures/100_Chess_1.png Graphic file (type png)
+
+<use Figures/100_Chess_1.png>
+Package pdftex.def Info: Figures/100_Chess_1.png used on input line 555.
+(pdftex.def)             Requested size: 370.0pt x 111.41689pt.
+
+<Figures/1000_AB_0.png, id=312, 1085.05376pt x 322.20375pt>
+File: Figures/1000_AB_0.png Graphic file (type png)
+
+<use Figures/1000_AB_0.png>
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 557.
+(pdftex.def)             Requested size: 370.0pt x 109.8723pt.
+
+<Figures/1000_AB_1.png, id=313, 1090.0725pt x 318.18875pt>
+File: Figures/1000_AB_1.png Graphic file (type png)
+
+<use Figures/1000_AB_1.png>
+Package pdftex.def Info: Figures/1000_AB_1.png used on input line 558.
+(pdftex.def)             Requested size: 370.0pt x 107.99823pt.
+
+<Figures/1000_AW_0.png, id=314, 1084.05pt x 319.1925pt>
+File: Figures/1000_AW_0.png Graphic file (type png)
+
+<use Figures/1000_AW_0.png>
+Package pdftex.def Info: Figures/1000_AW_0.png used on input line 560.
+(pdftex.def)             Requested size: 370.0pt x 108.94287pt.
+
+<Figures/1000_AW_1.png, id=315, 1090.0725pt x 317.185pt>
+File: Figures/1000_AW_1.png Graphic file (type png)
+
+<use Figures/1000_AW_1.png>
+Package pdftex.def Info: Figures/1000_AW_1.png used on input line 561.
+(pdftex.def)             Requested size: 370.0pt x 107.65755pt.
+
+<Figures/1000_Chess_0.png, id=316, 1090.0725pt x 321.2pt>
+File: Figures/1000_Chess_0.png Graphic file (type png)
+
+<use Figures/1000_Chess_0.png>
+Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 563.
+(pdftex.def)             Requested size: 370.0pt x 109.02031pt.
+
+<Figures/1000_Chess_1.png, id=317, 1084.05pt x 317.185pt>
+File: Figures/1000_Chess_1.png Graphic file (type png)
+
+<use Figures/1000_Chess_1.png>
+Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 564.
+(pdftex.def)             Requested size: 370.0pt x 108.25769pt.
+
+<Figures/10000_AB_0.png, id=318, 1081.03876pt x 302.12875pt>
+File: Figures/10000_AB_0.png Graphic file (type png)
+
+<use Figures/10000_AB_0.png>
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 566.
+(pdftex.def)             Requested size: 370.0pt x 103.40471pt.
+
+<Figures/10000_AB_1.png, id=319, 1083.04625pt x 306.14375pt>
+File: Figures/10000_AB_1.png Graphic file (type png)
+
+<use Figures/10000_AB_1.png>
+Package pdftex.def Info: Figures/10000_AB_1.png used on input line 567.
+(pdftex.def)             Requested size: 370.0pt x 104.58733pt.
+
+<Figures/10000_AW_0.png, id=320, 1087.06125pt x 308.15125pt>
+File: Figures/10000_AW_0.png Graphic file (type png)
+
+<use Figures/10000_AW_0.png>
+Package pdftex.def Info: Figures/10000_AW_0.png used on input line 569.
+(pdftex.def)             Requested size: 370.0pt x 104.88287pt.
+
+<Figures/10000_AW_1.png, id=321, 1089.06876pt x 307.1475pt>
+File: Figures/10000_AW_1.png Graphic file (type png)
+
+<use Figures/10000_AW_1.png>
+Package pdftex.def Info: Figures/10000_AW_1.png used on input line 570.
+(pdftex.def)             Requested size: 370.0pt x 104.34909pt.
+
+<Figures/10000_Chess_0.png, id=322, 1075.01625pt x 306.14375pt>
+File: Figures/10000_Chess_0.png Graphic file (type png)
+
+<use Figures/10000_Chess_0.png>
+Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 572.
+(pdftex.def)             Requested size: 370.0pt x 105.36745pt.
+
+<Figures/10000_Chess_1.png, id=323, 1075.01625pt x 301.125pt>
+File: Figures/10000_Chess_1.png Graphic file (type png)
+
+<use Figures/10000_Chess_1.png>
+Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 573.
+(pdftex.def)             Requested size: 370.0pt x 103.6401pt.
+ [13
+
+ <./Figures/100_AB_0.png> <./Figures/100_AB_1.png>] [14 <./Figures/100_AW_0.png
+> <./Figures/100_AW_1.png> <./Figures/100_Chess_0.png> <./Figures/100_Chess_1.p
+ng> <./Figures/1000_AB_0.png> <./Figures/1000_AB_1.png>] [15 <./Figures/1000_AW
+_0.png> <./Figures/1000_AW_1.png> <./Figures/1000_Chess_0.png> <./Figures/1000_
+Chess_1.png> <./Figures/10000_AB_0.png> <./Figures/10000_AB_1.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 591.
+ [16 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
+ss_0.png> <./Figures/10000_Chess_1.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 591.
  (./MP_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 610.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 610.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 591.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 591.
 Package rerunfilecheck Info: File `MP_Doku.out' has not changed.
-(rerunfilecheck)             Checksum: 40BA2A86A8784EBA7EACB2B5318C9A54;1587.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 610.
+(rerunfilecheck)             Checksum: 98F61D8B7644AFDE082DF9A7C8D4D6D7;1628.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 591.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18473 strings out of 492995
- 317772 string characters out of 6132703
- 666882 words of memory out of 5000000
- 21514 multiletter control sequences out of 15000+600000
- 126145 words of font info for 157 fonts, out of 8000000 for 9000
+ 18462 strings out of 492995
+ 318414 string characters out of 6132703
+ 666173 words of memory out of 5000000
+ 21516 multiletter control sequences out of 15000+600000
+ 106033 words of font info for 141 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  61i,30n,86p,8818b,13836s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iw
-ona.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/l
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
+}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2
-017/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2017/texmf-dist/
-fonts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/nowacki/iwona/iwonabi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
-/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/p
-alatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino
-/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplri8
-a.pfb>
-Output written on MP_Doku.pdf (16 pages, 3836174 bytes).
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/tex
+live/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/201
+7/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/ur
+w/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palat
+ino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/upl
+ri8a.pfb>
+Output written on MP_Doku.pdf (16 pages, 4871775 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
- 144 named destinations out of 1000 (max. 500000)
- 24820 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 439 PDF objects out of 1000 (max. 8388607)
+ 345 compressed objects within 4 object streams
+ 132 named destinations out of 1000 (max. 500000)
+ 21823 words of extra memory for PDF output out of 24883 (max. 10000000)
 
