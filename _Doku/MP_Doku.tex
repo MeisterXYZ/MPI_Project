@@ -156,7 +156,7 @@ mpirun gridGenerator.c [gridfile.txt]
 \end{lstlisting}
 
 Wird dabei eine zuvor durch den gridGenerator erzeugte .txt-Datei als Parameter angegeben, kann diese Datei bearbeitet werden. Andernfalls wird eine neue Datei erstellt. Der Programm-Ablauf ist im Folgenden als Nassi-Shneiderman-Diagramm dargestellt.\\
-\\Der Vollstädige Code ist im Anhang ab Seite (DRT oder Verweis angeben)... gelistet. 
+\\Der vollständige Code findet sich im Anhang. 
 \pagebreak
 
 \begin{figure}[h]
@@ -404,7 +404,7 @@ Es bleibt also gedanklich festzuhalten, dass der kommunikative Aufwand (Bei Rüc
 Zudem kann der gesamte Algorithmus bei entsprechenden Mustern durch vorzeitige Abbrüche schneller ausgeführt sein (Beispiel Schachbrett-Muster).
 
 
-\section{Messungen}
+\section{Messungen und Interpretation}
 \subsection{Vorgehen beim Messen}
 
 \textbf{Gemessene Zeitpunkte}\\
@@ -435,7 +435,7 @@ Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hi
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item \textit{hostfileGenerator.c}: Generiert eine hostfile-Datei mit n Prozessoren.
 	\item \textit{bsCreateHostfiles.sh}: ruft \textit{hostfileGenerator.c} auf, um mehrere  hostfiles zu erzeugen.
-	\item \textit{bsRunGridTest.sh}: Ruft \textit{pixCheckTangle} per MPI für eine Raster-Datei und mehre Prozesse auf.
+	\item \textit{bsRunGrids.sh}: Ruft \textit{pixCheckTangle} per MPI für eine Raster-Datei und mehre Prozesse auf.
 \end{itemize}
 
 Gemessen werden:
@@ -476,7 +476,7 @@ Um besser nachvollziehen zu können, aus welchen Gründen die Kurven welche Char
 \end{figure}
 
 \textbf{Feststellung \#1}\\
-Betrachtet man das erste Diagramm, ist dabei zu sehen, dass ab dem Einsatz eines fünften Prozessors der Speedup gegen Null geht. Die Ursache hierfür ist zu erkennen, wenn man sich die generierten und genutzten hostfiles vor Augen führt. Als Beispiel, sie hier das generierte hostfile \textit{myhostfile15} gezeigt.\\
+Betrachtet man das erste Diagramm, ist dabei zu sehen, dass ab dem Einsatz eines fünften Prozessors der Speedup gegen Null geht. Die Ursache hierfür ist zu erkennen, wenn man sich die generierten und genutzten hostfiles vor Augen führt. Als Beispiel, sei hier das generierte hostfile \textit{myhostfile15} gezeigt.\\
 
 \begin{lstlisting}
 simson01 slots = 4
@@ -543,48 +543,41 @@ Die entsprechenden Graphen sind in \textbf{Abbildung 13} untereinander dargestel
 \end{figure}
 
 \textbf{Feststellung \#4}\\
-In den Graphen ist zu erkennen, dass der Speedup umso höher ist, je weniger und kleinere Rechtecke im Raster enthalten sind. Besonders beachtlich ist daher der Speedup für die Probleminstanz ohne schwarze Felder.\\
+In den Graphen ist der vermutete bogenförmige Verlauf der Speedup-Kurve besser zu erkennen. Des weiteren wird ersichtlich, dass der Speedup umso höher ist, je weniger und kleinere Rechtecke im Raster enthalten sind. Besonders beachtlich ist daher der Speedup für die Probleminstanz ohne schwarze Felder.\\
 Der Speedup verringert sich, je mehr potentielle Rechtecke vom Master-Prozesse geprüft werden müssen, wobei der Prüf-Aufwand besonders groß wird, wenn die Rechtecke sehr groß sind und über mehrere Teil-Raster-Grenzen hinweg reichen. \\
 Im Hinblick auf diese Überlegung ist es damit erklärbar, dass gilt:\\
-\(Speedup_{Alles weiß} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
+\(Speedup_{Alles weiss} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
 Für die Effizienz gilt die entsprechende Relation.\\
 
-Bei den Probleminstanzen für die Raster-Breite \(n=100\) ist anzumerken, dass auch die Effizienz mit Kommunikation für alle drei Instanzen so hoch ist, dass sich eine Parallelisierung lohnt (Hier wirkt sich der in Feststellung \#2 beschriebene Effekt besonders sichtbar aus). Nach Überschreiten der Rechner-Grenze wird jedoch die Effizienz \(E(p)<1\), wie in Feststellung \#1 beschrieben.\\
+Bei den Probleminstanzen für die Raster-Breite \(n=100\) ist anzumerken, dass die Effizienz auch unter Berücksichtigung des Zeitaufwandes für die Kommunikation für alle drei Instanzen so hoch ist, dass sich eine Parallelisierung lohnt (Hier wirkt sich der in Feststellung \#2 beschriebene Effekt besonders sichtbar aus). Nach Überschreiten der Rechner-Grenze gilt jedoch für die Effizienz \(E(p)<1\), wie in Feststellung \#1 beschrieben.\\
 
 \textbf{Erhöhen der Raster-Größe}\\
 Als nächstes soll untersucht werden, wie sich Speedup und Effizienz der Probleminstanzen bei steigender Raster-Größe verhalten. 
+Dem Maximum der Raster-Größe sind dabei zwei Grenzen gesetzt.\\
+Zum einen verhindert der für den User begrenzte Festplattenspeicher ab einer hinreichend großen Raster-Breite das Anlegen des Grid-Files durch den \textit{gridGenerator.c}.\\
+Zum Anderen wird im Programm \textit{pixCheckTangle.c} zur Kalkulation der Indizes für die Feld-Adressierung ein long int Typ verwendet. Dessen Wertebereich wird ab einer bestimmten Raster-Breite durch die Anzahl der Raster-Felder überschritten.\\
+Die Grenze des Festplattenspeichers ist dabei eher erreicht. So waren das Anlegen von Rastern mit Raster-Breite \(n>=40.000\) nicht möglich.\\
 
-Dann erhöhen wir mal die Feld-Größe.\\
-wir gehen nur bis 10.000
+Im Folgenden sei das Wachstum der Grid-Files und das Überschreiten des long-int-Bereiches skizziert.\\
 
-Max ergibt sich vor allem aus Restriktion für lokalen Festplatten-Speicher für Benutzer auf genutztem Laufwerk.
-Daher wurde in der Implementierung int verwednet. Bildet bis zu long int ab. Brauchen das für errechnung der Indizes Addessierung Felder im Raster. 
-
-Beide sind unten dargestellt:
 
 \begin{tabular}{l|c|c|c|c|c|}
 	\hline 
-	long integer & Raster-Breite & Elemente im Raster & int-Max erreicht? & Größe txt-File \\ 
+	Raster-Breite n& Elemente im Raster & \(n*n>=\)Long int? & Größe txt-File \\ 
 	\hline 
-	2.147.483.647 & 10.000 & 100.000.000 & nein & 200 MB\\
+	10.000 & 100.000.000 & nein & 200 MB\\
 	\hline 
-	2.147.483.647 & 20.000 & 400.000.000 & nein & 800 MB \\
+	20.000 & 400.000.000 & nein & 800 MB \\
 	\hline
-	2.147.483.647 & 30.000 & 900.000.000 & nein &  1,8GB \\
+	30.000 & 900.000.000 & nein &  1,8GB \\
 	\hline  
-	2.147.483.647 & 40.000 & 1.600.000.000 & nein & 3,2GB \\
+	40.000 & 1.600.000.000 & nein & 3,2GB \\
 	\hline
-	2.147.483.647 & 50.000 & 2.500.000.000 & ja & 5GB \\
+	50.000 & 2.500.000.000 & ja & 5GB \\
 	\hline  
 \end{tabular}\\
 
-1,8GB war beim testen noch möglich. Vielleicht auch noch 3,2 aber Zeit zu lange beim generieren.
-Damit tests durchführen hätte ewig gebraucht.\\
-
-Beispielhaft wird in \textbf{Abbildung 14 }
-n= 1000 und n=10.000. Am Beispiel: Alles Schwarz.\\
-
- 
+Zur Messung sollen nun die Raster-Breiten \(n=100/1000/10.000\) betrachtet werden. Exemplarisch sind in \textbf{Abbildung 14 } die Kurven für das Muster ''Alle Felder Schwarz'' ohne Betrachtung des Kommunikationsaufwandes dargestellt. Die Übrigen Diagramme finden sich im Anhang.\\
  
  \begin{figure}[h]
  	\centering 
@@ -595,14 +588,43 @@ n= 1000 und n=10.000. Am Beispiel: Alles Schwarz.\\
  \end{figure}
  
 \textbf{Feststellung \#5}\\
-Bogen im Speedup wird länger
-Einzelne Prozessoren bringen also nicht mehr so große Verbesserung -> Effizienz wird kleiner.
-Bereits bei n=1000 nicht mehr sinnvoll zu Parallelisieren, da P0-Anteil mit wachsender Feldgröße mit-skaliert und mehr in's Gewicht fällt.\\
+Bei der Betrachtung der Kurven wird zunächst deutlich, dass die bogenförmigen Verläufe der Speedup-Kurve mit zunehmender Raster-Größe länger und deutlich flacher werden.\\
+So ''wandert'' das Maximum für das Raster ''Alle Felder schwarz'' wie folgt:
+\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+	\item Für Raster-Breite \(n=100\):  \(S(p=17)\approx22\)
+	\item Für Raster-Breite \(n=1000\):  \(S(p=32)\approx2,9\)
+	\item Für Raster-Breite \(n=10.000\):  \(S(p>50)\approx2,3\)
+\end{itemize}
 
- \textbf{Feststellung \#6}\\
-Relationen bleiben.
+Der Effekt, dass die Bögen des Speedups in den Graphen länger werden, wird ebenfalls in den Raster-Instanzen ''Schachbrett'' und ''alle Felder weiß'' ersichtlich, wobei jedoch der maximale Speedup nicht stetig fällt.\\
+Die Maxima der Speedup-Graphen ohne Netzwerkkommunikation stellen sind konkret:\\
+
+
+\begin{tabular}{l|c|c|c|c|c|}
+	\hline 
+	Raster-Breite n &  Alles weiß & Schach & Alles schwarz\\ 
+	\hline
+	100 & \(S(p=12)\approx120\)  & \(S(p=11)\approx34\) &  \(S(p=17)\approx22\) \\
+	\hline  
+	1000 & \(S(p=26)\approx13\)  & \(S(p=26)\approx14\) & \(S(p=32)\approx2,9\) \\
+	\hline
+	10.000 & \(S(p>>50)>28\) & \(S(p=47)\approx25\)  & \(S(p>50)\approx2,3\) \\
+	\hline  
+\end{tabular}\\
+
+Ein langsam anwachsender Speedup bedeutet eine geringe Effizienz der Parallelisierung. Dies spiegelt sich in den entsprechenden Effizienz-Graphen wieder. Für eine Raster-Breite \(n>=1000\) ist eine Parallelisierung bereits nicht mehr effizient möglich. Es gilt \(E(p)<1|p>1\).\\
+Zu Begründen sind diese Beobachtungen durch den stark wachsenden nicht-parallelisierbaren Anteil des Programmes, der Prüfung potentieller Rechteck im Master-Prozess. Die Werte zeigen, dass dieser Anteil mit wachsender Raster-Größe schneller wächst als der zeitliche Gewinn, der durch das Parallelisieren entsteht.\\
+
+\textbf{Feststellung \#6}\\
+Die oben dargestellten Maxima der Speedups verraten, dass aufgrund dieses Effektes die Relationen\\ 
+\(Speedup_{Alles weiss} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
+und\\\
+\(Effizienz_{Alles weiss} > Effizienz_{Schachbrett} > Effizienz_{Alles schwarz} \)\\
+bei steigender Raster-Größe erhalten bleiben.
 
 \section{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus und Fazit}
+
+
 Vermutlich bei höherer Feldgröße noch sinnvoll, weil Arbeit von P0 nicht so hart -> kann abbrechen.
 Also: Im 
 Vor allem muss P0 die Figur-Grenzen nicht neu suchen.
@@ -623,10 +645,57 @@ Andersrum wäre es natürlich besser\\
 	\clearpage 
 	\section{Anhang}
 	\subsection{Code: gridGenerator.c}
+	Auf eine vollständige Auflistung des Codes wird hier aus Gründen der schlechten Lesbarkeit verzichtet. Der Code befindet sich als Datei \textit{''gridGenerator.c'' }im Angabe-Ordner.
+	
 	\subsection{Code: pixCheckTangle.c}
+	Auf eine vollständige Auflistung des Codes wird hier aus Gründen der schlechten Lesbarkeit verzichtet. Der Code befindet sich als Datei \textit{''pixCheckTangle.c'' }im Angabe-Ordner.
+
 	\subsection{Code: hostfileGenerator.c}
+	
+	\begin{lstlisting}
+	#import <stdio.h>
+	#include <stdlib.h>
+	
+	int main(int argc, char *argv[])
+	{
+		//get inputed number as int
+		int hosts = 0;
+		int i;
+		char *value;
+		for(i = 1; i < argc; i++)
+		{
+			value = argv[i];
+			hosts += atoi(value);
+		}
+	
+		char name[30]; 
+		sprintf(name, "myhostfile%d", hosts);
+		printf("%s\n",name);
+	
+		FILE *fp;
+		fp = fopen(name, "w");
+
+		div_t fullClients = div(hosts,4);
+	
+		for (i = 0;i<fullClients.quot;i++){
+			fprintf(fp, "simson%02d slots = 4\n",i+1);
+		}
+		if (fullClients.rem != 0){
+			fprintf(fp, "simson%02d slots = %d\n",fullClients.quot +1,fullClients.rem);
+		}
+
+		fclose(fp);
+	}
+\end{lstlisting}
+	
 	\subsection{Code: bsCreateHostfiles.sh}			
-	\subsection{Code: bsRunGridTest.sh}
+	
+	\lstinputlisting[language=sh]{bsCreateHostfiles.sh}
+	
+	\subsection{Code: bsRunGrids.sh}
+	
+	\lstinputlisting[language=sh]{bsRunGrids.sh}
+	
 	\subsection{Alle Messergebnisse}
 
 	Feldgröße 10x10 - Schachbrett\\

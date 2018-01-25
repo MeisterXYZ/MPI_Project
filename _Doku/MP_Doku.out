@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.4}{2.4 pixCheckTangle: Funktion f\374r das Abarbeiten eines \(Teil-\)Rasters}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{2.5 pixCheckTangle: Funktion f\374r das Festlegen potentieller Rechtecke}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.6}{2.6 Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{3 Messungen}{}% 9
+\BOOKMARK [1][-]{section.3}{3 Messungen und Interpretation}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{3.1 Vorgehen beim Messen}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.2}{3.2 Messergebnisse und Interpretation}{section.3}% 11
 \BOOKMARK [1][-]{section.4}{4 Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus und Fazit}{}% 12
@@ -15,5 +15,5 @@
 \BOOKMARK [2][-]{subsection.A.2}{A.2 Code: pixCheckTangle.c}{appendix.A}% 15
 \BOOKMARK [2][-]{subsection.A.3}{A.3 Code: hostfileGenerator.c}{appendix.A}% 16
 \BOOKMARK [2][-]{subsection.A.4}{A.4 Code: bsCreateHostfiles.sh}{appendix.A}% 17
-\BOOKMARK [2][-]{subsection.A.5}{A.5 Code: bsRunGridTest.sh}{appendix.A}% 18
+\BOOKMARK [2][-]{subsection.A.5}{A.5 Code: bsRunGrids.sh}{appendix.A}% 18
 \BOOKMARK [2][-]{subsection.A.6}{A.6 Alle Messergebnisse}{appendix.A}% 19

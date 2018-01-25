@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  25 JAN 2018 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  25 JAN 2018 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1551,10 +1551,6 @@ Package pdftex.def Info: Figures/100_AW_0.png used on input line 541.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Command \ss invalid in math mode on input line 549.
-
-Missing character: There is no ÿ in font pplr9o!
-
 Underfull \hbox (badness 10000) in paragraph at lines 545--551
 
  []
@@ -1565,57 +1561,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 552--553
  []
 
 
-Overfull \hbox (38.6498pt too wide) in paragraph at lines 565--580
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 554--560
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--580
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
 [13 <./Figures/100_Chess_0.png> <./Figures/100_AB_0.png> <./Figures/100_AW_0.pn
 g>]
-Underfull \hbox (badness 10000) in paragraph at lines 581--583
+Underfull \hbox (badness 10000) in paragraph at lines 564--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--586
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
 
 File: Figures/100_AB_0.png Graphic file (type png)
 <use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 591.
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 584.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
 <Figures/1000_AB_0.png, id=321, 1085.05376pt x 322.20375pt>
 File: Figures/1000_AB_0.png Graphic file (type png)
 
 <use Figures/1000_AB_0.png>
-Package pdftex.def Info: Figures/1000_AB_0.png used on input line 592.
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 585.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
 <Figures/10000_AB_0.png, id=322, 1081.03876pt x 302.12875pt>
 File: Figures/10000_AB_0.png Graphic file (type png)
 
 <use Figures/10000_AB_0.png>
-Package pdftex.def Info: Figures/10000_AB_0.png used on input line 593.
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 586.
 (pdftex.def)             Requested size: 370.0pt x 103.40471pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--601
+Underfull \hbox (badness 10000) in paragraph at lines 599--601
+
+ []
+
+[14 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 603--614
 
  []
 
 
-Overfull \hbox (49.29672pt too wide) in paragraph at lines 605--605
+Overfull \hbox (44.64972pt too wide) in paragraph at lines 615--617
+\T1/pplj/m/n/10 Zu Be-grün-den sind die-se Be-ob-ach-tun-gen durch den stark wa
+ch-sen-den nicht-parallelisierbaren
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 615--617
+
+ []
+
+
+Overfull \hbox (49.29672pt too wide) in paragraph at lines 625--625
 |[]\T1/iwona/m/sc/14.4/80ls unterschied zum ''gibt es ein rechteck?''-algorithm
 us 
  []
 
-[14 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 615--619
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--641
 
  []
 
@@ -1631,158 +1643,315 @@ Class scrartcl Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrartcl)              inconsistent.
 (scrartcl)              Because of this, you should remove `\end{appendix}'
 (scrartcl)              and replace `\begin{appendix}' by command
-(scrartcl)              `\appendix' on input line 622.
+(scrartcl)              `\appendix' on input line 644.
 
 [15]
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
+Package xcolor Warning: Incompatible color definition on input line 672.
+
+
+Package xcolor Warning: Incompatible color definition on input line 672.
+
+
+Package xcolor Warning: Incompatible color definition on input line 672.
+
+
+Package xcolor Warning: Incompatible color definition on input line 672.
+
+
+Package xcolor Warning: Incompatible color definition on input line 672.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 673.
+
+
+Package xcolor Warning: Incompatible color definition on input line 676.
+
+
+Package xcolor Warning: Incompatible color definition on input line 676.
+
+
+Package xcolor Warning: Incompatible color definition on input line 676.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 681.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+
+Package xcolor Warning: Incompatible color definition on input line 684.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(./bsCreateHostfiles.sh) [16
+
+] (./bsRunGrids.sh)
 File: Figures/10_Chess_0.png Graphic file (type png)
  <use Figures/10_Chess_0.png>
-Package pdftex.def Info: Figures/10_Chess_0.png used on input line 633.
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 702.
 (pdftex.def)             Requested size: 370.0pt x 103.46133pt.
 File: Figures/10_Chess_1.png Graphic file (type png)
- <use Figures/10_Chess_1.png>
-Package pdftex.def Info: Figures/10_Chess_1.png used on input line 634.
+
+<use Figures/10_Chess_1.png>
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 703.
 (pdftex.def)             Requested size: 370.0pt x 104.67366pt.
 File: Figures/100_AB_0.png Graphic file (type png)
-
-<use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 636.
+ <use Figures/100_AB_0.png>
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 705.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/100_AB_1.png, id=333, 1165.35374pt x 350.30875pt>
+<Figures/100_AB_1.png, id=375, 1165.35374pt x 350.30875pt>
 File: Figures/100_AB_1.png Graphic file (type png)
 
 <use Figures/100_AB_1.png>
-Package pdftex.def Info: Figures/100_AB_1.png used on input line 637.
+Package pdftex.def Info: Figures/100_AB_1.png used on input line 706.
 (pdftex.def)             Requested size: 370.0pt x 111.21912pt.
 File: Figures/100_AW_0.png Graphic file (type png)
  <use Figures/100_AW_0.png>
-Package pdftex.def Info: Figures/100_AW_0.png used on input line 639.
+Package pdftex.def Info: Figures/100_AW_0.png used on input line 708.
 (pdftex.def)             Requested size: 370.0pt x 111.76508pt.
 
-<Figures/100_AW_1.png, id=334, 1164.35pt x 352.31625pt>
+<Figures/100_AW_1.png, id=376, 1164.35pt x 352.31625pt>
 File: Figures/100_AW_1.png Graphic file (type png)
 
 <use Figures/100_AW_1.png>
-Package pdftex.def Info: Figures/100_AW_1.png used on input line 640.
+Package pdftex.def Info: Figures/100_AW_1.png used on input line 709.
 (pdftex.def)             Requested size: 370.0pt x 111.95323pt.
 File: Figures/100_Chess_0.png Graphic file (type png)
  <use Figures/100_Chess_0.png>
-Package pdftex.def Info: Figures/100_Chess_0.png used on input line 642.
+Package pdftex.def Info: Figures/100_Chess_0.png used on input line 711.
 (pdftex.def)             Requested size: 370.0pt x 111.66832pt.
 
-<Figures/100_Chess_1.png, id=335, 1163.34625pt x 350.30875pt>
+<Figures/100_Chess_1.png, id=377, 1163.34625pt x 350.30875pt>
 File: Figures/100_Chess_1.png Graphic file (type png)
 
 <use Figures/100_Chess_1.png>
-Package pdftex.def Info: Figures/100_Chess_1.png used on input line 643.
+Package pdftex.def Info: Figures/100_Chess_1.png used on input line 712.
 (pdftex.def)             Requested size: 370.0pt x 111.41689pt.
 File: Figures/1000_AB_0.png Graphic file (type png)
  <use Figures/1000_AB_0.png>
-Package pdftex.def Info: Figures/1000_AB_0.png used on input line 645.
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 714.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
-<Figures/1000_AB_1.png, id=336, 1090.0725pt x 318.18875pt>
+<Figures/1000_AB_1.png, id=378, 1090.0725pt x 318.18875pt>
 File: Figures/1000_AB_1.png Graphic file (type png)
 
 <use Figures/1000_AB_1.png>
-Package pdftex.def Info: Figures/1000_AB_1.png used on input line 646.
+Package pdftex.def Info: Figures/1000_AB_1.png used on input line 715.
 (pdftex.def)             Requested size: 370.0pt x 107.99823pt.
 
-<Figures/1000_AW_0.png, id=337, 1084.05pt x 319.1925pt>
+<Figures/1000_AW_0.png, id=379, 1084.05pt x 319.1925pt>
 File: Figures/1000_AW_0.png Graphic file (type png)
 
 <use Figures/1000_AW_0.png>
-Package pdftex.def Info: Figures/1000_AW_0.png used on input line 648.
+Package pdftex.def Info: Figures/1000_AW_0.png used on input line 717.
 (pdftex.def)             Requested size: 370.0pt x 108.94287pt.
 
-<Figures/1000_AW_1.png, id=338, 1090.0725pt x 317.185pt>
+<Figures/1000_AW_1.png, id=380, 1090.0725pt x 317.185pt>
 File: Figures/1000_AW_1.png Graphic file (type png)
 
 <use Figures/1000_AW_1.png>
-Package pdftex.def Info: Figures/1000_AW_1.png used on input line 649.
+Package pdftex.def Info: Figures/1000_AW_1.png used on input line 718.
 (pdftex.def)             Requested size: 370.0pt x 107.65755pt.
 
-<Figures/1000_Chess_0.png, id=339, 1090.0725pt x 321.2pt>
+<Figures/1000_Chess_0.png, id=381, 1090.0725pt x 321.2pt>
 File: Figures/1000_Chess_0.png Graphic file (type png)
 
 <use Figures/1000_Chess_0.png>
-Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 651.
+Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 720.
 (pdftex.def)             Requested size: 370.0pt x 109.02031pt.
 
-<Figures/1000_Chess_1.png, id=340, 1084.05pt x 317.185pt>
+<Figures/1000_Chess_1.png, id=382, 1084.05pt x 317.185pt>
 File: Figures/1000_Chess_1.png Graphic file (type png)
 
 <use Figures/1000_Chess_1.png>
-Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 652.
+Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 721.
 (pdftex.def)             Requested size: 370.0pt x 108.25769pt.
 File: Figures/10000_AB_0.png Graphic file (type png)
  <use Figures/10000_AB_0.png>
-Package pdftex.def Info: Figures/10000_AB_0.png used on input line 654.
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 723.
 (pdftex.def)             Requested size: 370.0pt x 103.40471pt.
 
-<Figures/10000_AB_1.png, id=341, 1083.04625pt x 306.14375pt>
+<Figures/10000_AB_1.png, id=383, 1083.04625pt x 306.14375pt>
 File: Figures/10000_AB_1.png Graphic file (type png)
 
 <use Figures/10000_AB_1.png>
-Package pdftex.def Info: Figures/10000_AB_1.png used on input line 655.
+Package pdftex.def Info: Figures/10000_AB_1.png used on input line 724.
 (pdftex.def)             Requested size: 370.0pt x 104.58733pt.
 
-<Figures/10000_AW_0.png, id=342, 1087.06125pt x 308.15125pt>
+<Figures/10000_AW_0.png, id=384, 1087.06125pt x 308.15125pt>
 File: Figures/10000_AW_0.png Graphic file (type png)
 
 <use Figures/10000_AW_0.png>
-Package pdftex.def Info: Figures/10000_AW_0.png used on input line 657.
+Package pdftex.def Info: Figures/10000_AW_0.png used on input line 726.
 (pdftex.def)             Requested size: 370.0pt x 104.88287pt.
 
-<Figures/10000_AW_1.png, id=343, 1089.06876pt x 307.1475pt>
+<Figures/10000_AW_1.png, id=385, 1089.06876pt x 307.1475pt>
 File: Figures/10000_AW_1.png Graphic file (type png)
 
 <use Figures/10000_AW_1.png>
-Package pdftex.def Info: Figures/10000_AW_1.png used on input line 658.
+Package pdftex.def Info: Figures/10000_AW_1.png used on input line 727.
 (pdftex.def)             Requested size: 370.0pt x 104.34909pt.
 
-<Figures/10000_Chess_0.png, id=344, 1075.01625pt x 306.14375pt>
+<Figures/10000_Chess_0.png, id=386, 1075.01625pt x 306.14375pt>
 File: Figures/10000_Chess_0.png Graphic file (type png)
 
 <use Figures/10000_Chess_0.png>
-Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 660.
+Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 729.
 (pdftex.def)             Requested size: 370.0pt x 105.36745pt.
 
-<Figures/10000_Chess_1.png, id=345, 1075.01625pt x 301.125pt>
+<Figures/10000_Chess_1.png, id=387, 1075.01625pt x 301.125pt>
 File: Figures/10000_Chess_1.png Graphic file (type png)
 
 <use Figures/10000_Chess_1.png>
-Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 661.
+Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 730.
 (pdftex.def)             Requested size: 370.0pt x 103.6401pt.
- [16
-
- <./Figures/100_AB_1.png>] [17 <./Figures/100_AW_1.png> <./Figures/100_Chess_1.
-png> <./Figures/1000_AB_1.png>] [18 <./Figures/1000_AW_0.png> <./Figures/1000_A
-W_1.png> <./Figures/1000_Chess_0.png> <./Figures/1000_Chess_1.png> <./Figures/1
-0000_AB_1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 679.
- [19 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
+ [17 <./Figures/100_AB_1.png>] [18 <./Figures/100_AW_1.png> <./Figures/100_Ches
+s_1.png> <./Figures/1000_AB_1.png>] [19 <./Figures/1000_AW_0.png> <./Figures/10
+00_AW_1.png> <./Figures/1000_Chess_0.png> <./Figures/1000_Chess_1.png> <./Figur
+es/10000_AB_1.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 748.
+ [20 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
 ss_0.png> <./Figures/10000_Chess_1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 679.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 748.
  (./MP_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 679.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 679.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 748.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 748.
 Package rerunfilecheck Info: File `MP_Doku.out' has not changed.
-(rerunfilecheck)             Checksum: B2A75265BF3E30F0CC84A236674FEE55;1596.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 679.
+(rerunfilecheck)             Checksum: 8B431EAC3FDABB19077BC330F2BBB472;1612.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 748.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18474 strings out of 492995
- 318499 string characters out of 6132703
- 666173 words of memory out of 5000000
- 21519 multiletter control sequences out of 15000+600000
+ 18649 strings out of 492995
+ 320644 string characters out of 6132704
+ 703292 words of memory out of 5000000
+ 21640 multiletter control sequences out of 15000+600000
  106033 words of font info for 141 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 61i,30n,86p,8818b,13836s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,30n,86p,8818b,13987s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
@@ -1801,10 +1970,10 @@ type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/pal
 atino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/u
 plri8a.pfb>
-Output written on MP_Doku.pdf (19 pages, 4891226 bytes).
+Output written on MP_Doku.pdf (20 pages, 4900763 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 144 named destinations out of 1000 (max. 500000)
+ 520 PDF objects out of 1000 (max. 8388607)
+ 420 compressed objects within 5 object streams
+ 189 named destinations out of 1000 (max. 500000)
  21807 words of extra memory for PDF output out of 24883 (max. 10000000)
 
