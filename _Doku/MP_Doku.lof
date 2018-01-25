@@ -1,13 +1,13 @@
 \deactivateaddvspace 
-\contentsline {figure}{\numberline {1}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {gridGenerator.c}}}{4}{figure.caption.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} sequentiell}}{4}{figure.caption.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{5}{figure.caption.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Cluster-Prozess: Aufteilung Beispiel-Raster mit 4 Prozessen}}{5}{figure.caption.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Cluster-Prozess: Worker-Prozess: Nicht-Rechteck-Figuren}}{5}{figure.caption.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Cluster-Prozess: Worker-Prozess: Rechtecke und potentielle Rechtecke}}{6}{figure.caption.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{6}{figure.caption.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} Cluster-Prozess}}{7}{figure.caption.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Skizze: Zeitbedarf mit Netzwerkkommunikation}}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {1}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {gridGenerator.c}}}{3}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} sequentiell}}{3}{figure.caption.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{4}{figure.caption.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Cluster-Prozess: Aufteilung Beispiel-Raster mit 4 Prozessen}}{4}{figure.caption.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Cluster-Prozess: Worker-Prozess: Nicht-Rechteck-Figuren}}{4}{figure.caption.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Cluster-Prozess: Worker-Prozess: Rechtecke und potentielle Rechtecke}}{5}{figure.caption.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Cluster-Prozess: Beispiel-Raster}}{5}{figure.caption.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} Cluster-Prozess}}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Skizze: Zeitbedarf mit Netzwerkkommunikation}}{9}{figure.caption.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{10}{figure.caption.10}
 \contentsline {figure}{\numberline {11}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{11}{figure.caption.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{11}{figure.caption.12}

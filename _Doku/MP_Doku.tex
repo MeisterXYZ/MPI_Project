@@ -114,10 +114,6 @@ BCOR5mm, % Binding correction
 
 \listoffigures % Print the list of figures
 
-\listoftables % Print the list of tables
-
-
-
 
 %----------------------------------------------------------------------------------------
 
@@ -393,9 +389,25 @@ Für die Funktion zum Überprüfen der potentiellen Rechtecke, sobald die Worker
 
 Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{checkPotentialRectangle}.
 
+\subsection{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus}
+
+Betrachtet man als Problemstellung die Frage \textit{''Enthält das Raster exakt ein Rechteck?''}, gestaltet sich der Algorithmus in den folgenden Punkten anders.
+
+\begin{enumerate}[noitemsep]
+	\item Die Worker-Prozesse müssen auf dem Teil-Raster prüfen, ob alle schwarzen Felder zusammenhängen und ob für Figuren auf mehreren untereinanderliegenden Zeilen die Spalten-Reichweite der schwarzen Felder identisch ist
+	\item Folglich können Worker-Prozesse ggf. vorzeitig abbrechen und müssen dann nicht alle Felder des Teil-Rasters betrachten (Bestes Beispiel wäre hier ein Schachbrett-Muster)
+	\item Worker müssen an den Master-Prozess nur die Information, ob es exakt ein Rechteck im Teilraster gibt und ggf. die Lage-Informationen des Rechtecks übermitteln (dann, wenn Rechteck eine Teil-Raster-Grenze berührt, an die ein weiteres Teil-Raster grenzt)
+	\item Die Abschließende Prüfung durch den Master-Prozess beurteilt, ob für mehrere auseinanderliegende Teil-Raster ein Rechteck zurückgegeben wurde und dazwischen kein Rechteck existierte.\\ Sollten nur für mehrere zusammenhängende Teil-Raster Rechtecke zurückgegeben worden sein, ist die Übereinstimmung der Spalten-Reichweite der schwarzen Felder zu prüfen.
+\end{enumerate}
+
+Es bleibt also gedanklich festzuhalten, dass der kommunikative Aufwand (Bei Rückkommunikation) und der Aufwand für die abschließende Prüfung durch \(P_0\) im ''Gibt es ein Rechteck?''-Algorithmus geringer ist.\\
+Zudem kann der gesamte Algorithmus bei entsprechenden Mustern durch vorzeitige Abbrüche schneller ausgeführt sein (Beispiel Schachbrett-Muster).
+
+
 \section{Messungen}
 \subsection{Vorgehen beim Messen}
 
+\textbf{Gemessene Zeitpunkte}\\
 Für die Ermittlung des Speedups sollen Zeitmessungen durchgeführt werden. Da ein großer Anteil der Laufzeit für die Netzwerkkommunikation benötigt wird, soll hier zunächst eine Vorüberlegung angestellt werden, wie die Netzwerk-Kommunikation aus der Ausführungszeit herauszurechnen ist. \\Die Folgende schematische Darstellung zeigt die von den einzelnen Prozessen benötigte Zeit, in einem Cluster-Prozess mit 3 Worker-Prozessen.
 
 \begin{figure}[h]
@@ -416,8 +428,10 @@ Nimmt man hierbei an, dass die Netzwerkkommunikation keine Zeiteinheiten kostet,
 
 Daraus geht hervor, dass sich die zu messende Zeit unter Ausschluss der Netzwerkkommunikation näherungsweise aus der von Prozess 0 benötigten aktiven Arbeitszeit und der benötigten Arbeitszeit, des am längsten laufenden Worker-Prozesses zusammensetzt.\\
 Die Zeit-Messungen werden im Code mittels \textbf{MPI\_Wtime()}-Befehl realisiert. Zum ermitteln der maximalen Arbeitszeit aller Worker-Prozesse wird im Anschluss an die eigentliche Programm-Ausführung der \textbf{MPI\_Reduce()}-Befehl genutzt.\\
-Die Resultate der Zeitmessungen im Code werden mittels der Funktion \textit{writeTimeToFile} in eine Datei geschrieben. 
-Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hilfs-Skripte/Programme verwendet. Diese sind im Anhang einzusehen.\\
+Die Resultate der Zeitmessungen im Code werden mittels der Funktion \textit{writeTimeToFile} in eine Datei geschrieben.\\
+
+\textbf{Ausführung der Messreihen}\\ 
+Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hilfs-Skripte/Programme verwendet. Diese sind im Anhang einzusehen.
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item \textit{hostfileGenerator.c}: Generiert eine hostfile-Datei mit n Prozessoren.
 	\item \textit{bsCreateHostfiles.sh}: ruft \textit{hostfileGenerator.c} auf, um mehrere  hostfiles zu erzeugen.
@@ -427,9 +441,9 @@ Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hi
 Gemessen werden:
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item Laufzeit mit und ohne Netzwerkkommunikation
-	\item Für Raster mit \textit{n=\{100/1000/10000\}} Feldern
+	\item Für Raster mit \textit{n=\{100/1000/10000\}} Feldern Breite.
 	\item Pro Rastergröße: Messungen mit je \textit{p=\{1,2,..50\}} Prozessen.
-	\item Pro Rastergröße und Prozess-Anzahl: drei verschiedene Probleminstanzen 
+	\item Pro Rastergröße und Prozess-Anzahl: drei verschiedene Probleminstanzen: 
 	\subitem - Alle Felder Weiß
 	\subitem - Alle Felder Schwarz
 	\subitem - Schachbrett-Raster
@@ -446,13 +460,12 @@ Speedup:
 S(p)=\frac{T(1)}{T(p)}
 \end{equation}
 
-Effizinez:
+Effizienz:
 \begin{equation}
 E(p)=\frac{S(p)}{p}
 \end{equation}
 
-Zunächst für kleines n anschauen. 
-Dabei werden zwei Effekte sichtbar.
+Um einschätzen zu können, warum die Kurve wie aussieht im kleinen Anfangen, wo es vorstellbar ist. Für Rastergröße n=10 Alle Felder Weiß. Mit Netzwerkkommunikatoion:
 
 \begin{figure}[h]
 	\centering 
@@ -460,11 +473,26 @@ Dabei werden zwei Effekte sichtbar.
 	\caption[Skizze: Zeitbedarf ohne Netzwerkkommunikation]{Skizze: Zeitbedarf ohne Netzwerkkommunikation}
 \end{figure}
 
-Mit NWK:
-hostfile sehen so aus, dass...
-Sobald über PC-Grenze überschritten bringt das nix mehr
-Das zieht sich durch alles durch Siehe Anhang.
+Festzustellen: \\
+Einbruch nach 4. Prozessor. hostfilessine wiefolgt aufgebaut:\\
+Bsp. \textit{myhostfile15}\\
 
+\begin{lstlisting}
+simson01 slots = 4
+simson02 slots = 4
+simson03 slots = 4
+simson04 slots = 3
+\end{lstlisting}
+
+Aller 4 Prozessoren also nächster Rechner. Auffallend: Nach 4 Prozessoren, also sobald über 1 Rechner des Clusters arbeitet, aufgrund der Netzwerkkommunikation nicht so gut.
+Das zieht sich durch alles durch Siehe Anhang.\\
+
+Bewertung:\\
+Durch viele Daten hohe NWK -> 
+Große Datenmenge, schnelle Rechenoperationen.
+Andersrum wäre es natürlich besser\\
+
+Daher jetzt mal ein Blick auf die ONWK:\\
 
 \begin{figure}[h]
 	\centering 
@@ -472,7 +500,7 @@ Das zieht sich durch alles durch Siehe Anhang.
 	\caption[Skizze: Zeitbedarf ohne Netzwerkkommunikation]{Skizze: Zeitbedarf ohne Netzwerkkommunikation}
 \end{figure}
 
-Ohne NWK:
+Zwei Dinge, die auffallen:\\
 
 1) Die Prozessoren scheinbar teilweise untescheidlich schnell
 1 und 2 
@@ -501,23 +529,53 @@ Prüfung Zeilen in \(P_{0}\) & - & 0 & 2 & 4 & 6 & 8 & 6 & 7  & 8 &  9 & 10\\
  Steigender Aufwand für Sequentiellen Prozess je mehr Prozessoren -> Prüfung Zeilen in \(P_{0}\).\\
  Parallelisierung nicht gut sieht man an den Zeilen, die \(P_{p}\) abzuarbeiten hat. Fällt bei zunehmendem n nicht mehr so hart ins Gewicht. Diese Schwankungen sind in folgenden Grafiken auch zu erkennen.
  
- Steigendes n, was passiert?
- 
- 
- 
- 
+ Möglich: Erst an den senden, dann alle anderen, dann wieder einholen -> Würde besser aufteilen
+ ODER: Anders rechnen. Bestes Bsp:  Prozesse =7 Worker =6 Pro Prozess nur 1 Zeile Prozess 6 nimmt dann 5 Zeilen -> Besser: Das nochmal verteilen. 
  
  zweiterer Teil in folgenden Messungen nicht mehr so hart -> Schwankungen werden kleiner.
+ 
+ 
+Genug Vorüberlegung. Jetzt mal im Ernst:
+Zunächst betrachten von n=100 alle drei Muster.
 
-BLA
+Es fällt auf:
+	
+Da sehen wir was:
+- Hoher Speedup je kleiner und weniger die Rechtecke werden
+- --> Als Extremfall hier Messwerte für Kein Rechteck == Alles Weiß
+- Speedup verringert sich je mehr Rechtecke geprüft werden müssen, wobei besonders in's Gewicht fällt, dass Rechtecke sehr groß sind und über viele Teil-Raster-Grenzen reichen.
+- Je mehr Teil-Raster-Grenzen inkludiert --> desto mehr Arbeit in P0  zum festlegen von potentiellen Rechtecken
+- Je größer diese sind -> Aufwand für P0wächst auch
+- Als Extremfall hier alles Schwarz -> Speedup nur mäßig
+Dazwischen Schachbrett-Muster 
+ 
+ 
+ So. 
+ Dann erhöhen wir mal die Feld-Größe.
+ n= 1000 und n=10.000
+ 
+ Am Beispiel: Alles Schwarz.
+ Bogen im Speedup wird länger
+ Einzelne Prozessoren bringen also nicht mehr so große Verbesserung -> Effizienz wird kleiner.
+ Bereits bei n=1000 nicht mehr sinnvoll zu Parallelisieren, da P0-Anteil mit wachsender Feldgröße mit-skaliert und mehr in's Gewicht fällt.
+ 
+ Relationen bleiben.
+ 
+ 
+ \subsection{Interpretation der Messergebnisse}
+ 
 
-BLA
-
-BLA
 
 
+\subsection{Unterschied zum einfacherern und Abschluss}
+Vermutlich bei höherer Feldgröße noch sinnvoll, weil Arbeit von P0 nicht so hart -> kann abbrechen.
+Also: Im 
+Vor allem muss P0 die Figur-Grenzen nicht neu suchen.
+Entweder die Grenzen untereinander passen zusammen oder nicht -> Vergleichsoperationen 2 (Anfang und Ende) * Anzahl der Sub-Raster im Alles schwarz
 
-\subsection{Interpretation der Messergebnisse}
+Meiner: Muss bspw. Alles schwarz nochmal rechnen, wo die Figur aufhört um zu ermitteln, in welchen Teil-Rastern Figur liegt dort dann Prüfungen machen.
+
+NWK wäre dann vermutlich auch ein wenig besser. Dennoch besteht das Problem, dass ...
 
 
 
@@ -530,15 +588,14 @@ BLA
 \subsection{Mögliche Optimierungen}
 
 
-
 \begin{appendix} 
 	\clearpage 
 	\section{Anhang}
 	\subsection{Code: DRT1}
 	\subsection{Code: DRT2}
-	\subsection{Code: Skript 1}
-	\subsection{Code: Skript 2}			
-	\subsection{Code: Skript 3}
+	\subsection{Code: hostfileGenerator.c}
+	\subsection{Code: bsCreateHostfiles.sh}			
+	\subsection{Code: bsRunGridTest.sh}
 	\subsection{Alle Messergebnisse}
 
 	Feldgröße 10x10 - Schachbrett\\

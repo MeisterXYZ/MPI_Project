@@ -1,21 +1,23 @@
-\contentsline {section}{\numberline {1}Problembeschreibung}{3}{section.1}
-\contentsline {section}{\numberline {2}Beschreibung der Implementierung}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}gridGenerator: Generieren der Files}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}pixCheckTangle: Beschreibung des Cluster-Algorithmus}{5}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}pixCheckTangle: Funktion f\IeC {\"u}r das Abarbeiten eines (Teil-)Rasters}{7}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}pixCheckTangle: Funktion f\IeC {\"u}r das Festlegen potentieller Rechtecke}{8}{subsection.2.5}
-\contentsline {section}{\numberline {3}Messungen}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Vorgehen beim Messen}{10}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Messergebnisse}{11}{subsection.3.2}
+\contentsline {section}{\numberline {1}Problembeschreibung}{2}{section.1}
+\contentsline {section}{\numberline {2}Beschreibung der Implementierung}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}gridGenerator: Generieren der Files}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}pixCheckTangle: Beschreibung des Sequentiellen Algorithmus}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}pixCheckTangle: Beschreibung des Cluster-Algorithmus}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}pixCheckTangle: Funktion f\IeC {\"u}r das Abarbeiten eines (Teil-)Rasters}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}pixCheckTangle: Funktion f\IeC {\"u}r das Festlegen potentieller Rechtecke}{7}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus}{8}{subsection.2.6}
+\contentsline {section}{\numberline {3}Messungen}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vorgehen beim Messen}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Messergebnisse}{10}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Interpretation der Messergebnisse}{12}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Unterschied zum einfacherern und Abschluss}{12}{subsection.3.4}
 \contentsline {section}{\numberline {4}Fazit}{12}{section.4}
 \contentsline {subsection}{\numberline {4.1}Einsch\IeC {\"a}tzung des Nutzens einer Parallelisierung}{12}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}M\IeC {\"o}gliche Optimierungen}{12}{subsection.4.2}
 \contentsline {section}{\numberline {A}Anhang}{13}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Code: DRT1}{13}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Code: DRT2}{13}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Code: Skript 1}{13}{subsection.A.3}
-\contentsline {subsection}{\numberline {A.4}Code: Skript 2}{13}{subsection.A.4}
-\contentsline {subsection}{\numberline {A.5}Code: Skript 3}{13}{subsection.A.5}
+\contentsline {subsection}{\numberline {A.3}Code: hostfileGenerator.c}{13}{subsection.A.3}
+\contentsline {subsection}{\numberline {A.4}Code: bsCreateHostfiles.sh}{13}{subsection.A.4}
+\contentsline {subsection}{\numberline {A.5}Code: bsRunGridTest.sh}{13}{subsection.A.5}
 \contentsline {subsection}{\numberline {A.6}Alle Messergebnisse}{13}{subsection.A.6}
