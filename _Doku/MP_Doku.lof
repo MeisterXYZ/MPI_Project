@@ -9,5 +9,7 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Funktionalit\IeC {\"a}t von \textit {pixCheckTangle.c} Cluster-Prozess}}{6}{figure.caption.8}
 \contentsline {figure}{\numberline {9}{\ignorespaces Skizze: Zeitbedarf mit Netzwerkkommunikation}}{9}{figure.caption.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{10}{figure.caption.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{11}{figure.caption.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Skizze: Zeitbedarf ohne Netzwerkkommunikation}}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {11}{\ignorespaces S(p) und E(p) f\IeC {\"u}r n=10 Schachbrett mit Netzwerkkomm.}}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces S(p) und E(p) f\IeC {\"u}r n=10 Schachbrett ohne Netzwerkkomm.}}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces S(p) und E(p) f\IeC {\"u}r n=100 Alle drei Muster ohne Netzwerkkomm.}}{13}{figure.caption.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces S(p) und E(p) f\IeC {\"u}r n=100/1000/10.000 Alle Felder schwarz ohne Netzwerkkomm.}}{14}{figure.caption.14}

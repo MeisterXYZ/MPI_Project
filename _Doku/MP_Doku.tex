@@ -441,8 +441,8 @@ Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hi
 Gemessen werden:
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item Laufzeit mit und ohne Netzwerkkommunikation
-	\item Für Raster mit \textit{n=\{100/1000/10000\}} Feldern Breite.
-	\item Pro Rastergröße: Messungen mit je \textit{p=\{1,2,..50\}} Prozessen.
+	\item Für Raster mit \(n=\{100,1000,10000\}\)Feldern Breite.
+	\item Pro Rastergröße: Messungen mit je \(p=\{1,2,...,50\}\) Prozessen.
 	\item Pro Rastergröße und Prozess-Anzahl: drei verschiedene Probleminstanzen: 
 	\subitem - Alle Felder Weiß
 	\subitem - Alle Felder Schwarz
@@ -451,9 +451,10 @@ Gemessen werden:
 
 Jede Messung wird drei mal durchgeführt. Als Messwert wird der daraus gebildete Mittelwert betrachtet.
 
-\subsection{Messergebnisse}
+\subsection{Messergebnisse und Interpretation}
 
-Im folgenden sollen die gemessenen Daten analysiert und ausgewertet werden. Dabei werden direkt die errechneten Verläufe von Speedup und Effizienz der einzelnen Probleminstanzen bei steigender Anzahl der aktiven Prozesse betrachtet. Die zugrundeliegende Berechnung ist hierbei:\\
+\textbf{Was wird betrachtet?}\\
+Im folgenden sollen die gemessenen Daten analysiert und ausgewertet werden. Dabei werden direkt die errechneten Verläufe von Speedup und Effizienz über die einzelnen Probleminstanzen bei steigender Anzahl der aktiven Prozesse \(p\) betrachtet. Die zugrundeliegenden Berechnungen für Speedup und Effizienz sind hierbei:\\
 
 Speedup:
 \begin{equation}
@@ -465,17 +466,17 @@ Effizienz:
 E(p)=\frac{S(p)}{p}
 \end{equation}
 
-Um einschätzen zu können, warum die Kurve wie aussieht im kleinen Anfangen, wo es vorstellbar ist. Für Rastergröße n=10 Alle Felder Weiß. Mit Netzwerkkommunikatoion:
+\textbf{Kleine Probleminstanz mit Netzwerkkommunikation.}\\
+Um besser nachvollziehen zu können, aus welchen Gründen die Kurven welche Charakteristika aufweisen, soll zunächst eine kleine Probleminstanz mit Raster-Breite \(n=100\) betrachtet werden. Speedup und Effizienz bei der Messung einschließlich der Netzwerkkommunikation stellen sich dabei wie folgt dar:\\
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\columnwidth]{10_Chess_1} 
-	\caption[Skizze: Zeitbedarf ohne Netzwerkkommunikation]{Skizze: Zeitbedarf ohne Netzwerkkommunikation}
+	\caption[S(p) und E(p) für n=10 Schachbrett mit Netzwerkkomm.]{S(p) und E(p) für n=10 Schachbrett mit Netzwerkkommunikation}
 \end{figure}
 
-Festzustellen: \\
-Einbruch nach 4. Prozessor. hostfilessine wiefolgt aufgebaut:\\
-Bsp. \textit{myhostfile15}\\
+\textbf{Feststellung \#1}\\
+Betrachtet man das erste Diagramm, ist dabei zu sehen, dass ab dem Einsatz eines fünften Prozessors der Speedup gegen Null geht. Die Ursache hierfür ist zu erkennen, wenn man sich die generierten und genutzten hostfiles vor Augen führt. Als Beispiel, sie hier das generierte hostfile \textit{myhostfile15} gezeigt.\\
 
 \begin{lstlisting}
 simson01 slots = 4
@@ -484,35 +485,28 @@ simson03 slots = 4
 simson04 slots = 3
 \end{lstlisting}
 
-Aller 4 Prozessoren also nächster Rechner. Auffallend: Nach 4 Prozessoren, also sobald über 1 Rechner des Clusters arbeitet, aufgrund der Netzwerkkommunikation nicht so gut.
-Das zieht sich durch alles durch Siehe Anhang.\\
+Pro Rechner werden alle Prozessoren genutzt. Sobald alle vier Prozessoren eines Rechners genutzt werden, wird ein weiterer Rechner zum Abarbeiten des Programmes hinzugezogen.\\
+Im Diagramm ist zu erkennen, dass die Kommunikation über das Netzwerk mit weiteren Rechnern einen großen Teil der Arbeitszeit einnimmt.\\
+In allen untersuchten Fällen bewirkt dieser Umstand, dass eine effiziente Parallelisierung (unter Berücksichtigung des Kommunikationsaufwandes) bestenfalls nur dann möglich ist, wenn keine Kommunikation über das Netzwerk stattfindet. \textit{(Siehe hierzu sämtliche Graphen, die die Netzwerkkommunikation mit betrachten im Anhang.)}\\
 
-Bewertung:\\
-Durch viele Daten hohe NWK -> 
-Große Datenmenge, schnelle Rechenoperationen.
-Andersrum wäre es natürlich besser\\
-
-Daher jetzt mal ein Blick auf die ONWK:\\
+\textbf{Kleine Probleminstanz ohne Netzwerkkommunikation.}\\
+Im Weiteren soll nach dieser Erkenntnis der Blick auf die reine Parallelisierung ohne Betrachtung des Netzwerk-Kommunikationsaufwandes gelenkt werden. Speedup und Effizienz für die oben betrachtete Probleminstanz ohne Netzwerkkommunikation stellen sich wie folgt dar.\\
 
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\columnwidth]{10_Chess_0} 
-	\caption[Skizze: Zeitbedarf ohne Netzwerkkommunikation]{Skizze: Zeitbedarf ohne Netzwerkkommunikation}
+	\caption[S(p) und E(p) für n=10 Schachbrett ohne Netzwerkkomm.]{S(p) und E(p) für n=10 Schachbrett ohne Netzwerkkommunikation}
 \end{figure}
 
-Zwei Dinge, die auffallen:\\
+Daraus lassen sich die folgenden zwei Erkenntnisse gewinnen.\\
 
-1) Die Prozessoren scheinbar teilweise untescheidlich schnell
-1 und 2 
-hier gut erkennbar weil datenmenge sehr klein
-im Folgenden bleibt das sichtbar, relativiert sich aber weil Zeitwerte größer werden.
+\textbf{Feststellung \#2}\\
+Die Abarbeitung gleicher Teil-Raster erfolgt auf verschiedenen Prozessoren teilweise unterschiedlich schnell. Theoretisch betrachtet, müssten bei der vorliegenden Implementierung der sequentielle Algorithmus und die Ausführung mit zwei Prozessen ohne Betrachtung der Netzwerkkommunikation gleich schnell sein. Der Speedup für \(p=2\) müsste dabei folglich \(1\) sein. Dies ist, wie oben zu sehen, nicht der Fall. Für die Laufzeit mit Betrachtung der Kommunikation müsste sich ergeben, dass \(T(1)<T(2)\). Wie in \textbf{Abbildung 11} zu erkennen, gilt jedoch \(T(1)>T(2)\).\\
+Im Prozess mit kleineren Feldern (Raster-Breite \(n= {10,100}\))ist dieser Unterschied besonders erkennbar, bei der Erhöhung der Feldgröße, wirkt sich dieser Effekt nicht mehr so stark aus. \textit{(Vergleiche Diagramme im Anhang.)}\\
 
-2) Schwankung / Einbruch von 3 bis 8, wo Speedup vermutet werden könnte.\\ 
-Kommt durch zwei Sachen:\\
- - Amdahl -> Nicht parallelisierbarer aufwand durch Prüfung potentieller Rechtecke in Master-Prozess nach Arbeit der Worker-Prozesse.\\
- - Aufteilung auf Sub-Prozesse in kleinem Zahlen-Raum nicht optimal.
-
-Im folgenden in Tabelle werden beide Faktoren ersichtlich.\\
+\textbf{Feststellung \#3}\\
+Im Diagramm für den Speedup ist ein deutlicher Abfall des Speedups im Bereich \(p={4,...8}\) festzustellen. In diesem Bereich hätte man eher eine bogenförmige Speedup-Kurve (monoton steigend, dann monoton fallend) vermuten können. Woher der Einbruch kommt, wird klar, wenn man sich ansieht, was bei welcher Prozessoranzahl in dieser Probleminstanz passiert.\\
+Im Folgenden ist in einer Tabelle dargestellt, wie sich die Aufteilung des Rasters auf die Worker-Prozesse gestaltet und wie viele Zeilen vom Master-Prozess auf potentielle Rechtecke geprüft werden müssen.\\
 
 \begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
@@ -526,48 +520,89 @@ Prüfung Zeilen in \(P_{0}\) & - & 0 & 2 & 4 & 6 & 8 & 6 & 7  & 8 &  9 & 10\\
 \hline 
 \end{tabular}\\
 
- Steigender Aufwand für Sequentiellen Prozess je mehr Prozessoren -> Prüfung Zeilen in \(P_{0}\).\\
- Parallelisierung nicht gut sieht man an den Zeilen, die \(P_{p}\) abzuarbeiten hat. Fällt bei zunehmendem n nicht mehr so hart ins Gewicht. Diese Schwankungen sind in folgenden Grafiken auch zu erkennen.
- 
- Möglich: Erst an den senden, dann alle anderen, dann wieder einholen -> Würde besser aufteilen
- ODER: Anders rechnen. Bestes Bsp:  Prozesse =7 Worker =6 Pro Prozess nur 1 Zeile Prozess 6 nimmt dann 5 Zeilen -> Besser: Das nochmal verteilen. 
- 
- zweiterer Teil in folgenden Messungen nicht mehr so hart -> Schwankungen werden kleiner.
- 
- 
-Genug Vorüberlegung. Jetzt mal im Ernst:
-Zunächst betrachten von n=100 alle drei Muster.
+Es wird klar, dass der Einbruch zwei Gründe hat.
 
-Es fällt auf:
-	
-Da sehen wir was:
-- Hoher Speedup je kleiner und weniger die Rechtecke werden
-- --> Als Extremfall hier Messwerte für Kein Rechteck == Alles Weiß
-- Speedup verringert sich je mehr Rechtecke geprüft werden müssen, wobei besonders in's Gewicht fällt, dass Rechtecke sehr groß sind und über viele Teil-Raster-Grenzen reichen.
-- Je mehr Teil-Raster-Grenzen inkludiert --> desto mehr Arbeit in P0  zum festlegen von potentiellen Rechtecken
-- Je größer diese sind -> Aufwand für P0wächst auch
-- Als Extremfall hier alles Schwarz -> Speedup nur mäßig
-Dazwischen Schachbrett-Muster 
- 
- 
- So. 
- Dann erhöhen wir mal die Feld-Größe.
- n= 1000 und n=10.000
- 
- Am Beispiel: Alles Schwarz.
- Bogen im Speedup wird länger
- Einzelne Prozessoren bringen also nicht mehr so große Verbesserung -> Effizienz wird kleiner.
- Bereits bei n=1000 nicht mehr sinnvoll zu Parallelisieren, da P0-Anteil mit wachsender Feldgröße mit-skaliert und mehr in's Gewicht fällt.
- 
- Relationen bleiben.
- 
- 
- \subsection{Interpretation der Messergebnisse}
- 
+\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+	\item Die Aufteilung des Rasters in Teil-Raster ist im Falle einer geringen Raster-Größe nicht optimal.
+	\item Der Aufwand des nicht Parallelisierbaren Anteils am Prozess (die Prüfung potentieller Rechtecke in \(P_{0}\)) wird mit steigender Anzahl genutzter Prozesse größer.
+\end{itemize}
 
+Den ersten Punkt kann man an der Anzahl der Zeilen erkennen, die von \(P_{p}\) abzuarbeiten sind. Bei steigender Raster-Größe wirkt sich der Effekt nicht mehr so stark aus, ist aber dennoch als Schwankung in den nachfolgenden Diagrammen zu erkennen.\\
+Der zweite Punkt, das Wachstum des nicht-parallelisierbaren Anteils, wird in den folgenden Betrachtungen eine wesentliche Rolle spielen. \\
+ 
+\textbf{Vergleich der Muster}\\
+Nachdem diese Vorbetrachtung abgeschlossen ist, sollen nun für ein größeres Raster (Raster-Breite \(n=100\)) die drei verschiedenen Probleminstanzen (Schachbrett, alle Felder schwarz, alle Felder weiß) in puncto Speedup und Effizienz ohne Betrachtung der Netzwerkkommunikation betrachtet werden.
+Die entsprechenden Graphen sind in \textbf{Abbildung 13} untereinander dargestellt.\\
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\columnwidth]{100_Chess_0} 
+	\includegraphics[width=1\columnwidth]{100_AB_0} 
+	\includegraphics[width=1\columnwidth]{100_AW_0} 
+	\caption[S(p) und E(p) für n=100 Alle drei Muster ohne Netzwerkkomm.]{S(p) und E(p) für n=100 Alle drei Muster ohne Netzwerkkommunikation}
+\end{figure}
 
-\subsection{Unterschied zum einfacherern und Abschluss}
+\textbf{Feststellung \#4}\\
+In den Graphen ist zu erkennen, dass der Speedup umso höher ist, je weniger und kleinere Rechtecke im Raster enthalten sind. Besonders beachtlich ist daher der Speedup für die Probleminstanz ohne schwarze Felder.\\
+Der Speedup verringert sich, je mehr potentielle Rechtecke vom Master-Prozesse geprüft werden müssen, wobei der Prüf-Aufwand besonders groß wird, wenn die Rechtecke sehr groß sind und über mehrere Teil-Raster-Grenzen hinweg reichen. \\
+Im Hinblick auf diese Überlegung ist es damit erklärbar, dass gilt:\\
+\(Speedup_{Alles weiß} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
+Für die Effizienz gilt die entsprechende Relation.\\
+
+Bei den Probleminstanzen für die Raster-Breite \(n=100\) ist anzumerken, dass auch die Effizienz mit Kommunikation für alle drei Instanzen so hoch ist, dass sich eine Parallelisierung lohnt (Hier wirkt sich der in Feststellung \#2 beschriebene Effekt besonders sichtbar aus). Nach Überschreiten der Rechner-Grenze wird jedoch die Effizienz \(E(p)<1\), wie in Feststellung \#1 beschrieben.\\
+
+\textbf{Erhöhen der Raster-Größe}\\
+Als nächstes soll untersucht werden, wie sich Speedup und Effizienz der Probleminstanzen bei steigender Raster-Größe verhalten. 
+
+Dann erhöhen wir mal die Feld-Größe.\\
+wir gehen nur bis 10.000
+
+Max ergibt sich vor allem aus Restriktion für lokalen Festplatten-Speicher für Benutzer auf genutztem Laufwerk.
+Daher wurde in der Implementierung int verwednet. Bildet bis zu long int ab. Brauchen das für errechnung der Indizes Addessierung Felder im Raster. 
+
+Beide sind unten dargestellt:
+
+\begin{tabular}{l|c|c|c|c|c|}
+	\hline 
+	long integer & Raster-Breite & Elemente im Raster & int-Max erreicht? & Größe txt-File \\ 
+	\hline 
+	2.147.483.647 & 10.000 & 100.000.000 & nein & 200 MB\\
+	\hline 
+	2.147.483.647 & 20.000 & 400.000.000 & nein & 800 MB \\
+	\hline
+	2.147.483.647 & 30.000 & 900.000.000 & nein &  1,8GB \\
+	\hline  
+	2.147.483.647 & 40.000 & 1.600.000.000 & nein & 3,2GB \\
+	\hline
+	2.147.483.647 & 50.000 & 2.500.000.000 & ja & 5GB \\
+	\hline  
+\end{tabular}\\
+
+1,8GB war beim testen noch möglich. Vielleicht auch noch 3,2 aber Zeit zu lange beim generieren.
+Damit tests durchführen hätte ewig gebraucht.\\
+
+Beispielhaft wird in \textbf{Abbildung 14 }
+n= 1000 und n=10.000. Am Beispiel: Alles Schwarz.\\
+
+ 
+ 
+ \begin{figure}[h]
+ 	\centering 
+ 	\includegraphics[width=1\columnwidth]{100_AB_0} 
+ 	\includegraphics[width=1\columnwidth]{1000_AB_0} 
+ 	\includegraphics[width=1\columnwidth]{10000_AB_0} 
+ 	\caption[S(p) und E(p) für n=100/1000/10.000 Alle Felder schwarz ohne Netzwerkkomm.]{S(p) und E(p) für n=100/1000/10.000 Alle Felder schwarz ohne Netzwerkkommunikation}
+ \end{figure}
+ 
+\textbf{Feststellung \#5}\\
+Bogen im Speedup wird länger
+Einzelne Prozessoren bringen also nicht mehr so große Verbesserung -> Effizienz wird kleiner.
+Bereits bei n=1000 nicht mehr sinnvoll zu Parallelisieren, da P0-Anteil mit wachsender Feldgröße mit-skaliert und mehr in's Gewicht fällt.\\
+
+ \textbf{Feststellung \#6}\\
+Relationen bleiben.
+
+\section{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus und Fazit}
 Vermutlich bei höherer Feldgröße noch sinnvoll, weil Arbeit von P0 nicht so hart -> kann abbrechen.
 Also: Im 
 Vor allem muss P0 die Figur-Grenzen nicht neu suchen.
@@ -577,22 +612,18 @@ Meiner: Muss bspw. Alles schwarz nochmal rechnen, wo die Figur aufhört um zu er
 
 NWK wäre dann vermutlich auch ein wenig besser. Dennoch besteht das Problem, dass ...
 
+Bewertung:\\
+Durch viele Daten hohe NWK -> 
+Große Datenmenge, schnelle Rechenoperationen.
+Andersrum wäre es natürlich besser\\
 
-
-\section{Fazit}
-
-
-\subsection{Einschätzung des Nutzens einer Parallelisierung}
-
-
-\subsection{Mögliche Optimierungen}
 
 
 \begin{appendix} 
 	\clearpage 
 	\section{Anhang}
-	\subsection{Code: DRT1}
-	\subsection{Code: DRT2}
+	\subsection{Code: gridGenerator.c}
+	\subsection{Code: pixCheckTangle.c}
 	\subsection{Code: hostfileGenerator.c}
 	\subsection{Code: bsCreateHostfiles.sh}			
 	\subsection{Code: bsRunGridTest.sh}
