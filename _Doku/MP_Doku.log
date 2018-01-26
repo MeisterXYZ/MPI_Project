@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  26 JAN 2018 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  26 JAN 2018 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1225,6 +1225,8 @@ LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <10> not available
 (Font)              Font shape `T1/iwona/b/n' tried instead on input line 110.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/iwona/b/n' tried instead on input line 110.
+LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <12> not available
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 110.
 LaTeX Font Info:    Try loading font information for OT1+pplj on input line 110
 .
 
@@ -1283,355 +1285,354 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
 \tf@toc=\write4
 \openout4 = `MP_Doku.toc'.
 
-Package tocbasic Info: character protrusion at lof deactivated on input line 11
-5.
- (./MP_Doku.lof
-Overfull \hbox (0.91016pt too wide) in paragraph at lines 15--15
- [][] []\T1/pplj/m/n/10 S(p) und E(p) für n=100/1000/10.000 Al-le Fel-der schwa
-rz 
- []
-
-)
-\tf@lof=\write5
-\openout5 = `MP_Doku.lof'.
-
  [1
 
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/iwona/bx/sc' in size <10> not available
-(Font)              Font shape `T1/iwona/b/sc' tried instead on input line 150.
+(Font)              Font shape `T1/iwona/b/sc' tried instead on input line 151.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/b/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 154.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 155.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 154.
+(Font)              scaled to size 7.65005pt on input line 155.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `fvm' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
 
  []
 
-[3] <Figures/Diag_1.png, id=156, 891.33pt x 606.265pt>
+[2] <Figures/Diag_1.png, id=134, 891.33pt x 606.265pt>
 File: Figures/Diag_1.png Graphic file (type png)
 
 <use Figures/Diag_1.png>
-Package pdftex.def Info: Figures/Diag_1.png used on input line 164.
+Package pdftex.def Info: Figures/Diag_1.png used on input line 165.
 (pdftex.def)             Requested size: 332.99774pt x 226.49774pt.
 LaTeX Font Info:    Font shape `T1/iwona/bx/n' in size <9> not available
-(Font)              Font shape `T1/iwona/b/n' tried instead on input line 165.
+(Font)              Font shape `T1/iwona/b/n' tried instead on input line 166.
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-<Figures/Diag_2f.jpg, id=158, 3524.16624pt x 2626.81375pt>
+<Figures/Diag_2f.jpg, id=136, 3524.16624pt x 2626.81375pt>
 File: Figures/Diag_2f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_2f.jpg>
-Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 181.
+Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 182.
 (pdftex.def)             Requested size: 296.00113pt x 220.61076pt.
- [4 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+
+Overfull \hbox (5.94975pt too wide) in paragraph at lines 187--189
+[]\T1/pplj/m/n/10 Der voll-stän-di-ge Co-de zum Al-go-rith-mus ist im Pro-jek-t
+-ord-ner ent-hal-ten. Die Haupt-
+ []
+
+[3 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
-<Figures/Raster_1.png, id=166, 321.2pt x 300.12125pt>
+<Figures/Raster_1.png, id=146, 321.2pt x 300.12125pt>
 File: Figures/Raster_1.png Graphic file (type png)
 
 <use Figures/Raster_1.png>
-Package pdftex.def Info: Figures/Raster_1.png used on input line 217.
+Package pdftex.def Info: Figures/Raster_1.png used on input line 201.
 (pdftex.def)             Requested size: 92.5pt x 86.42844pt.
 
-<Figures/Raster_2.png, id=167, 857.2025pt x 376.40625pt>
+<Figures/Raster_2.png, id=147, 857.2025pt x 376.40625pt>
 File: Figures/Raster_2.png Graphic file (type png)
 
 <use Figures/Raster_2.png>
-Package pdftex.def Info: Figures/Raster_2.png used on input line 225.
+Package pdftex.def Info: Figures/Raster_2.png used on input line 209.
 (pdftex.def)             Requested size: 222.00226pt x 97.48424pt.
 
-<Figures/Raster_3.png, id=168, 1216.545pt x 235.88126pt>
+<Figures/Raster_3.png, id=148, 1216.545pt x 235.88126pt>
 File: Figures/Raster_3.png Graphic file (type png)
 
 <use Figures/Raster_3.png>
-Package pdftex.def Info: Figures/Raster_3.png used on input line 233.
+Package pdftex.def Info: Figures/Raster_3.png used on input line 217.
 (pdftex.def)             Requested size: 332.99774pt x 64.5634pt.
- [5 <./Figures/Raster_1.png> <./Figures/Raster_2.png> <./Figures/Raster_3.png>]
+ [4 <./Figures/Raster_1.png> <./Figures/Raster_2.png> <./Figures/Raster_3.png>]
 
-<Figures/Raster_4.png, id=178, 1213.53375pt x 239.89626pt>
+<Figures/Raster_4.png, id=160, 1213.53375pt x 239.89626pt>
 File: Figures/Raster_4.png Graphic file (type png)
 
 <use Figures/Raster_4.png>
-Package pdftex.def Info: Figures/Raster_4.png used on input line 242.
+Package pdftex.def Info: Figures/Raster_4.png used on input line 226.
 (pdftex.def)             Requested size: 332.99774pt x 65.82707pt.
 
-<Figures/Raster_5.png, id=179, 856.19875pt x 305.14pt>
+<Figures/Raster_5.png, id=161, 856.19875pt x 305.14pt>
 File: Figures/Raster_5.png Graphic file (type png)
 
 <use Figures/Raster_5.png>
-Package pdftex.def Info: Figures/Raster_5.png used on input line 250.
+Package pdftex.def Info: Figures/Raster_5.png used on input line 234.
 (pdftex.def)             Requested size: 258.99887pt x 92.30164pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
-[6 <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
-<Figures/Diag_3f.jpg, id=186, 3899.56876pt x 4644.35126pt>
+[5 <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
+<Figures/Diag_3f.jpg, id=170, 3899.56876pt x 4644.35126pt>
 File: Figures/Diag_3f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_3f.jpg>
-Package pdftex.def Info: Figures/Diag_3f.jpg used on input line 267.
+Package pdftex.def Info: Figures/Diag_3f.jpg used on input line 251.
 (pdftex.def)             Requested size: 370.0pt x 440.65103pt.
 
-Underfull \hbox (badness 1521) in paragraph at lines 268--268
+Underfull \hbox (badness 1521) in paragraph at lines 252--252
 [][]|\T1/pplj/m/n/9 Ab-lauf des Cluster-Prozesses von \T1/pplj/m/it/9 pix-Check
 -Tan-gle.c \T1/pplj/m/n/9 dar-ge-stellt als BPMN-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
 
  []
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 289.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 273.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <7> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 337.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 321.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <6.25002> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 337.
-[7 <./Figures/Diag_3f.jpg>] [8] [9]
-Overfull \hbox (17.74976pt too wide) in paragraph at lines 410--412
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 321.
+[6 <./Figures/Diag_3f.jpg>] [7] [8]
+Overfull \hbox (17.74976pt too wide) in paragraph at lines 394--396
 \T1/pplj/m/n/10 hier zu-nächst ei-ne Vor-über-le-gung an-ge-stellt wer-den, wie
  die Netzwerk-Kommunikation
  []
 
-<Figures/Time_1.png, id=280, 720.6925pt x 541.02126pt>
+<Figures/Time_1.png, id=266, 720.6925pt x 541.02126pt>
 File: Figures/Time_1.png Graphic file (type png)
 
 <use Figures/Time_1.png>
-Package pdftex.def Info: Figures/Time_1.png used on input line 415.
+Package pdftex.def Info: Figures/Time_1.png used on input line 399.
 (pdftex.def)             Requested size: 185.0pt x 138.87906pt.
- <Figures/Time_2.png, id=281, 567.11874pt x 313.17pt>
+ <Figures/Time_2.png, id=267, 567.11874pt x 313.17pt>
 File: Figures/Time_2.png Graphic file (type png)
 
 <use Figures/Time_2.png>
-Package pdftex.def Info: Figures/Time_2.png used on input line 424.
+Package pdftex.def Info: Figures/Time_2.png used on input line 408.
 (pdftex.def)             Requested size: 185.0pt x 102.15654pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--432
+Underfull \hbox (badness 10000) in paragraph at lines 413--416
 
  []
 
-[10 <./Figures/Time_1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 456--458
+[9 <./Figures/Time_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--471
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
 
  []
 
-<Figures/10_Chess_1.png, id=293, 968.61874pt x 274.02374pt>
+<Figures/10_Chess_1.png, id=279, 968.61874pt x 274.02374pt>
 File: Figures/10_Chess_1.png Graphic file (type png)
 
 <use Figures/10_Chess_1.png>
-Package pdftex.def Info: Figures/10_Chess_1.png used on input line 474.
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 458.
 (pdftex.def)             Requested size: 370.0pt x 104.67366pt.
- [11 <./Figures/Time_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 478--480
+ [10 <./Figures/Time_2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--491
+Underfull \hbox (badness 10000) in paragraph at lines 472--475
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--494
+Underfull \hbox (badness 10000) in paragraph at lines 476--478
 
  []
 
-<Figures/10_Chess_0.png, id=302, 965.6075pt x 270.00874pt>
+<Figures/10_Chess_0.png, id=290, 965.6075pt x 270.00874pt>
 File: Figures/10_Chess_0.png Graphic file (type png)
 
 <use Figures/10_Chess_0.png>
-Package pdftex.def Info: Figures/10_Chess_0.png used on input line 497.
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 481.
 (pdftex.def)             Requested size: 370.0pt x 103.46133pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--502
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
-[12 <./Figures/10_Chess_1.png> <./Figures/10_Chess_0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 503--506
+[11 <./Figures/10_Chess_1.png> <./Figures/10_Chess_0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 487--490
 
  []
 
 
-Overfull \hbox (6.5218pt too wide) in paragraph at lines 507--510
+Overfull \hbox (6.5218pt too wide) in paragraph at lines 491--494
 \U/zeur/m/n/10 p \U/zeus/m/n/10 ½ []$ \T1/pplj/m/n/10 fest-zu-stel-len. In die-
 sem Be-reich hät-te man eher ei-ne bo-gen-för-mi-ge Speedup-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--510
+Underfull \hbox (badness 10000) in paragraph at lines 491--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--522
+Underfull \hbox (badness 10000) in paragraph at lines 495--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--532
+Underfull \hbox (badness 10000) in paragraph at lines 514--516
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--536
+Underfull \hbox (badness 10000) in paragraph at lines 517--520
 
  []
 
-<Figures/100_Chess_0.png, id=314, 1167.36125pt x 352.31625pt>
+<Figures/100_Chess_0.png, id=304, 1167.36125pt x 352.31625pt>
 File: Figures/100_Chess_0.png Graphic file (type png)
 
 <use Figures/100_Chess_0.png>
-Package pdftex.def Info: Figures/100_Chess_0.png used on input line 539.
+Package pdftex.def Info: Figures/100_Chess_0.png used on input line 523.
 (pdftex.def)             Requested size: 370.0pt x 111.66832pt.
 
-<Figures/100_AB_0.png, id=315, 1166.3575pt x 353.32pt>
+<Figures/100_AB_0.png, id=305, 1166.3575pt x 353.32pt>
 File: Figures/100_AB_0.png Graphic file (type png)
 
 <use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 540.
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 524.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/100_AW_0.png, id=316, 1166.3575pt x 352.31625pt>
+<Figures/100_AW_0.png, id=306, 1166.3575pt x 352.31625pt>
 File: Figures/100_AW_0.png Graphic file (type png)
 
 <use Figures/100_AW_0.png>
-Package pdftex.def Info: Figures/100_AW_0.png used on input line 541.
+Package pdftex.def Info: Figures/100_AW_0.png used on input line 525.
 (pdftex.def)             Requested size: 370.0pt x 111.76508pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--551
+Underfull \hbox (badness 10000) in paragraph at lines 529--535
 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 552--553
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 554--560
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 538--544
 
  []
 
-[14 <./Figures/100_Chess_0.png> <./Figures/100_AB_0.png> <./Figures/100_AW_0.pn
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+ []
+
+[13 <./Figures/100_Chess_0.png> <./Figures/100_AB_0.png> <./Figures/100_AW_0.pn
 g>]
-Underfull \hbox (badness 10000) in paragraph at lines 564--579
+Underfull \hbox (badness 10000) in paragraph at lines 548--563
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--581
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
 File: Figures/100_AB_0.png Graphic file (type png)
 <use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 584.
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 568.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/1000_AB_0.png, id=330, 1085.05376pt x 322.20375pt>
+<Figures/1000_AB_0.png, id=321, 1085.05376pt x 322.20375pt>
 File: Figures/1000_AB_0.png Graphic file (type png)
 
 <use Figures/1000_AB_0.png>
-Package pdftex.def Info: Figures/1000_AB_0.png used on input line 585.
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 569.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
-<Figures/10000_AB_0.png, id=331, 1081.03876pt x 302.12875pt>
+<Figures/10000_AB_0.png, id=322, 1081.03876pt x 302.12875pt>
 File: Figures/10000_AB_0.png Graphic file (type png)
 
 <use Figures/10000_AB_0.png>
-Package pdftex.def Info: Figures/10000_AB_0.png used on input line 586.
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 570.
 (pdftex.def)             Requested size: 370.0pt x 103.40471pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--601
+Underfull \hbox (badness 10000) in paragraph at lines 583--585
 
  []
 
-[15 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 603--614
+[14 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 587--598
 
  []
 
 
-Overfull \hbox (44.64972pt too wide) in paragraph at lines 615--617
+Overfull \hbox (44.64972pt too wide) in paragraph at lines 599--601
 \T1/pplj/m/n/10 Zu Be-grün-den sind die-se Be-ob-ach-tun-gen durch den stark wa
 ch-sen-den nicht-parallelisierbaren
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--617
+Underfull \hbox (badness 10000) in paragraph at lines 599--601
 
  []
 
 
-Overfull \hbox (49.29672pt too wide) in paragraph at lines 625--625
+Overfull \hbox (49.29672pt too wide) in paragraph at lines 609--609
 |[]\T1/iwona/m/sc/14.4/80ls unterschied zum ''gibt es ein rechteck?''-algorithm
 us 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 639--643
+Underfull \hbox (badness 10000) in paragraph at lines 618--620
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--627
+
+ []
+
+[15]
 
 Class scrartcl Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrartcl)              You should note, that `\appendix' is a mostly globally
@@ -1644,7 +1645,7 @@ Class scrartcl Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrartcl)              inconsistent.
 (scrartcl)              Because of this, you should remove `\end{appendix}'
 (scrartcl)              and replace `\begin{appendix}' by command
-(scrartcl)              `\appendix' on input line 646.
+(scrartcl)              `\appendix' on input line 633.
 
 [16] (./hostfileGenerator.c
 
@@ -1978,154 +1979,154 @@ Overfull \hbox (0.72917pt too wide) in paragraph at lines 25--27
 [18])
 File: Figures/10_Chess_0.png Graphic file (type png)
  <use Figures/10_Chess_0.png>
-Package pdftex.def Info: Figures/10_Chess_0.png used on input line 674.
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 661.
 (pdftex.def)             Requested size: 370.0pt x 103.46133pt.
 File: Figures/10_Chess_1.png Graphic file (type png)
  <use Figures/10_Chess_1.png>
-Package pdftex.def Info: Figures/10_Chess_1.png used on input line 675.
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 662.
 (pdftex.def)             Requested size: 370.0pt x 104.67366pt.
 File: Figures/100_AB_0.png Graphic file (type png)
 
 <use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 677.
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 664.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/100_AB_1.png, id=441, 1165.35374pt x 350.30875pt>
+<Figures/100_AB_1.png, id=437, 1165.35374pt x 350.30875pt>
 File: Figures/100_AB_1.png Graphic file (type png)
 
 <use Figures/100_AB_1.png>
-Package pdftex.def Info: Figures/100_AB_1.png used on input line 678.
+Package pdftex.def Info: Figures/100_AB_1.png used on input line 665.
 (pdftex.def)             Requested size: 370.0pt x 111.21912pt.
 File: Figures/100_AW_0.png Graphic file (type png)
  <use Figures/100_AW_0.png>
-Package pdftex.def Info: Figures/100_AW_0.png used on input line 680.
+Package pdftex.def Info: Figures/100_AW_0.png used on input line 667.
 (pdftex.def)             Requested size: 370.0pt x 111.76508pt.
 
-<Figures/100_AW_1.png, id=442, 1164.35pt x 352.31625pt>
+<Figures/100_AW_1.png, id=438, 1164.35pt x 352.31625pt>
 File: Figures/100_AW_1.png Graphic file (type png)
 
 <use Figures/100_AW_1.png>
-Package pdftex.def Info: Figures/100_AW_1.png used on input line 681.
+Package pdftex.def Info: Figures/100_AW_1.png used on input line 668.
 (pdftex.def)             Requested size: 370.0pt x 111.95323pt.
 File: Figures/100_Chess_0.png Graphic file (type png)
  <use Figures/100_Chess_0.png>
-Package pdftex.def Info: Figures/100_Chess_0.png used on input line 683.
+Package pdftex.def Info: Figures/100_Chess_0.png used on input line 670.
 (pdftex.def)             Requested size: 370.0pt x 111.66832pt.
 
-<Figures/100_Chess_1.png, id=443, 1163.34625pt x 350.30875pt>
+<Figures/100_Chess_1.png, id=439, 1163.34625pt x 350.30875pt>
 File: Figures/100_Chess_1.png Graphic file (type png)
 
 <use Figures/100_Chess_1.png>
-Package pdftex.def Info: Figures/100_Chess_1.png used on input line 684.
+Package pdftex.def Info: Figures/100_Chess_1.png used on input line 671.
 (pdftex.def)             Requested size: 370.0pt x 111.41689pt.
 File: Figures/1000_AB_0.png Graphic file (type png)
  <use Figures/1000_AB_0.png>
-Package pdftex.def Info: Figures/1000_AB_0.png used on input line 686.
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 673.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
-<Figures/1000_AB_1.png, id=444, 1090.0725pt x 318.18875pt>
+<Figures/1000_AB_1.png, id=440, 1090.0725pt x 318.18875pt>
 File: Figures/1000_AB_1.png Graphic file (type png)
 
 <use Figures/1000_AB_1.png>
-Package pdftex.def Info: Figures/1000_AB_1.png used on input line 687.
+Package pdftex.def Info: Figures/1000_AB_1.png used on input line 674.
 (pdftex.def)             Requested size: 370.0pt x 107.99823pt.
 
-<Figures/1000_AW_0.png, id=445, 1084.05pt x 319.1925pt>
+<Figures/1000_AW_0.png, id=441, 1084.05pt x 319.1925pt>
 File: Figures/1000_AW_0.png Graphic file (type png)
 
 <use Figures/1000_AW_0.png>
-Package pdftex.def Info: Figures/1000_AW_0.png used on input line 689.
+Package pdftex.def Info: Figures/1000_AW_0.png used on input line 676.
 (pdftex.def)             Requested size: 370.0pt x 108.94287pt.
 
-<Figures/1000_AW_1.png, id=446, 1090.0725pt x 317.185pt>
+<Figures/1000_AW_1.png, id=442, 1090.0725pt x 317.185pt>
 File: Figures/1000_AW_1.png Graphic file (type png)
 
 <use Figures/1000_AW_1.png>
-Package pdftex.def Info: Figures/1000_AW_1.png used on input line 690.
+Package pdftex.def Info: Figures/1000_AW_1.png used on input line 677.
 (pdftex.def)             Requested size: 370.0pt x 107.65755pt.
 
-<Figures/1000_Chess_0.png, id=447, 1090.0725pt x 321.2pt>
+<Figures/1000_Chess_0.png, id=443, 1090.0725pt x 321.2pt>
 File: Figures/1000_Chess_0.png Graphic file (type png)
 
 <use Figures/1000_Chess_0.png>
-Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 692.
+Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 679.
 (pdftex.def)             Requested size: 370.0pt x 109.02031pt.
 
-<Figures/1000_Chess_1.png, id=448, 1084.05pt x 317.185pt>
+<Figures/1000_Chess_1.png, id=444, 1084.05pt x 317.185pt>
 File: Figures/1000_Chess_1.png Graphic file (type png)
 
 <use Figures/1000_Chess_1.png>
-Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 693.
+Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 680.
 (pdftex.def)             Requested size: 370.0pt x 108.25769pt.
 File: Figures/10000_AB_0.png Graphic file (type png)
  <use Figures/10000_AB_0.png>
-Package pdftex.def Info: Figures/10000_AB_0.png used on input line 695.
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 682.
 (pdftex.def)             Requested size: 370.0pt x 103.40471pt.
 
-<Figures/10000_AB_1.png, id=449, 1083.04625pt x 306.14375pt>
+<Figures/10000_AB_1.png, id=445, 1083.04625pt x 306.14375pt>
 File: Figures/10000_AB_1.png Graphic file (type png)
 
 <use Figures/10000_AB_1.png>
-Package pdftex.def Info: Figures/10000_AB_1.png used on input line 696.
+Package pdftex.def Info: Figures/10000_AB_1.png used on input line 683.
 (pdftex.def)             Requested size: 370.0pt x 104.58733pt.
 
-<Figures/10000_AW_0.png, id=450, 1087.06125pt x 308.15125pt>
+<Figures/10000_AW_0.png, id=446, 1087.06125pt x 308.15125pt>
 File: Figures/10000_AW_0.png Graphic file (type png)
 
 <use Figures/10000_AW_0.png>
-Package pdftex.def Info: Figures/10000_AW_0.png used on input line 698.
+Package pdftex.def Info: Figures/10000_AW_0.png used on input line 685.
 (pdftex.def)             Requested size: 370.0pt x 104.88287pt.
 
-<Figures/10000_AW_1.png, id=451, 1089.06876pt x 307.1475pt>
+<Figures/10000_AW_1.png, id=447, 1089.06876pt x 307.1475pt>
 File: Figures/10000_AW_1.png Graphic file (type png)
 
 <use Figures/10000_AW_1.png>
-Package pdftex.def Info: Figures/10000_AW_1.png used on input line 699.
+Package pdftex.def Info: Figures/10000_AW_1.png used on input line 686.
 (pdftex.def)             Requested size: 370.0pt x 104.34909pt.
 
-<Figures/10000_Chess_0.png, id=452, 1075.01625pt x 306.14375pt>
+<Figures/10000_Chess_0.png, id=448, 1075.01625pt x 306.14375pt>
 File: Figures/10000_Chess_0.png Graphic file (type png)
 
 <use Figures/10000_Chess_0.png>
-Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 701.
+Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 688.
 (pdftex.def)             Requested size: 370.0pt x 105.36745pt.
 
-<Figures/10000_Chess_1.png, id=453, 1075.01625pt x 301.125pt>
+<Figures/10000_Chess_1.png, id=449, 1075.01625pt x 301.125pt>
 File: Figures/10000_Chess_1.png Graphic file (type png)
 
 <use Figures/10000_Chess_1.png>
-Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 702.
+Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 689.
 (pdftex.def)             Requested size: 370.0pt x 103.6401pt.
  [19 <./Figures/100_AB_1.png>] [20 <./Figures/100_AW_1.png> <./Figures/100_Ches
 s_1.png> <./Figures/1000_AB_1.png>] [21 <./Figures/1000_AW_0.png> <./Figures/10
 00_AW_1.png> <./Figures/1000_Chess_0.png> <./Figures/1000_Chess_1.png> <./Figur
 es/10000_AB_1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 720.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 707.
  [22 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
 ss_0.png> <./Figures/10000_Chess_1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 720.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 707.
  (./MP_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 720.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 720.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 707.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 707.
 Package rerunfilecheck Info: File `MP_Doku.out' has not changed.
-(rerunfilecheck)             Checksum: 0572557A16851945FDA49D3A81A163C3;1702.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 720.
+(rerunfilecheck)             Checksum: 0CD41B726920F0E998FBE67270AEF622;1868.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 707.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18825 strings out of 492995
- 322909 string characters out of 6132703
+ 18824 strings out of 492995
+ 322898 string characters out of 6132703
  719029 words of memory out of 5000000
  21750 multiletter control sequences out of 15000+600000
- 106033 words of font info for 141 fonts, out of 8000000 for 9000
+ 109163 words of font info for 142 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 66i,30n,86p,8818b,14900s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,30n,86p,8818b,14908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
-}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
-ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
+}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/us
+r/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/loca
@@ -2141,10 +2142,10 @@ type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/pal
 atino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/u
 plri8a.pfb>
-Output written on MP_Doku.pdf (22 pages, 4906451 bytes).
+Output written on MP_Doku.pdf (22 pages, 4904726 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
- 247 named destinations out of 1000 (max. 500000)
- 21815 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 597 PDF objects out of 1000 (max. 8388607)
+ 495 compressed objects within 5 object streams
+ 249 named destinations out of 1000 (max. 500000)
+ 22343 words of extra memory for PDF output out of 24883 (max. 10000000)
 

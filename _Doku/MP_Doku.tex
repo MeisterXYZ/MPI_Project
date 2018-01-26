@@ -80,9 +80,9 @@ BCOR5mm, % Binding correction
 %	TITLE AND AUTHOR(S)
 %----------------------------------------------------------------------------------------
 
-\title{\normalfont\spacedallcaps{Projektaufgabe pixCheckTangle}} % The article title
+\title{\normalfont\spacedallcaps{Projektaufgabe 1}} % The article title
 
-%\subtitle{Subtitle} % Uncomment to display a subtitle
+\subtitle{pixCheckTangle} % Uncomment to display a subtitle
 
 \author{\spacedlowsmallcaps{Raphael Drechsler}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
 
@@ -112,7 +112,7 @@ BCOR5mm, % Binding correction
 
 \tableofcontents % Print the table of contents
 
-\listoffigures % Print the list of figures
+%\listoffigures % Print the list of figures
 
 
 %----------------------------------------------------------------------------------------
@@ -145,6 +145,7 @@ Die Implementierung ist in zwei Programmen umgesetzt.
 	\item \textit{pixCheckTangle.c}: Programm zur Überprüfung des als \textit{.txt}-Datei übergebenen Rasters auf Rechtecke.
 \end{itemize}
 
+Eine beispielhafte Abfolge der Konsolen-Befehle für die Ausführung ist im Anhang A6 aufgezeigt. \\
 In den Folgenden Abschnitten wird die Funktionalität der Programme beschrieben.
 
 \subsection{gridGenerator: Generieren der Files}
@@ -156,7 +157,7 @@ mpirun gridGenerator.c [gridfile.txt]
 \end{lstlisting}
 
 Wird dabei eine zuvor durch den gridGenerator erzeugte .txt-Datei als Parameter angegeben, kann diese Datei bearbeitet werden. Andernfalls wird eine neue Datei erstellt. Der Programm-Ablauf ist im Folgenden als Nassi-Shneiderman-Diagramm dargestellt.\\
-\\Der vollständige Code findet sich im Anhang. 
+\\Der vollständige Code findet sich im Abgabeordner des Projektes.
 \pagebreak
 
 \begin{figure}[h]
@@ -183,35 +184,18 @@ Für den Fall, dass nur ein Prozessor an der Ausführung des Programmes beteilig
 	
 \end{figure}
 
-Der vollständige Code zum Algorithmus ist im Anhang enthalten. Die Hauptfunktionalität findet sich dabei in dem Codeabschnitt, welcher ausgeführt wird,   wenn der ausführende Prozess den Rang 0 hat und es nur einen Prozess gibt.
-%
-%
-%\begin{figure}[h]
-%	\centering 
-%
-%	\begin{lstlisting}
-%	if(rank == 0){
-%			if (noOfProcs==1){
-%					//run the sequential porcess
-%			} ...
-%	\end{lstlisting}
-%	\caption[Einordnung \textit{pixCheckTangle.c} sequentiell im Quellcode]{Einordnung des sequentiellen Ablaufs von \textit{pixCheckTangle.c} im Quellcode}
-%	
-%\end{figure}
-
-
+Der vollständige Code zum Algorithmus ist im Projektordner enthalten. Die Hauptfunktionalität findet sich dabei in dem Codeabschnitt, welcher ausgeführt wird, wenn der ausführende Prozess den Rang 0 hat und es nur einen Prozess gibt.\\
 Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Nach welchem Prinzip die Zeitmessung erfolgen, wird in Kapitel 3.1 beschrieben.
 
 
 \subsection{pixCheckTangle: Beschreibung des Cluster-Algorithmus}
 
 Für den Fall, dass mehrere Prozessoren an der Abarbeitung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt.\\
-Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. \\
-Das Raster wird dann in vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
+Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. Das Raster wird dann in vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
 
 \textbf{Beispiel für Verarbeitung durch Cluster-Prozess}
 
-Beispielsweise wird das folgende Raster betrachtet. Das Zeichen \textit{\#} repräsentiert dabei ein schwarzes Feld, weiße Felder werden durch Leerzeichen dargestellt.
+Beispielsweise wird das folgende Raster betrachtet. Das Zeichen \textit{\#} repräsentiert in der folgenden Grafik ein schwarzes Feld, weiße Felder werden durch Leerzeichen dargestellt.
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.25\columnwidth]{Raster_1} 
@@ -234,7 +218,7 @@ Die Worker-Prozesse können nun feststellen, ob es sich bei einzelnen/zusammenh�
 	\caption[Cluster-Prozess: Worker-Prozess: Nicht-Rechteck-Figuren]{Worker-Prozesse identifizieren Nicht-Rechteck-Figuren}
 \end{figure}
 
-Wenn ein Rechteck in einem Teil-Raster zu einem Rand der Teil-Rasters reicht und an diesem Rand im gesamten Raster ein weiteres Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Verarbeiten des Teil-Rasters keine Aussage darüber möglich, ob es sich um ein tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Weiteren als potentielle Rechtecke) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
+Wenn ein Rechteck einen Rand des Teil-Rasters berührt und das Teil-Raster im gesamten Raster an ein weiteres Teil-Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Worker-Prozess keine finale Aussage darüber möglich, ob es sich tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Weiteren als potentielle Rechtecke bezeichnet) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
 Das Ergebnis der Abarbeitung der Teil-Raster in den Worker-Prozessen sieht also wie folgt aus:
 
 \begin{figure}[h]
@@ -624,23 +608,26 @@ bei steigender Raster-Größe erhalten bleiben.
 
 \section{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus und Fazit}
 
+\subsection{Fazit}
+Es sind zwei Aspekte deutlich geworden, welche bei dem betrachteten Problem einer effizienten Parallelisierung entgegenwirken:
+\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+	\item Die notwendige Übertragung der großen Datenmengen für die Teil-Raster von Prozessor zu Prozessor.
+	\item Der mit steigender Raster-Größe wachsende nicht-parallelisierbare Aufwand.
+\end{itemize}
 
+Der zweiter Aspekt bedingt, dass eine Parallelisierung bei den betrachteten Problemfällen nur bei kleiner Raster-Größe effizient ist. (Im untersuchten Fall für \(n=100\).)\\
+Der erste Aspekt bedingt, dass auch im Falle einer kleineren Raster-Größe die Parallelisierung nur dann effizient ist, wenn die Parallelisierung auf die Prozesse eines Rechners beschränkt ist und keine Rechner-übergreifende Kommunikation stattfinden muss.\\
 
+Generell liegt für das gesamte Problem der Umstand vor, dass auf einer großen Datenmenge nur wenige und teils schnelle Rechenoperationen (in den meisten Fällen Kalkulation von Indizes und Vergleichs-Operationen) ausgeführt werden müssen. Wäre das Problem so geartet, dass aufwändige Operationen auf kleinen Datenmengen ausgeführt werden müssen, hätte 
+hier eine Parallelisierung (wenn dann möglich) eine größere Effizienz.
 
-Vermutlich bei höherer Feldgröße noch sinnvoll, weil Arbeit von P0 nicht so hart -> kann abbrechen.
-Also: Im 
-Vor allem muss P0 die Figur-Grenzen nicht neu suchen.
-Entweder die Grenzen untereinander passen zusammen oder nicht -> Vergleichsoperationen 2 (Anfang und Ende) * Anzahl der Sub-Raster im Alles schwarz
+\subsection{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus}
+Wie zuvor in \textbf{2.6} festgestellt, besteht ein wesentlicher Unterschied zwischen der umgesetzten Implementierung und dem ''Gibt es ein Rechteck?''-Algorithmus darin, dass die Worker-Prozesse nur geringe Informationsmengen an den Master-Prozess zurück-übertragen müssen. Die Übertragung der Teil-Raster vom Master- an die Worker-Prozesse bleibt jedoch erforderlich.\\
+Das Abfallen der Effizienz, welches einsetzt, sobald zwischen mehreren Rechnern kommuniziert werden muss, sollte sich daher in geringerem Maße auswirken. Da jedoch somit optimistisch geschätzt nur die Hälfte der notwendigen Kommunikation wegfällt, sollte der Effekt jedoch weiterhin stark bemerkbar sein und vermutlich auch zu einer Ineffizienz der Parallelisierung für \(p>4\) sorgen.\\
 
-Meiner: Muss bspw. Alles schwarz nochmal rechnen, wo die Figur aufhört um zu ermitteln, in welchen Teil-Rastern Figur liegt dort dann Prüfungen machen.
+Ein weiterer wesentlicher Unterschied besteht darin, dass der Master-Prozess sehr viel weniger Prüf-Aufwand im nicht-parallelisierbaren Anteil des Algorithmus hat. Zudem ist dieser Anteil im wesentlichen unabhängig von der Raster-Größe und nur abhängig von der Anzahl der eingesetzten Prozessoren ist. Hier sollte daher kein fallender Speedup für identisches \(p\) mit steigender Raster-Größe zu rechnen.
 
-NWK wäre dann vermutlich auch ein wenig besser. Dennoch besteht das Problem, dass ...
-
-Bewertung:\\
-Durch viele Daten hohe NWK -> 
-Große Datenmenge, schnelle Rechenoperationen.
-Andersrum wäre es natürlich besser\\
-
+Das oben resümierte Problem bezüglich der großen Datenmenge und den wenigen Rechenoperationen gilt jedoch auch in diesem Fall.
 
 
 \begin{appendix} 
