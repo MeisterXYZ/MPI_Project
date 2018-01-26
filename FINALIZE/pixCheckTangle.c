@@ -315,10 +315,7 @@ void outputRectangleList(char *gridPointer,int gridSize){
                 }else{
                     printf("Rectangle %d from %d/%d to %d/%d\n",rectangleCounter,k+1,i+1, recEndline+1,recEndcolumn+1);
                 }
-                //cancelFigure(gridPointer,gridSize,gridSize,k,i,5);
                 cancelRectangle(gridPointer,gridSize,k,i,1,5);
-                //printf("%d/%d\n",k+1,i+1);
-
             }
         }
     }
@@ -339,8 +336,6 @@ void writeTimeToFile(double time, double ignore, double maxSubProcTime){
         fprintf(fp, "was the sequential\n");
         fprintf(fp, "hereby time without communication: %f\n",time);
     }
-    
-    
 	fclose(fp);
 }
 
@@ -484,8 +479,8 @@ int main(int argc, char** argv) {
                         }
                         
                         //Output for overview:
-                        //printf("THIS IS THE GRID:\n");
-                        //printGrid(&grid[0],gridSize);
+                        printf("THIS IS THE GRID WITH THE POTENTIAL RECTANGLES:\n");
+                        printGrid(&grid[0],gridSize);
                         
                         //check potential rectangles
                         {
@@ -512,17 +507,20 @@ int main(int argc, char** argv) {
                         }
                         
                         //User-Outupt:
-                        printf("THIS IS THE GRID:\n");
+                        printf("THIS IS THE FINAL GRID:\n");
                         printGrid(&grid[0],gridSize);
                         printf("\nLegend:\n0: Empty\n2: no Rectangle \n3:rectangle \n(4: potential Rectangle)\n\n");
+                        printf("All rectangles as list:\n");
                         outputRectangleList(&grid[0],gridSize);
                         
+                        //stop time measurement
                         endTime = MPI_Wtime();
 
                         subProcTime = 0;
                         MPI_Reduce(&subProcTime,&subProcTimeMax,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 
-                        printf("time: %f \nignore: %f \nsubpromax %f\n-> %fT\n-> %fTOWNK\n",endTime - startTime, ignore, subProcTimeMax,endTime - startTime,endTime - startTime -ignore + subProcTimeMax);
+                        //Time output
+                        //printf("time: %f \nignore: %f \nsubpromax %f\n-> %fT\n-> %fTOWNK\n",endTime - startTime, ignore, subProcTimeMax,endTime - startTime,endTime - startTime -ignore + subProcTimeMax);
                         writeTimeToFile(endTime - startTime, ignore, subProcTimeMax);
                     }
                 }                
@@ -575,7 +573,6 @@ int main(int argc, char** argv) {
             subProcTime = subProcTimeEnd - subProcTimeStart;
             
             //send it back to root process
-            //printf("Process %d wanna send grid\n",rank);
             MPI_Send(&grid[0],subgridLines*subgridColumns,MPI_BYTE,0,0,MPI_COMM_WORLD);
 
             //send used time to Process

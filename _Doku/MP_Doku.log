@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.7)  25 JAN 2018 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.19)  26 JAN 2018 14:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1299,6 +1299,7 @@ rz
 
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1328,7 +1329,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--161
 
  []
 
-[2] <Figures/Diag_1.png, id=147, 891.33pt x 606.265pt>
+[3] <Figures/Diag_1.png, id=156, 891.33pt x 606.265pt>
 File: Figures/Diag_1.png Graphic file (type png)
 
 <use Figures/Diag_1.png>
@@ -1341,47 +1342,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
-<Figures/Diag_2f.jpg, id=149, 3524.16624pt x 2626.81375pt>
+<Figures/Diag_2f.jpg, id=158, 3524.16624pt x 2626.81375pt>
 File: Figures/Diag_2f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_2f.jpg>
 Package pdftex.def Info: Figures/Diag_2f.jpg used on input line 181.
 (pdftex.def)             Requested size: 296.00113pt x 220.61076pt.
- [3 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
+ [4 <./Figures/Diag_1.png> <./Figures/Diag_2f.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 208--211
 
  []
 
-<Figures/Raster_1.png, id=157, 321.2pt x 300.12125pt>
+<Figures/Raster_1.png, id=166, 321.2pt x 300.12125pt>
 File: Figures/Raster_1.png Graphic file (type png)
 
 <use Figures/Raster_1.png>
 Package pdftex.def Info: Figures/Raster_1.png used on input line 217.
 (pdftex.def)             Requested size: 92.5pt x 86.42844pt.
 
-<Figures/Raster_2.png, id=158, 857.2025pt x 376.40625pt>
+<Figures/Raster_2.png, id=167, 857.2025pt x 376.40625pt>
 File: Figures/Raster_2.png Graphic file (type png)
 
 <use Figures/Raster_2.png>
 Package pdftex.def Info: Figures/Raster_2.png used on input line 225.
 (pdftex.def)             Requested size: 222.00226pt x 97.48424pt.
 
-<Figures/Raster_3.png, id=159, 1216.545pt x 235.88126pt>
+<Figures/Raster_3.png, id=168, 1216.545pt x 235.88126pt>
 File: Figures/Raster_3.png Graphic file (type png)
 
 <use Figures/Raster_3.png>
 Package pdftex.def Info: Figures/Raster_3.png used on input line 233.
 (pdftex.def)             Requested size: 332.99774pt x 64.5634pt.
- [4 <./Figures/Raster_1.png> <./Figures/Raster_2.png> <./Figures/Raster_3.png>]
+ [5 <./Figures/Raster_1.png> <./Figures/Raster_2.png> <./Figures/Raster_3.png>]
 
-<Figures/Raster_4.png, id=168, 1213.53375pt x 239.89626pt>
+<Figures/Raster_4.png, id=178, 1213.53375pt x 239.89626pt>
 File: Figures/Raster_4.png Graphic file (type png)
 
 <use Figures/Raster_4.png>
 Package pdftex.def Info: Figures/Raster_4.png used on input line 242.
 (pdftex.def)             Requested size: 332.99774pt x 65.82707pt.
 
-<Figures/Raster_5.png, id=169, 856.19875pt x 305.14pt>
+<Figures/Raster_5.png, id=179, 856.19875pt x 305.14pt>
 File: Figures/Raster_5.png Graphic file (type png)
 
 <use Figures/Raster_5.png>
@@ -1402,8 +1403,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
-[5 <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
-<Figures/Diag_3f.jpg, id=177, 3899.56876pt x 4644.35126pt>
+[6 <./Figures/Raster_4.png> <./Figures/Raster_5.png>]
+<Figures/Diag_3f.jpg, id=186, 3899.56876pt x 4644.35126pt>
 File: Figures/Diag_3f.jpg Graphic file (type jpg)
 
 <use Figures/Diag_3f.jpg>
@@ -1426,19 +1427,19 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <7> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 337.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <6.25002> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 337.
-[6 <./Figures/Diag_3f.jpg>] [7] [8]
+[7 <./Figures/Diag_3f.jpg>] [8] [9]
 Overfull \hbox (17.74976pt too wide) in paragraph at lines 410--412
 \T1/pplj/m/n/10 hier zu-nächst ei-ne Vor-über-le-gung an-ge-stellt wer-den, wie
  die Netzwerk-Kommunikation
  []
 
-<Figures/Time_1.png, id=271, 720.6925pt x 541.02126pt>
+<Figures/Time_1.png, id=280, 720.6925pt x 541.02126pt>
 File: Figures/Time_1.png Graphic file (type png)
 
 <use Figures/Time_1.png>
 Package pdftex.def Info: Figures/Time_1.png used on input line 415.
 (pdftex.def)             Requested size: 185.0pt x 138.87906pt.
- <Figures/Time_2.png, id=272, 567.11874pt x 313.17pt>
+ <Figures/Time_2.png, id=281, 567.11874pt x 313.17pt>
 File: Figures/Time_2.png Graphic file (type png)
 
 <use Figures/Time_2.png>
@@ -1453,7 +1454,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--432
 
  []
 
-[9 <./Figures/Time_1.png>]
+[10 <./Figures/Time_1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 456--458
 
  []
@@ -1463,13 +1464,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
 
-<Figures/10_Chess_1.png, id=284, 968.61874pt x 274.02374pt>
+<Figures/10_Chess_1.png, id=293, 968.61874pt x 274.02374pt>
 File: Figures/10_Chess_1.png Graphic file (type png)
 
 <use Figures/10_Chess_1.png>
 Package pdftex.def Info: Figures/10_Chess_1.png used on input line 474.
 (pdftex.def)             Requested size: 370.0pt x 104.67366pt.
- [10 <./Figures/Time_2.png>]
+ [11 <./Figures/Time_2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 478--480
 
  []
@@ -1484,7 +1485,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 492--494
 
  []
 
-<Figures/10_Chess_0.png, id=293, 965.6075pt x 270.00874pt>
+<Figures/10_Chess_0.png, id=302, 965.6075pt x 270.00874pt>
 File: Figures/10_Chess_0.png Graphic file (type png)
 
 <use Figures/10_Chess_0.png>
@@ -1495,7 +1496,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--502
 
  []
 
-[11 <./Figures/10_Chess_1.png> <./Figures/10_Chess_0.png>]
+[12 <./Figures/10_Chess_1.png> <./Figures/10_Chess_0.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 503--506
 
  []
@@ -1526,21 +1527,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 533--536
 
  []
 
-<Figures/100_Chess_0.png, id=305, 1167.36125pt x 352.31625pt>
+<Figures/100_Chess_0.png, id=314, 1167.36125pt x 352.31625pt>
 File: Figures/100_Chess_0.png Graphic file (type png)
 
 <use Figures/100_Chess_0.png>
 Package pdftex.def Info: Figures/100_Chess_0.png used on input line 539.
 (pdftex.def)             Requested size: 370.0pt x 111.66832pt.
 
-<Figures/100_AB_0.png, id=306, 1166.3575pt x 353.32pt>
+<Figures/100_AB_0.png, id=315, 1166.3575pt x 353.32pt>
 File: Figures/100_AB_0.png Graphic file (type png)
 
 <use Figures/100_AB_0.png>
 Package pdftex.def Info: Figures/100_AB_0.png used on input line 540.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/100_AW_0.png, id=307, 1166.3575pt x 352.31625pt>
+<Figures/100_AW_0.png, id=316, 1166.3575pt x 352.31625pt>
 File: Figures/100_AW_0.png Graphic file (type png)
 
 <use Figures/100_AW_0.png>
@@ -1555,7 +1556,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 545--551
 
  []
 
-[12]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 552--553
 
  []
@@ -1570,7 +1571,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
-[13 <./Figures/100_Chess_0.png> <./Figures/100_AB_0.png> <./Figures/100_AW_0.pn
+[14 <./Figures/100_Chess_0.png> <./Figures/100_AB_0.png> <./Figures/100_AW_0.pn
 g>]
 Underfull \hbox (badness 10000) in paragraph at lines 564--579
 
@@ -1586,14 +1587,14 @@ File: Figures/100_AB_0.png Graphic file (type png)
 Package pdftex.def Info: Figures/100_AB_0.png used on input line 584.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/1000_AB_0.png, id=321, 1085.05376pt x 322.20375pt>
+<Figures/1000_AB_0.png, id=330, 1085.05376pt x 322.20375pt>
 File: Figures/1000_AB_0.png Graphic file (type png)
 
 <use Figures/1000_AB_0.png>
 Package pdftex.def Info: Figures/1000_AB_0.png used on input line 585.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
-<Figures/10000_AB_0.png, id=322, 1081.03876pt x 302.12875pt>
+<Figures/10000_AB_0.png, id=331, 1081.03876pt x 302.12875pt>
 File: Figures/10000_AB_0.png Graphic file (type png)
 
 <use Figures/10000_AB_0.png>
@@ -1604,7 +1605,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 599--601
 
  []
 
-[14 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
+[15 <./Figures/1000_AB_0.png> <./Figures/10000_AB_0.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 603--614
 
  []
@@ -1627,7 +1628,7 @@ us
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--641
+Underfull \hbox (badness 10000) in paragraph at lines 639--643
 
  []
 
@@ -1643,315 +1644,485 @@ Class scrartcl Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrartcl)              inconsistent.
 (scrartcl)              Because of this, you should remove `\end{appendix}'
 (scrartcl)              and replace `\begin{appendix}' by command
-(scrartcl)              `\appendix' on input line 644.
+(scrartcl)              `\appendix' on input line 646.
 
-[15]
+[16] (./hostfileGenerator.c
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 661.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 
-Package xcolor Warning: Incompatible color definition on input line 672.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 672.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 672.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 672.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 672.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 673.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 676.
+Package xcolor Warning: Incompatible color definition on input line 21.
 
 
-Package xcolor Warning: Incompatible color definition on input line 676.
+Package xcolor Warning: Incompatible color definition on input line 21.
 
 
-Package xcolor Warning: Incompatible color definition on input line 676.
+Package xcolor Warning: Incompatible color definition on input line 21.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 681.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 27.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 27.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 27.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 27.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 27.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 30.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(./bsCreateHostfiles.sh) [16
+(./bsCreateHostfiles.sh [17
 
-] (./bsRunGrids.sh)
+]) (./bsRunGrids.sh)
+(./README_Example_of_execution.txt
+Overfull \hbox (0.72917pt too wide) in paragraph at lines 4--6
+[][][][]  
+ []
+
+
+Overfull \hbox (0.72917pt too wide) in paragraph at lines 25--27
+[][][][]  
+ []
+
+[18])
 File: Figures/10_Chess_0.png Graphic file (type png)
  <use Figures/10_Chess_0.png>
-Package pdftex.def Info: Figures/10_Chess_0.png used on input line 702.
+Package pdftex.def Info: Figures/10_Chess_0.png used on input line 674.
 (pdftex.def)             Requested size: 370.0pt x 103.46133pt.
 File: Figures/10_Chess_1.png Graphic file (type png)
-
-<use Figures/10_Chess_1.png>
-Package pdftex.def Info: Figures/10_Chess_1.png used on input line 703.
+ <use Figures/10_Chess_1.png>
+Package pdftex.def Info: Figures/10_Chess_1.png used on input line 675.
 (pdftex.def)             Requested size: 370.0pt x 104.67366pt.
 File: Figures/100_AB_0.png Graphic file (type png)
- <use Figures/100_AB_0.png>
-Package pdftex.def Info: Figures/100_AB_0.png used on input line 705.
+
+<use Figures/100_AB_0.png>
+Package pdftex.def Info: Figures/100_AB_0.png used on input line 677.
 (pdftex.def)             Requested size: 370.0pt x 112.0835pt.
 
-<Figures/100_AB_1.png, id=375, 1165.35374pt x 350.30875pt>
+<Figures/100_AB_1.png, id=441, 1165.35374pt x 350.30875pt>
 File: Figures/100_AB_1.png Graphic file (type png)
 
 <use Figures/100_AB_1.png>
-Package pdftex.def Info: Figures/100_AB_1.png used on input line 706.
+Package pdftex.def Info: Figures/100_AB_1.png used on input line 678.
 (pdftex.def)             Requested size: 370.0pt x 111.21912pt.
 File: Figures/100_AW_0.png Graphic file (type png)
  <use Figures/100_AW_0.png>
-Package pdftex.def Info: Figures/100_AW_0.png used on input line 708.
+Package pdftex.def Info: Figures/100_AW_0.png used on input line 680.
 (pdftex.def)             Requested size: 370.0pt x 111.76508pt.
 
-<Figures/100_AW_1.png, id=376, 1164.35pt x 352.31625pt>
+<Figures/100_AW_1.png, id=442, 1164.35pt x 352.31625pt>
 File: Figures/100_AW_1.png Graphic file (type png)
 
 <use Figures/100_AW_1.png>
-Package pdftex.def Info: Figures/100_AW_1.png used on input line 709.
+Package pdftex.def Info: Figures/100_AW_1.png used on input line 681.
 (pdftex.def)             Requested size: 370.0pt x 111.95323pt.
 File: Figures/100_Chess_0.png Graphic file (type png)
  <use Figures/100_Chess_0.png>
-Package pdftex.def Info: Figures/100_Chess_0.png used on input line 711.
+Package pdftex.def Info: Figures/100_Chess_0.png used on input line 683.
 (pdftex.def)             Requested size: 370.0pt x 111.66832pt.
 
-<Figures/100_Chess_1.png, id=377, 1163.34625pt x 350.30875pt>
+<Figures/100_Chess_1.png, id=443, 1163.34625pt x 350.30875pt>
 File: Figures/100_Chess_1.png Graphic file (type png)
 
 <use Figures/100_Chess_1.png>
-Package pdftex.def Info: Figures/100_Chess_1.png used on input line 712.
+Package pdftex.def Info: Figures/100_Chess_1.png used on input line 684.
 (pdftex.def)             Requested size: 370.0pt x 111.41689pt.
 File: Figures/1000_AB_0.png Graphic file (type png)
  <use Figures/1000_AB_0.png>
-Package pdftex.def Info: Figures/1000_AB_0.png used on input line 714.
+Package pdftex.def Info: Figures/1000_AB_0.png used on input line 686.
 (pdftex.def)             Requested size: 370.0pt x 109.8723pt.
 
-<Figures/1000_AB_1.png, id=378, 1090.0725pt x 318.18875pt>
+<Figures/1000_AB_1.png, id=444, 1090.0725pt x 318.18875pt>
 File: Figures/1000_AB_1.png Graphic file (type png)
 
 <use Figures/1000_AB_1.png>
-Package pdftex.def Info: Figures/1000_AB_1.png used on input line 715.
+Package pdftex.def Info: Figures/1000_AB_1.png used on input line 687.
 (pdftex.def)             Requested size: 370.0pt x 107.99823pt.
 
-<Figures/1000_AW_0.png, id=379, 1084.05pt x 319.1925pt>
+<Figures/1000_AW_0.png, id=445, 1084.05pt x 319.1925pt>
 File: Figures/1000_AW_0.png Graphic file (type png)
 
 <use Figures/1000_AW_0.png>
-Package pdftex.def Info: Figures/1000_AW_0.png used on input line 717.
+Package pdftex.def Info: Figures/1000_AW_0.png used on input line 689.
 (pdftex.def)             Requested size: 370.0pt x 108.94287pt.
 
-<Figures/1000_AW_1.png, id=380, 1090.0725pt x 317.185pt>
+<Figures/1000_AW_1.png, id=446, 1090.0725pt x 317.185pt>
 File: Figures/1000_AW_1.png Graphic file (type png)
 
 <use Figures/1000_AW_1.png>
-Package pdftex.def Info: Figures/1000_AW_1.png used on input line 718.
+Package pdftex.def Info: Figures/1000_AW_1.png used on input line 690.
 (pdftex.def)             Requested size: 370.0pt x 107.65755pt.
 
-<Figures/1000_Chess_0.png, id=381, 1090.0725pt x 321.2pt>
+<Figures/1000_Chess_0.png, id=447, 1090.0725pt x 321.2pt>
 File: Figures/1000_Chess_0.png Graphic file (type png)
 
 <use Figures/1000_Chess_0.png>
-Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 720.
+Package pdftex.def Info: Figures/1000_Chess_0.png used on input line 692.
 (pdftex.def)             Requested size: 370.0pt x 109.02031pt.
 
-<Figures/1000_Chess_1.png, id=382, 1084.05pt x 317.185pt>
+<Figures/1000_Chess_1.png, id=448, 1084.05pt x 317.185pt>
 File: Figures/1000_Chess_1.png Graphic file (type png)
 
 <use Figures/1000_Chess_1.png>
-Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 721.
+Package pdftex.def Info: Figures/1000_Chess_1.png used on input line 693.
 (pdftex.def)             Requested size: 370.0pt x 108.25769pt.
 File: Figures/10000_AB_0.png Graphic file (type png)
  <use Figures/10000_AB_0.png>
-Package pdftex.def Info: Figures/10000_AB_0.png used on input line 723.
+Package pdftex.def Info: Figures/10000_AB_0.png used on input line 695.
 (pdftex.def)             Requested size: 370.0pt x 103.40471pt.
 
-<Figures/10000_AB_1.png, id=383, 1083.04625pt x 306.14375pt>
+<Figures/10000_AB_1.png, id=449, 1083.04625pt x 306.14375pt>
 File: Figures/10000_AB_1.png Graphic file (type png)
 
 <use Figures/10000_AB_1.png>
-Package pdftex.def Info: Figures/10000_AB_1.png used on input line 724.
+Package pdftex.def Info: Figures/10000_AB_1.png used on input line 696.
 (pdftex.def)             Requested size: 370.0pt x 104.58733pt.
 
-<Figures/10000_AW_0.png, id=384, 1087.06125pt x 308.15125pt>
+<Figures/10000_AW_0.png, id=450, 1087.06125pt x 308.15125pt>
 File: Figures/10000_AW_0.png Graphic file (type png)
 
 <use Figures/10000_AW_0.png>
-Package pdftex.def Info: Figures/10000_AW_0.png used on input line 726.
+Package pdftex.def Info: Figures/10000_AW_0.png used on input line 698.
 (pdftex.def)             Requested size: 370.0pt x 104.88287pt.
 
-<Figures/10000_AW_1.png, id=385, 1089.06876pt x 307.1475pt>
+<Figures/10000_AW_1.png, id=451, 1089.06876pt x 307.1475pt>
 File: Figures/10000_AW_1.png Graphic file (type png)
 
 <use Figures/10000_AW_1.png>
-Package pdftex.def Info: Figures/10000_AW_1.png used on input line 727.
+Package pdftex.def Info: Figures/10000_AW_1.png used on input line 699.
 (pdftex.def)             Requested size: 370.0pt x 104.34909pt.
 
-<Figures/10000_Chess_0.png, id=386, 1075.01625pt x 306.14375pt>
+<Figures/10000_Chess_0.png, id=452, 1075.01625pt x 306.14375pt>
 File: Figures/10000_Chess_0.png Graphic file (type png)
 
 <use Figures/10000_Chess_0.png>
-Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 729.
+Package pdftex.def Info: Figures/10000_Chess_0.png used on input line 701.
 (pdftex.def)             Requested size: 370.0pt x 105.36745pt.
 
-<Figures/10000_Chess_1.png, id=387, 1075.01625pt x 301.125pt>
+<Figures/10000_Chess_1.png, id=453, 1075.01625pt x 301.125pt>
 File: Figures/10000_Chess_1.png Graphic file (type png)
 
 <use Figures/10000_Chess_1.png>
-Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 730.
+Package pdftex.def Info: Figures/10000_Chess_1.png used on input line 702.
 (pdftex.def)             Requested size: 370.0pt x 103.6401pt.
- [17 <./Figures/100_AB_1.png>] [18 <./Figures/100_AW_1.png> <./Figures/100_Ches
-s_1.png> <./Figures/1000_AB_1.png>] [19 <./Figures/1000_AW_0.png> <./Figures/10
+ [19 <./Figures/100_AB_1.png>] [20 <./Figures/100_AW_1.png> <./Figures/100_Ches
+s_1.png> <./Figures/1000_AB_1.png>] [21 <./Figures/1000_AW_0.png> <./Figures/10
 00_AW_1.png> <./Figures/1000_Chess_0.png> <./Figures/1000_Chess_1.png> <./Figur
 es/10000_AB_1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 748.
- [20 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 720.
+ [22 <./Figures/10000_AW_0.png> <./Figures/10000_AW_1.png> <./Figures/10000_Che
 ss_0.png> <./Figures/10000_Chess_1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 748.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 720.
  (./MP_Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 748.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 748.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 720.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 720.
 Package rerunfilecheck Info: File `MP_Doku.out' has not changed.
-(rerunfilecheck)             Checksum: 8B431EAC3FDABB19077BC330F2BBB472;1612.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 748.
+(rerunfilecheck)             Checksum: 0572557A16851945FDA49D3A81A163C3;1702.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 720.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18649 strings out of 492995
- 320644 string characters out of 6132704
- 703292 words of memory out of 5000000
- 21640 multiletter control sequences out of 15000+600000
+ 18825 strings out of 492995
+ 322909 string characters out of 6132703
+ 719029 words of memory out of 5000000
+ 21750 multiletter control sequences out of 15000+600000
  106033 words of font info for 141 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 61i,30n,86p,8818b,13987s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,30n,86p,8818b,14900s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}</usr/local/
@@ -1970,10 +2141,10 @@ type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
 urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/pal
 atino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/u
 plri8a.pfb>
-Output written on MP_Doku.pdf (20 pages, 4900763 bytes).
+Output written on MP_Doku.pdf (22 pages, 4906451 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 420 compressed objects within 5 object streams
- 189 named destinations out of 1000 (max. 500000)
- 21807 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 247 named destinations out of 1000 (max. 500000)
+ 21815 words of extra memory for PDF output out of 24883 (max. 10000000)
 

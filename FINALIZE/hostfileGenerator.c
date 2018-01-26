@@ -23,10 +23,12 @@ int main(int argc, char *argv[])
     div_t fullClients = div(hosts,4);
     
     for (i = 0;i<fullClients.quot;i++){
-        fprintf(fp, "simson%02d slots = 4\n",i+1);
+        //fprintf(fp, "simson%02d slots = 4\n",i+1);
+	fprintf(fp, "imunix%02d slots = 4\n",i+1);
     }
     if (fullClients.rem != 0){
-        fprintf(fp, "simson%02d slots = %d\n",fullClients.quot +1,fullClients.rem);
+        //fprintf(fp, "simson%02d slots = %d\n",fullClients.quot +1,fullClients.rem);
+	fprintf(fp, "imunix%02d slots = %d\n",fullClients.quot +1,fullClients.rem);
     }
 
 	fclose(fp);

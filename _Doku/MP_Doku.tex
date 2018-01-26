@@ -616,13 +616,15 @@ Ein langsam anwachsender Speedup bedeutet eine geringe Effizienz der Parallelisi
 Zu Begründen sind diese Beobachtungen durch den stark wachsenden nicht-parallelisierbaren Anteil des Programmes, der Prüfung potentieller Rechteck im Master-Prozess. Die Werte zeigen, dass dieser Anteil mit wachsender Raster-Größe schneller wächst als der zeitliche Gewinn, der durch das Parallelisieren entsteht.\\
 
 \textbf{Feststellung \#6}\\
-Die oben dargestellten Maxima der Speedups verraten, dass aufgrund dieses Effektes die Relationen\\ 
+Die oben dargestellten Maxima der Speedup-Kurven bestätigen, dass aufgrund dieses Effektes die Relationen\\ 
 \(Speedup_{Alles weiss} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
 und\\\
 \(Effizienz_{Alles weiss} > Effizienz_{Schachbrett} > Effizienz_{Alles schwarz} \)\\
 bei steigender Raster-Größe erhalten bleiben.
 
 \section{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus und Fazit}
+
+
 
 
 Vermutlich bei höherer Feldgröße noch sinnvoll, weil Arbeit von P0 nicht so hart -> kann abbrechen.
@@ -651,42 +653,8 @@ Andersrum wäre es natürlich besser\\
 	Auf eine vollständige Auflistung des Codes wird hier aus Gründen der schlechten Lesbarkeit verzichtet. Der Code befindet sich als Datei \textit{''pixCheckTangle.c'' }im Angabe-Ordner.
 
 	\subsection{Code: hostfileGenerator.c}
-	
-	\begin{lstlisting}
-	#import <stdio.h>
-	#include <stdlib.h>
-	
-	int main(int argc, char *argv[])
-	{
-		//get inputed number as int
-		int hosts = 0;
-		int i;
-		char *value;
-		for(i = 1; i < argc; i++)
-		{
-			value = argv[i];
-			hosts += atoi(value);
-		}
-	
-		char name[30]; 
-		sprintf(name, "myhostfile%d", hosts);
-		printf("%s\n",name);
-	
-		FILE *fp;
-		fp = fopen(name, "w");
 
-		div_t fullClients = div(hosts,4);
-	
-		for (i = 0;i<fullClients.quot;i++){
-			fprintf(fp, "simson%02d slots = 4\n",i+1);
-		}
-		if (fullClients.rem != 0){
-			fprintf(fp, "simson%02d slots = %d\n",fullClients.quot +1,fullClients.rem);
-		}
-
-		fclose(fp);
-	}
-\end{lstlisting}
+	\lstinputlisting[language=c]{hostfileGenerator.c}
 	
 	\subsection{Code: bsCreateHostfiles.sh}			
 	
@@ -695,6 +663,10 @@ Andersrum wäre es natürlich besser\\
 	\subsection{Code: bsRunGrids.sh}
 	
 	\lstinputlisting[language=sh]{bsRunGrids.sh}
+
+	\subsection{README: Beispielhafte Ausführung}
+	
+	\lstinputlisting[language={}]{README_Example_of_execution.txt}
 	
 	\subsection{Alle Messergebnisse}
 
