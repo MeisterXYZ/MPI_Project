@@ -191,7 +191,7 @@ Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher besc
 \subsection{pixCheckTangle: Beschreibung des Cluster-Algorithmus}
 
 Für den Fall, dass mehrere Prozessoren an der Abarbeitung des Programmes beteiligt sind, wird die Cluster-Variante des Algorithmus ausgeführt.\\
-Dabei übernimmt der Prozess mir dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. Das Raster wird dann in vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
+Dabei übernimmt der Prozess mit dem Rang 0 die Rolle des Master-Prozesses. Alle übrigen Prozesse übernehmen die Rolle von Worker-Prozessen. Das Raster wird vom Master-Prozess in mehrere Teile zerlegt. Jeder Worker-Prozess übernimmt dann die Abarbeitung eines Teil-Rasters. \\
 
 \textbf{Beispiel für Verarbeitung durch Cluster-Prozess}
 
@@ -202,7 +202,7 @@ Beispielsweise wird das folgende Raster betrachtet. Das Zeichen \textit{\#} repr
 	\caption[Cluster-Prozess: Beispiel-Raster]{Ein Raster-Beispiel }
 \end{figure}
 
-Für den Fall, das an der Abarbeitung des Programmes 4 Prozesse beteiligt sind, wird das Raster vom Master-Prozess in drei Teil-Raster geteilt. Die jeweiligen Teile werden dann den Worker-Prozessen zugewiesen und von diesen abgearbeitet.
+Für den Fall, dass an der Abarbeitung des Programmes 4 Prozesse beteiligt sind, wird das Raster vom Master-Prozess in drei Teil-Raster geteilt. Die jeweiligen Teile werden dann den Worker-Prozessen zugewiesen und von diesen abgearbeitet.
 
 \begin{figure}[h]
 	\centering 
@@ -218,7 +218,7 @@ Die Worker-Prozesse können nun feststellen, ob es sich bei einzelnen/zusammenh�
 	\caption[Cluster-Prozess: Worker-Prozess: Nicht-Rechteck-Figuren]{Worker-Prozesse identifizieren Nicht-Rechteck-Figuren}
 \end{figure}
 
-Wenn ein Rechteck einen Rand des Teil-Rasters berührt und das Teil-Raster im gesamten Raster an ein weiteres Teil-Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch das Worker-Prozess keine finale Aussage darüber möglich, ob es sich tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Weiteren als potentielle Rechtecke bezeichnet) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
+Wenn ein Rechteck einen Rand des Teil-Rasters berührt und dieses Teil-Raster im gesamten Raster an ein weiteres Teil-Raster angrenzt, so könnte die Figur im angrenzenden Teil-Raster fortgesetzt werden. In diesem Fall ist also durch den Worker-Prozess keine finale Aussage darüber möglich, ob es sich tatsächlich um ein Rechteck handelt. Entsprechende Rechtecke (Im Weiteren als potentielle Rechtecke bezeichnet) werden in der folgenden Grafik als \textit{?} gekennzeichnet.\\
 Das Ergebnis der Abarbeitung der Teil-Raster in den Worker-Prozessen sieht also wie folgt aus:
 
 \begin{figure}[h]
@@ -238,11 +238,11 @@ Nach dem Verarbeiten der Teil-Raster durch die Worker-Prozesse, muss die finale 
 Damit liegt dem Master-Prozess nun das vollständig überprüfte Raster vor. Die Einzelnen Rechtecke können nun dem Benutzer ausgegeben werden.\\
 
 \textbf{Kommunikation und Ablauf im Cluster-Prozess }\\
-Wie dabei Arbeits-Aufteilung und die Kommunikation zwischen den Prozessen verläuft, sei im Folgenden als BPMN-Diagramm dargestellt.\\
+Wie in der umgesetzten Implementierung die Kommunikation zwischen den Prozessen verläuft, sei im Folgenden als BPMN-Diagramm dargestellt.\\
 
-Der vollständige Code findet sich im Anhang. Die wesentlichen Funktionalitäten für den Master-Prozess finden sich dabei in dem Codeabschnitt, welcher ausgeführt wird, wenn der ausführende Prozess den Rang 0 hat und es mehr als einen Prozess gibt. Der Code für die Worker-Prozesse findet sich im Abschnitt, der ausgeführt wird, wenn der Rang des Prozesses nicht 0 ist.\\
+Der vollständige Code findet sich im Projektordner. Die wesentlichen Funktionalitäten für den Master-Prozess finden sich dabei in dem Codeabschnitt, welcher ausgeführt wird, wenn der ausführende Prozess den Rang 0 hat und es mehr als einen aktiven Prozess gibt. Der Code für die Worker-Prozesse findet sich in dem Code-Abschnitt, der ausgeführt wird, wenn der Rang des Prozesses nicht 0 ist.\\
 
-Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4 näher beschrieben. Nach welchem Prinzip die Zeitmessung erfolgen, wird in Kapitel 3.1 beschrieben.
+Die Funktionalität zum Ermitteln der Rechtecke, wird im Kapitel 2.4, die Funktion zum prüfen der potentiellen Rechtecke in Kapitel 2.5 näher beschrieben. Nach welchem Prinzip die Zeitmessung erfolgen, wird in Kapitel 3.1 beschrieben.
 
 \pagebreak
 
@@ -320,11 +320,11 @@ Die Implementierung der Funktion folgt danach dem folgenden, als Pseudo-Code dar
 	}	
 \end{algorithm}\
 \\
-Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{processSubgrid}.
+Der Code für die Funktionalität findet sich im Projektordner im Programm \textit{pixCheckTangle.c} in der Funktion \textit{processSubgrid}.
 
 \subsection{pixCheckTangle: Funktion für das Festlegen potentieller Rechtecke}
 
-Für die Funktion zum Überprüfen der potentiellen Rechtecke, sobald die Worker-Prozesse die Teil-Raster abgearbeitet haben, wird die im Folgenden per Pseudo-Code beschriebene Vorgehensweise angewandt. Die Kernidee ist dabei nur noch Stichprobenartige Prüfungen zu machen, anstatt die Schritte aus dem oben aufgezeigte Prozess zu wiederholen. 
+Für die Funktionalität zum Überprüfen potentieller Rechtecke wird die im Folgenden per Pseudo-Code beschriebene Vorgehensweise verwendet. Die Kernidee ist dabei nur noch stichprobenartige Prüfungen zu machen, anstatt die Schritte aus dem oben aufgezeigte Prozess zu wiederholen. 
 
 \begin{algorithm}[H]
 	
@@ -371,7 +371,7 @@ Für die Funktion zum Überprüfen der potentiellen Rechtecke, sobald die Worker
 	}
 \end{algorithm}\
 
-Der Code für die Funktionalität findet sich im Anhang im Programm \textit{pixCheckTangle.c} in der Funktion \textit{checkPotentialRectangle}.
+Der Code für die Funktionalität findet sich im Projektordner im Programm \textit{pixCheckTangle.c} in der Funktion \textit{checkPotentialRectangle}.
 
 \subsection{Unterschied zum ''Gibt es ein Rechteck?''-Algorithmus}
 
@@ -402,6 +402,7 @@ Für die Ermittlung des Speedups sollen Zeitmessungen durchgeführt werden. Da e
 \end{figure}
 
 Nimmt man hierbei an, dass die Netzwerkkommunikation keine Zeiteinheiten kostet, so erhält man näherungsweise die folgende schematische Darstellung.
+\pagebreak
 
 \begin{figure}[h]
 	\centering 
@@ -415,7 +416,7 @@ Die Zeit-Messungen werden im Code mittels \textbf{MPI\_Wtime()}-Befehl realisier
 Die Resultate der Zeitmessungen im Code werden mittels der Funktion \textit{writeTimeToFile} in eine Datei geschrieben.\\
 
 \textbf{Ausführung der Messreihen}\\ 
-Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hilfs-Skripte/Programme verwendet. Diese sind im Anhang einzusehen.
+Für die Ausführung von mehren Messungen in einem Lauf werden die folgenden Hilfs-Skripte/Programme verwendet. Diese sind im Anhang einzusehen und im Projektordner enthalten.
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item \textit{hostfileGenerator.c}: Generiert eine hostfile-Datei mit n Prozessoren.
 	\item \textit{bsCreateHostfiles.sh}: ruft \textit{hostfileGenerator.c} auf, um mehrere  hostfiles zu erzeugen.
@@ -425,7 +426,7 @@ Für die Ausführung von mehren Messreihen in einem Lauf werden die folgenden hi
 Gemessen werden:
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item Laufzeit mit und ohne Netzwerkkommunikation
-	\item Für Raster mit \(n=\{100,1000,10000\}\)Feldern Breite.
+	\item Für Raster mit \(n=\{100,1000,10.000\}\) Feldern Breite.
 	\item Pro Rastergröße: Messungen mit je \(p=\{1,2,...,50\}\) Prozessen.
 	\item Pro Rastergröße und Prozess-Anzahl: drei verschiedene Probleminstanzen: 
 	\subitem - Alle Felder Weiß
@@ -433,7 +434,7 @@ Gemessen werden:
 	\subitem - Schachbrett-Raster
 \end{itemize}
 
-Jede Messung wird drei mal durchgeführt. Als Messwert wird der daraus gebildete Mittelwert betrachtet.
+Jede Messung wird drei mal durchgeführt. Als Messwert wird der resultierende Mittelwert betrachtet.
 
 \subsection{Messergebnisse und Interpretation}
 
@@ -469,7 +470,7 @@ simson03 slots = 4
 simson04 slots = 3
 \end{lstlisting}
 
-Pro Rechner werden alle Prozessoren genutzt. Sobald alle vier Prozessoren eines Rechners genutzt werden, wird ein weiterer Rechner zum Abarbeiten des Programmes hinzugezogen.\\
+Pro Rechner werden alle Prozessoren genutzt. Sobald alle vier Prozessoren eines Rechners genutzt werden, wird bei Erhöhung von \(p\) ein weiterer Rechner zum Abarbeiten des Programmes hinzugezogen.\\
 Im Diagramm ist zu erkennen, dass die Kommunikation über das Netzwerk mit weiteren Rechnern einen großen Teil der Arbeitszeit einnimmt.\\
 In allen untersuchten Fällen bewirkt dieser Umstand, dass eine effiziente Parallelisierung (unter Berücksichtigung des Kommunikationsaufwandes) bestenfalls nur dann möglich ist, wenn keine Kommunikation über das Netzwerk stattfindet. \textit{(Siehe hierzu sämtliche Graphen, die die Netzwerkkommunikation mit betrachten im Anhang.)}\\
 
@@ -489,7 +490,7 @@ Die Abarbeitung gleicher Teil-Raster erfolgt auf verschiedenen Prozessoren teilw
 Im Prozess mit kleineren Feldern (Raster-Breite \(n= {10,100}\))ist dieser Unterschied besonders erkennbar, bei der Erhöhung der Feldgröße, wirkt sich dieser Effekt nicht mehr so stark aus. \textit{(Vergleiche Diagramme im Anhang.)}\\
 
 \textbf{Feststellung \#3}\\
-Im Diagramm für den Speedup ist ein deutlicher Abfall des Speedups im Bereich \(p={4,...8}\) festzustellen. In diesem Bereich hätte man eher eine bogenförmige Speedup-Kurve (monoton steigend, dann monoton fallend) vermuten können. Woher der Einbruch kommt, wird klar, wenn man sich ansieht, was bei welcher Prozessoranzahl in dieser Probleminstanz passiert.\\
+Im Diagramm für den Speedup ist ein deutlicher Abfall des Speedups im Bereich \(p={4,...8}\) festzustellen. In diesem Bereich hätte man eine bogenförmige Speedup-Kurve (monoton steigend, dann monoton fallend) vermuten können. Woher der Einbruch kommt, wird klar, wenn man sich ansieht, was bei welcher Prozessoranzahl in dieser Probleminstanz passiert.\\
 Im Folgenden ist in einer Tabelle dargestellt, wie sich die Aufteilung des Rasters auf die Worker-Prozesse gestaltet und wie viele Zeilen vom Master-Prozess auf potentielle Rechtecke geprüft werden müssen.\\
 
 \begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|}
@@ -504,18 +505,18 @@ Prüfung Zeilen in \(P_{0}\) & - & 0 & 2 & 4 & 6 & 8 & 6 & 7  & 8 &  9 & 10\\
 \hline 
 \end{tabular}\\
 
-Es wird klar, dass der Einbruch zwei Gründe hat.
+Es wird klar, dass der Einbruch der Speedup-Kurve zwei Gründe hat.
 
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item Die Aufteilung des Rasters in Teil-Raster ist im Falle einer geringen Raster-Größe nicht optimal.
 	\item Der Aufwand des nicht Parallelisierbaren Anteils am Prozess (die Prüfung potentieller Rechtecke in \(P_{0}\)) wird mit steigender Anzahl genutzter Prozesse größer.
 \end{itemize}
 
-Den ersten Punkt kann man an der Anzahl der Zeilen erkennen, die von \(P_{p}\) abzuarbeiten sind. Bei steigender Raster-Größe wirkt sich der Effekt nicht mehr so stark aus, ist aber dennoch als Schwankung in den nachfolgenden Diagrammen zu erkennen.\\
+Den ersten Punkt kann man an der Anzahl der Zeilen erkennen, die von \(P_{p}\) abzuarbeiten sind. Bei steigender Raster-Größe wirkt sich der Effekt nicht mehr so stark aus (wie später zu sehen), ist aber dennoch als Schwankung in den nachfolgenden Diagrammen zu erkennen.\\
 Der zweite Punkt, das Wachstum des nicht-parallelisierbaren Anteils, wird in den folgenden Betrachtungen eine wesentliche Rolle spielen. \\
  
 \textbf{Vergleich der Muster}\\
-Nachdem diese Vorbetrachtung abgeschlossen ist, sollen nun für ein größeres Raster (Raster-Breite \(n=100\)) die drei verschiedenen Probleminstanzen (Schachbrett, alle Felder schwarz, alle Felder weiß) in puncto Speedup und Effizienz ohne Betrachtung der Netzwerkkommunikation betrachtet werden.
+Nachdem diese Vorbetrachtung abgeschlossen ist, sollen nun für ein größeres Raster (Raster-Breite \(n=100\)) die drei verschiedenen Probleminstanzen (Schachbrett, alle Felder schwarz, alle Felder weiß) in puncto Speedup und Effizienz ohne Berücksichtigung der Netzwerkkommunikation betrachtet werden.
 Die entsprechenden Graphen sind in \textbf{Abbildung 13} untereinander dargestellt.\\
 
 \begin{figure}[h]
@@ -528,7 +529,7 @@ Die entsprechenden Graphen sind in \textbf{Abbildung 13} untereinander dargestel
 
 \textbf{Feststellung \#4}\\
 In den Graphen ist der vermutete bogenförmige Verlauf der Speedup-Kurve besser zu erkennen. Des weiteren wird ersichtlich, dass der Speedup umso höher ist, je weniger und kleinere Rechtecke im Raster enthalten sind. Besonders beachtlich ist daher der Speedup für die Probleminstanz ohne schwarze Felder.\\
-Der Speedup verringert sich, je mehr potentielle Rechtecke vom Master-Prozesse geprüft werden müssen, wobei der Prüf-Aufwand besonders groß wird, wenn die Rechtecke sehr groß sind und über mehrere Teil-Raster-Grenzen hinweg reichen. \\
+Der Speedup verringert sich, je mehr potentielle Rechtecke vom Master-Prozess geprüft werden müssen, wobei der Prüf-Aufwand besonders groß wird, wenn die Rechtecke sehr groß sind und über mehrere Teil-Raster-Grenzen hinweg reichen. \\
 Im Hinblick auf diese Überlegung ist es damit erklärbar, dass gilt:\\
 \(Speedup_{Alles weiss} > Speedup_{Schachbrett} > Speedup_{Alles schwarz} \)\\
 Für die Effizienz gilt die entsprechende Relation.\\
@@ -536,13 +537,13 @@ Für die Effizienz gilt die entsprechende Relation.\\
 Bei den Probleminstanzen für die Raster-Breite \(n=100\) ist anzumerken, dass die Effizienz auch unter Berücksichtigung des Zeitaufwandes für die Kommunikation für alle drei Instanzen so hoch ist, dass sich eine Parallelisierung lohnt (Hier wirkt sich der in Feststellung \#2 beschriebene Effekt besonders sichtbar aus). Nach Überschreiten der Rechner-Grenze gilt jedoch für die Effizienz \(E(p)<1\), wie in Feststellung \#1 beschrieben.\\
 
 \textbf{Erhöhen der Raster-Größe}\\
-Als nächstes soll untersucht werden, wie sich Speedup und Effizienz der Probleminstanzen bei steigender Raster-Größe verhalten. 
+Als nächstes soll untersucht werden, wie sich Speedup und Effizienz der Probleminstanzen bei steigender Raster-Größe verhalten. \\
 Dem Maximum der Raster-Größe sind dabei zwei Grenzen gesetzt.\\
 Zum einen verhindert der für den User begrenzte Festplattenspeicher ab einer hinreichend großen Raster-Breite das Anlegen des Grid-Files durch den \textit{gridGenerator.c}.\\
 Zum Anderen wird im Programm \textit{pixCheckTangle.c} zur Kalkulation der Indizes für die Feld-Adressierung ein long int Typ verwendet. Dessen Wertebereich wird ab einer bestimmten Raster-Breite durch die Anzahl der Raster-Felder überschritten.\\
 Die Grenze des Festplattenspeichers ist dabei eher erreicht. So waren das Anlegen von Rastern mit Raster-Breite \(n>=40.000\) nicht möglich.\\
 
-Im Folgenden sei das Wachstum der Grid-Files und das Überschreiten des long-int-Bereiches skizziert.\\
+Im Folgenden sei das Wachstum der Grid-Files und das Überschreiten des long-int-Bereiches verdeutlicht.\\
 
 
 \begin{tabular}{l|c|c|c|c|c|}
@@ -581,7 +582,7 @@ So ''wandert'' das Maximum für das Raster ''Alle Felder schwarz'' wie folgt:
 \end{itemize}
 
 Der Effekt, dass die Bögen des Speedups in den Graphen länger werden, wird ebenfalls in den Raster-Instanzen ''Schachbrett'' und ''alle Felder weiß'' ersichtlich, wobei jedoch der maximale Speedup nicht stetig fällt.\\
-Die Maxima der Speedup-Graphen ohne Netzwerkkommunikation stellen sind konkret:\\
+Die Maxima der Speedup-Graphen ohne Netzwerkkommunikation stellen sich konkret wie folgt dar:\\
 
 
 \begin{tabular}{l|c|c|c|c|c|}
@@ -612,7 +613,7 @@ bei steigender Raster-Größe erhalten bleiben.
 Es sind zwei Aspekte deutlich geworden, welche bei dem betrachteten Problem einer effizienten Parallelisierung entgegenwirken:
 \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
 	\item Die notwendige Übertragung der großen Datenmengen für die Teil-Raster von Prozessor zu Prozessor.
-	\item Der mit steigender Raster-Größe wachsende nicht-parallelisierbare Aufwand.
+	\item Der mit steigender Raster-Größe wachsende, nicht-parallelisierbare Aufwand.
 \end{itemize}
 
 Der zweiter Aspekt bedingt, dass eine Parallelisierung bei den betrachteten Problemfällen nur bei kleiner Raster-Größe effizient ist. (Im untersuchten Fall für \(n=100\).)\\
@@ -625,7 +626,7 @@ hier eine Parallelisierung (wenn dann möglich) eine größere Effizienz.
 Wie zuvor in \textbf{2.6} festgestellt, besteht ein wesentlicher Unterschied zwischen der umgesetzten Implementierung und dem ''Gibt es ein Rechteck?''-Algorithmus darin, dass die Worker-Prozesse nur geringe Informationsmengen an den Master-Prozess zurück-übertragen müssen. Die Übertragung der Teil-Raster vom Master- an die Worker-Prozesse bleibt jedoch erforderlich.\\
 Das Abfallen der Effizienz, welches einsetzt, sobald zwischen mehreren Rechnern kommuniziert werden muss, sollte sich daher in geringerem Maße auswirken. Da jedoch somit optimistisch geschätzt nur die Hälfte der notwendigen Kommunikation wegfällt, sollte der Effekt jedoch weiterhin stark bemerkbar sein und vermutlich auch zu einer Ineffizienz der Parallelisierung für \(p>4\) sorgen.\\
 
-Ein weiterer wesentlicher Unterschied besteht darin, dass der Master-Prozess sehr viel weniger Prüf-Aufwand im nicht-parallelisierbaren Anteil des Algorithmus hat. Zudem ist dieser Anteil im wesentlichen unabhängig von der Raster-Größe und nur abhängig von der Anzahl der eingesetzten Prozessoren ist. Hier sollte daher kein fallender Speedup für identisches \(p\) mit steigender Raster-Größe zu rechnen.
+Ein weiterer wesentlicher Unterschied besteht darin, dass der Master-Prozess sehr viel weniger Prüf-Aufwand im nicht-parallelisierbaren Anteil des Algorithmus hat. Zudem ist dieser Anteil im wesentlichen unabhängig von der Raster-Größe und nur abhängig von der Anzahl der eingesetzten Prozessoren. Hier sollte daher kein fallender Speedup für identisches \(p\) mit steigender Raster-Größe zu erwarten sein.\\
 
 Das oben resümierte Problem bezüglich der großen Datenmenge und den wenigen Rechenoperationen gilt jedoch auch in diesem Fall.
 
